@@ -852,6 +852,349 @@ if not top_underutilized.empty:
 st.divider()
 
 # ============================================================
+# CROSS-CLOUD PROVIDER OPTIMIZATION
+# ============================================================
+
+st.subheader(
+    "☁️ Cross-Cloud Provider Optimization"
+)
+
+PROVIDER_RECOMMENDATION_FILE = (
+    "results/provider_recommendations.csv"
+)
+
+# ------------------------------------------------------------
+# Load provider recommendations
+# ------------------------------------------------------------
+
+@st.cache_data
+def load_provider_recommendations():
+
+    return pd.read_csv(
+        PROVIDER_RECOMMENDATION_FILE
+    )
+
+
+provider_df = load_provider_recommendations()
+
+# ------------------------------------------------------------
+# Apply dashboard filters
+# ------------------------------------------------------------
+
+filtered_provider_df = provider_df.copy()
+
+# Cloud provider filter
+if selected_provider != "All":
+
+    filtered_provider_df = (
+        filtered_provider_df[
+            filtered_provider_df[
+                "Current_Provider"
+            ]
+            ==
+            selected_provider
+        ]
+    )
+
+# Service filter
+if selected_service != "All":
+
+    filtered_provider_df = (
+        filtered_provider_df[
+            filtered_provider_df[
+                "Current_Service"
+            ]
+            ==
+            selected_service
+        ]
+    )
+
+# ------------------------------------------------------------
+# Migration candidates
+# ------------------------------------------------------------
+
+migration_candidates = (
+    filtered_provider_df[
+        (
+            filtered_provider_df[
+                "Recommended_Provider"
+            ]
+            !=
+            filtered_provider_df[
+                "Current_Provider"
+            ]
+        )
+        &
+        (
+            filtered_provider_df[
+                "Estimated_Monthly_Savings"
+            ]
+            > 0
+        )
+    ]
+    .copy()
+)
+
+# ------------------------------------------------------------
+# KPIs
+# ------------------------------------------------------------
+
+provider_candidate_count = (
+    len(migration_candidates)
+)
+
+provider_monthly_savings = (
+    migration_candidates[
+        "Estimated_Monthly_Savings"
+    ].sum()
+)
+
+provider_annual_savings = (
+    provider_monthly_savings * 12
+)
+
+high_confidence_count = (
+    migration_candidates[
+        "Recommendation_Confidence"
+    ]
+    == "HIGH"
+).sum()
+
+pcol1, pcol2, pcol3, pcol4 = st.columns(4)
+
+pcol1.metric(
+    "Migration Candidates",
+    f"{provider_candidate_count:,}"
+)
+
+pcol2.metric(
+    "Potential Monthly Savings",
+    f"${provider_monthly_savings:,.2f}"
+)
+
+pcol3.metric(
+    "Potential Annual Savings",
+    f"${provider_annual_savings:,.2f}"
+)
+
+pcol4.metric(
+    "High Confidence",
+    f"{high_confidence_count:,}"
+)
+
+st.caption(
+    "Savings are estimated from observed cost-per-hour "
+    "benchmarks for equivalent services across AWS, "
+    "Azure, and GCP. They are not guaranteed savings."
+)
+
+# ------------------------------------------------------------
+# Recommended provider distribution
+# ------------------------------------------------------------
+
+if not migration_candidates.empty:
+
+    st.subheader(
+        "🔄 Recommended Provider Distribution"
+    )
+
+    provider_distribution = (
+        migration_candidates[
+            "Recommended_Provider"
+        ]
+        .value_counts()
+    )
+
+    fig, ax = plt.subplots(
+        figsize=(9, 4)
+    )
+
+    provider_distribution.plot(
+        kind="bar",
+        ax=ax
+    )
+
+    ax.set_title(
+        "Recommended Cloud Provider Distribution"
+    )
+
+    ax.set_xlabel(
+        "Recommended Provider"
+    )
+
+    ax.set_ylabel(
+        "Number of Migration Candidates"
+    )
+
+    ax.tick_params(
+        axis="x",
+        rotation=0
+    )
+
+    plt.tight_layout()
+
+    st.pyplot(fig)
+
+    plt.close(fig)
+
+else:
+
+    st.info(
+        "No provider migration opportunities "
+        "match the selected filters."
+    )
+
+# ------------------------------------------------------------
+# Top migration opportunities
+# ------------------------------------------------------------
+
+st.subheader(
+    "🎯 Top Cross-Cloud Migration Opportunities"
+)
+
+top_provider_candidates = (
+    migration_candidates
+    .sort_values(
+        "Estimated_Monthly_Savings",
+        ascending=False
+    )
+    .head(10)
+)
+
+if not top_provider_candidates.empty:
+
+    provider_display_columns = [
+
+        "Account_ID",
+
+        "Current_Provider",
+
+        "Current_Service",
+
+        "Service_Category",
+
+        "Region",
+
+        "Usage_Hours",
+
+        "Current_Monthly_Cost",
+
+        "Current_Cost_Per_Hour",
+
+        "Recommended_Provider",
+
+        "Alternative_Cost_Per_Hour",
+
+        "Estimated_Alternative_Cost",
+
+        "Estimated_Monthly_Savings",
+
+        "Estimated_Savings_Percentage",
+
+        "Recommendation_Confidence"
+    ]
+
+    available_provider_columns = [
+
+        column
+        for column in provider_display_columns
+        if column in top_provider_candidates.columns
+    ]
+
+    st.dataframe(
+        top_provider_candidates[
+            available_provider_columns
+        ],
+        use_container_width=True,
+        hide_index=True
+    )
+
+else:
+
+    st.info(
+        "No migration candidates available "
+        "for the current filters."
+    )
+
+# ------------------------------------------------------------
+# Detailed recommendations
+# ------------------------------------------------------------
+
+if not top_provider_candidates.empty:
+
+    st.subheader(
+        "💡 Provider Recommendation Details"
+    )
+
+    for _, row in top_provider_candidates.iterrows():
+
+        with st.expander(
+            f"{row['Account_ID']} | "
+            f"{row['Current_Provider']} "
+            f"→ "
+            f"{row['Recommended_Provider']} | "
+            f"{row['Current_Service']} | "
+            f"${row['Estimated_Monthly_Savings']:,.2f} "
+            "potential monthly savings"
+        ):
+
+            dcol1, dcol2, dcol3 = st.columns(3)
+
+            dcol1.write(
+                f"**Current Provider:** "
+                f"{row['Current_Provider']}"
+            )
+
+            dcol2.write(
+                f"**Recommended Provider:** "
+                f"{row['Recommended_Provider']}"
+            )
+
+            dcol3.write(
+                f"**Service Category:** "
+                f"{row['Service_Category']}"
+            )
+
+            dcol1.write(
+                f"**Current Cost:** "
+                f"${row['Current_Monthly_Cost']:,.2f}"
+            )
+
+            dcol2.write(
+                f"**Estimated Alternative:** "
+                f"${row['Estimated_Alternative_Cost']:,.2f}"
+            )
+
+            dcol3.write(
+                f"**Potential Savings:** "
+                f"${row['Estimated_Monthly_Savings']:,.2f}"
+            )
+
+            st.write(
+                f"**Savings Percentage:** "
+                f"{row['Estimated_Savings_Percentage']:.2f}%"
+            )
+
+            st.write(
+                f"**Confidence:** "
+                f"{row['Recommendation_Confidence']}"
+            )
+
+            st.write(
+                f"**Recommendation:** "
+                f"{row['Recommendation']}"
+            )
+
+            st.caption(
+                "Provider recommendations are based on "
+                "observed benchmark costs for equivalent "
+                "service categories. Actual migration "
+                "costs and architecture requirements "
+                "should be evaluated separately."
+            )
+
+st.divider()
+# ============================================================
 # MACHINE LEARNING COST PREDICTION
 # ============================================================
 
