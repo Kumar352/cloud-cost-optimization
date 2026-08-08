@@ -1,51 +1,501 @@
-Account_ID,Cloud_Provider,Service,Region,Usage_Date,Usage_Hours,Data_Transfer_GB,Storage_GB,Monthly_Cost,Cost_Per_Hour,Optimization_Flag
-ACC-135,AWS,EC2,us-east-1,2026-03-27,630,853.73,1705.75,384.22,0.6098730158730159,High Cost
-ACC-140,Azure,Virtual Machines,centralindia,2026-02-15,679,998.17,563.62,384.07,0.565640648011782,High Cost
-ACC-146,Azure,Virtual Machines,westus,2026-02-18,660,996.16,1067.65,371.09,0.5622575757575757,High Cost
-ACC-105,Azure,Blob Storage,westus,2026-01-14,719,753.83,609.46,369.23,0.5135326842837274,High Cost
-ACC-106,AWS,Lambda,us-east-1,2026-01-19,630,592.05,1521.59,363.15,0.5764285714285714,High Cost
-ACC-143,Azure,Azure SQL,westus,2026-03-31,612,913.67,1519.55,354.01,0.5784477124183006,High Cost
-ACC-132,AWS,Lambda,us-west-2,2026-01-05,620,553.61,1655.3,332.86,0.5368709677419355,High Cost
-ACC-105,Azure,Functions,westus,2026-03-28,652,693.53,318.47,330.17,0.5063957055214724,High Cost
-ACC-106,GCP,Cloud Functions,asia-south1,2026-02-08,714,414.21,296.76,328.89,0.4606302521008403,High Cost
-ACC-119,AWS,EC2,ap-south-1,2026-02-23,670,600.17,1244.47,325.55,0.4858955223880597,High Cost
-ACC-112,AWS,RDS,ap-south-1,2026-03-26,698,623.07,204.91,322.77,0.4624212034383954,High Cost
-ACC-101,GCP,Compute Engine,us-west1,2026-02-11,668,257.86,200.83,315.48,0.4722754491017964,High Cost
-ACC-117,GCP,Cloud SQL,asia-south1,2026-01-13,590,919.96,474.94,313.25,0.5309322033898305,High Cost
-ACC-131,Azure,Azure SQL,eastus,2026-02-17,497,890.59,1491.75,310.3,0.6243460764587525,High Cost
-ACC-118,GCP,Compute Engine,us-central1,2026-02-03,682,163.72,1316.57,309.38,0.4536363636363636,High Cost
-ACC-144,Azure,Blob Storage,centralindia,2026-03-22,684,776.86,772.78,309.03,0.45179824561403503,High Cost
-ACC-120,Azure,Azure SQL,westus,2026-02-16,575,883.98,942.69,308.49,0.536504347826087,High Cost
-ACC-142,AWS,EC2,us-west-2,2026-01-08,533,534.14,1538.35,303.08,0.5686303939962476,High Cost
-ACC-149,AWS,S3,us-east-1,2026-01-18,565,993.55,483.64,302.78,0.5358938053097345,High Cost
-ACC-111,GCP,Cloud Storage,asia-south1,2026-01-23,615,168.53,1128.5,301.29,0.4899024390243903,High Cost
-ACC-131,Azure,Blob Storage,centralindia,2026-03-15,715,652.64,365.59,299.88,0.4194125874125874,High Cost
-ACC-137,Azure,Azure SQL,eastus,2026-03-19,671,964.1,1442.35,299.84,0.4468554396423248,High Cost
-ACC-105,GCP,Cloud SQL,us-west1,2026-01-16,529,691.79,1405.47,299.8,0.5667296786389414,High Cost
-ACC-110,GCP,Cloud Storage,us-west1,2026-01-29,597,641.93,961.96,299.24,0.5012395309882747,High Cost
-ACC-110,AWS,EC2,ap-south-1,2026-01-28,568,272.55,1867.85,296.35,0.5217429577464789,High Cost
-ACC-138,Azure,Azure SQL,westus,2026-03-25,717,305.8,316.86,296.13,0.4130125523012552,High Cost
-ACC-103,GCP,Cloud Storage,asia-south1,2026-03-24,624,395.0,1031.63,296.0,0.47435897435897434,High Cost
-ACC-110,AWS,RDS,ap-south-1,2026-01-17,661,382.95,341.25,295.16,0.44653555219364605,High Cost
-ACC-145,AWS,Lambda,us-east-1,2026-01-10,610,942.42,1956.52,288.97,0.47372131147540986,High Cost
-ACC-127,GCP,Cloud Functions,us-west1,2026-01-04,699,280.59,1985.32,287.19,0.41085836909871243,High Cost
-ACC-113,Azure,Virtual Machines,eastus,2026-01-27,652,692.24,1724.88,286.81,0.43989263803680984,High Cost
-ACC-108,GCP,Cloud Storage,us-west1,2026-03-25,469,518.15,1731.97,285.44,0.6086140724946695,High Cost
-ACC-125,Azure,Azure SQL,eastus,2026-01-21,560,996.01,944.29,284.43,0.5079107142857143,High Cost
-ACC-128,AWS,S3,us-east-1,2026-02-11,582,447.42,1366.98,283.55,0.4871993127147767,High Cost
-ACC-115,AWS,RDS,us-west-2,2026-03-17,699,765.59,1306.68,282.47,0.4041058655221746,High Cost
-ACC-142,GCP,Cloud SQL,us-west1,2026-02-26,502,678.87,1032.12,280.69,0.5591434262948207,High Cost
-ACC-137,AWS,EC2,ap-south-1,2026-02-05,606,567.87,85.15,279.03,0.4604455445544554,High Cost
-ACC-137,Azure,Blob Storage,centralindia,2026-01-24,688,663.05,543.75,277.22,0.40293604651162795,High Cost
-ACC-140,GCP,Cloud Functions,us-west1,2026-03-14,643,454.42,1849.83,275.2,0.4279937791601866,High Cost
-ACC-124,AWS,EC2,us-west-2,2026-02-14,651,306.16,1924.82,273.72,0.4204608294930876,High Cost
-ACC-140,GCP,Cloud SQL,us-west1,2026-03-25,594,810.72,837.55,271.63,0.4572895622895623,High Cost
-ACC-109,AWS,S3,us-west-2,2026-02-28,429,673.78,1491.42,270.18,0.6297902097902098,High Cost
-ACC-107,AWS,RDS,us-west-2,2026-01-27,550,323.87,710.63,270.16,0.4912,High Cost
-ACC-129,Azure,Blob Storage,eastus,2026-03-31,580,469.9,1123.66,269.21,0.46415517241379306,High Cost
-ACC-148,GCP,Cloud SQL,asia-south1,2026-01-17,715,975.43,372.07,268.25,0.3751748251748252,High Cost
-ACC-141,GCP,Cloud SQL,us-central1,2026-01-05,663,515.44,1402.93,267.64,0.4036802413273001,High Cost
-ACC-111,GCP,Cloud Storage,us-central1,2026-03-20,704,898.07,1657.44,265.92,0.37772727272727274,High Cost
-ACC-109,Azure,Virtual Machines,westus,2026-01-27,600,219.76,1101.92,263.7,0.4395,High Cost
-ACC-143,Azure,Azure SQL,eastus,2026-01-18,571,498.58,1516.45,262.79,0.4602276707530648,High Cost
-ACC-124,Azure,Virtual Machines,eastus,2026-02-23,448,905.79,1176.48,262.3,0.5854910714285715,High Cost
+Account_ID,Cloud_Provider,Service,Region,Usage_Date,Usage_Hours,Data_Transfer_GB,Storage_GB,Monthly_Cost,Recommendation,Optimization_Priority,Recommended_Action,Optimization_Flag,Optimization_Score
+ACC-135,AWS,EC2,us-east-1,2026-03-27,630,853.73,1705.75,384.22,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,100.0
+ACC-140,Azure,Virtual Machines,centralindia,2026-02-15,679,998.17,563.62,384.07,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,99.96
+ACC-146,Azure,Virtual Machines,westus,2026-02-18,660,996.16,1067.65,371.09,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,96.58
+ACC-105,Azure,Blob Storage,westus,2026-01-14,719,753.83,609.46,369.23,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,96.1
+ACC-106,AWS,Lambda,us-east-1,2026-01-19,630,592.05,1521.59,363.15,Review Service Usage,HIGH,"Review invocation patterns, execution usage, and unnecessary workloads.",High Cost,94.52
+ACC-143,Azure,Azure SQL,westus,2026-03-31,612,913.67,1519.55,354.01,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,92.14
+ACC-132,AWS,Lambda,us-west-2,2026-01-05,620,553.61,1655.3,332.86,Review Service Usage,HIGH,"Review invocation patterns, execution usage, and unnecessary workloads.",High Cost,86.63
+ACC-105,Azure,Functions,westus,2026-03-28,652,693.53,318.47,330.17,Review Service Usage,HIGH,"Review invocation patterns, execution usage, and unnecessary workloads.",High Cost,85.93
+ACC-106,GCP,Cloud Functions,asia-south1,2026-02-08,714,414.21,296.76,328.89,Review Service Usage,HIGH,"Review invocation patterns, execution usage, and unnecessary workloads.",High Cost,85.6
+ACC-119,AWS,EC2,ap-south-1,2026-02-23,670,600.17,1244.47,325.55,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,84.73
+ACC-112,AWS,RDS,ap-south-1,2026-03-26,698,623.07,204.91,322.77,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,84.01
+ACC-101,GCP,Compute Engine,us-west1,2026-02-11,668,257.86,200.83,315.48,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,82.11
+ACC-117,GCP,Cloud SQL,asia-south1,2026-01-13,590,919.96,474.94,313.25,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,81.53
+ACC-131,Azure,Azure SQL,eastus,2026-02-17,497,890.59,1491.75,310.3,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,80.76
+ACC-118,GCP,Compute Engine,us-central1,2026-02-03,682,163.72,1316.57,309.38,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,80.52
+ACC-144,Azure,Blob Storage,centralindia,2026-03-22,684,776.86,772.78,309.03,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,80.43
+ACC-120,Azure,Azure SQL,westus,2026-02-16,575,883.98,942.69,308.49,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,80.29
+ACC-142,AWS,EC2,us-west-2,2026-01-08,533,534.14,1538.35,303.08,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,78.88
+ACC-149,AWS,S3,us-east-1,2026-01-18,565,993.55,483.64,302.78,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,78.8
+ACC-111,GCP,Cloud Storage,asia-south1,2026-01-23,615,168.53,1128.5,301.29,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,78.42
+ACC-131,Azure,Blob Storage,centralindia,2026-03-15,715,652.64,365.59,299.88,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,78.05
+ACC-137,Azure,Azure SQL,eastus,2026-03-19,671,964.1,1442.35,299.84,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,78.04
+ACC-105,GCP,Cloud SQL,us-west1,2026-01-16,529,691.79,1405.47,299.8,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,78.03
+ACC-110,GCP,Cloud Storage,us-west1,2026-01-29,597,641.93,961.96,299.24,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,77.88
+ACC-110,AWS,EC2,ap-south-1,2026-01-28,568,272.55,1867.85,296.35,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,77.13
+ACC-138,Azure,Azure SQL,westus,2026-03-25,717,305.8,316.86,296.13,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,77.07
+ACC-103,GCP,Cloud Storage,asia-south1,2026-03-24,624,395.0,1031.63,296.0,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,77.04
+ACC-110,AWS,RDS,ap-south-1,2026-01-17,661,382.95,341.25,295.16,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,76.82
+ACC-145,AWS,Lambda,us-east-1,2026-01-10,610,942.42,1956.52,288.97,Review Service Usage,HIGH,"Review invocation patterns, execution usage, and unnecessary workloads.",High Cost,75.21
+ACC-127,GCP,Cloud Functions,us-west1,2026-01-04,699,280.59,1985.32,287.19,Review Service Usage,HIGH,"Review invocation patterns, execution usage, and unnecessary workloads.",High Cost,74.75
+ACC-113,Azure,Virtual Machines,eastus,2026-01-27,652,692.24,1724.88,286.81,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,74.65
+ACC-108,GCP,Cloud Storage,us-west1,2026-03-25,469,518.15,1731.97,285.44,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,74.29
+ACC-125,Azure,Azure SQL,eastus,2026-01-21,560,996.01,944.29,284.43,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,74.03
+ACC-128,AWS,S3,us-east-1,2026-02-11,582,447.42,1366.98,283.55,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,73.8
+ACC-115,AWS,RDS,us-west-2,2026-03-17,699,765.59,1306.68,282.47,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,73.52
+ACC-142,GCP,Cloud SQL,us-west1,2026-02-26,502,678.87,1032.12,280.69,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,73.05
+ACC-137,AWS,EC2,ap-south-1,2026-02-05,606,567.87,85.15,279.03,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,72.62
+ACC-137,Azure,Blob Storage,centralindia,2026-01-24,688,663.05,543.75,277.22,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,72.15
+ACC-140,GCP,Cloud Functions,us-west1,2026-03-14,643,454.42,1849.83,275.2,Review Service Usage,HIGH,"Review invocation patterns, execution usage, and unnecessary workloads.",High Cost,71.63
+ACC-124,AWS,EC2,us-west-2,2026-02-14,651,306.16,1924.82,273.72,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,71.24
+ACC-140,GCP,Cloud SQL,us-west1,2026-03-25,594,810.72,837.55,271.63,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,70.7
+ACC-109,AWS,S3,us-west-2,2026-02-28,429,673.78,1491.42,270.18,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,70.32
+ACC-107,AWS,RDS,us-west-2,2026-01-27,550,323.87,710.63,270.16,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,70.31
+ACC-129,Azure,Blob Storage,eastus,2026-03-31,580,469.9,1123.66,269.21,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,70.07
+ACC-148,GCP,Cloud SQL,asia-south1,2026-01-17,715,975.43,372.07,268.25,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,69.82
+ACC-141,GCP,Cloud SQL,us-central1,2026-01-05,663,515.44,1402.93,267.64,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,69.66
+ACC-111,GCP,Cloud Storage,us-central1,2026-03-20,704,898.07,1657.44,265.92,Review Storage Usage,HIGH,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",High Cost,69.21
+ACC-109,Azure,Virtual Machines,westus,2026-01-27,600,219.76,1101.92,263.7,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,68.63
+ACC-143,Azure,Azure SQL,eastus,2026-01-18,571,498.58,1516.45,262.79,Review Database Usage,HIGH,"Review database utilization, sizing, and scaling requirements.",High Cost,68.4
+ACC-124,Azure,Virtual Machines,eastus,2026-02-23,448,905.79,1176.48,262.3,Review Compute Usage,HIGH,Check utilization and consider right-sizing the compute resource.,High Cost,68.27
+ACC-149,GCP,Cloud SQL,us-west1,2026-02-22,698,436.28,1457.22,261.57,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,68.08
+ACC-120,AWS,S3,ap-south-1,2026-03-25,666,929.37,1275.1,261.38,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,68.03
+ACC-123,AWS,Lambda,ap-south-1,2026-02-24,624,19.57,168.98,260.62,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,67.83
+ACC-110,AWS,EC2,us-east-1,2026-02-17,550,598.1,371.62,260.61,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,67.83
+ACC-129,GCP,Compute Engine,us-west1,2026-02-06,515,989.21,1095.73,258.46,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,67.27
+ACC-127,Azure,Azure SQL,westus,2026-01-11,644,104.62,284.36,257.8,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,67.1
+ACC-119,Azure,Azure SQL,centralindia,2026-02-15,708,805.62,543.44,257.02,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,66.89
+ACC-143,Azure,Functions,centralindia,2026-02-22,469,825.11,166.03,256.26,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,66.7
+ACC-129,AWS,EC2,us-east-1,2026-03-24,504,811.21,202.12,255.38,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,66.47
+ACC-127,GCP,Cloud SQL,us-central1,2026-02-23,551,114.48,1922.36,255.05,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,66.38
+ACC-124,AWS,S3,us-east-1,2026-02-22,547,486.54,1732.01,254.35,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,66.2
+ACC-142,GCP,Compute Engine,us-central1,2026-03-02,679,603.82,1757.95,249.8,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,65.01
+ACC-109,GCP,Cloud SQL,asia-south1,2026-01-16,704,916.97,604.17,248.92,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,64.79
+ACC-125,Azure,Azure SQL,eastus,2026-02-21,563,440.15,1401.78,248.12,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,64.58
+ACC-118,Azure,Virtual Machines,westus,2026-02-14,468,339.98,1346.86,248.05,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,64.56
+ACC-119,Azure,Blob Storage,eastus,2026-02-20,557,194.45,1503.03,247.5,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,64.42
+ACC-125,Azure,Virtual Machines,eastus,2026-02-18,635,365.37,605.83,245.48,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,63.89
+ACC-129,Azure,Azure SQL,centralindia,2026-02-26,436,567.54,1544.54,244.73,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,63.7
+ACC-127,GCP,Cloud Storage,asia-south1,2026-03-13,475,748.65,1537.24,240.74,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,62.66
+ACC-120,Azure,Functions,eastus,2026-01-31,561,641.7,160.6,240.24,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,62.53
+ACC-106,GCP,Cloud Functions,us-central1,2026-01-26,669,147.01,515.01,239.27,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,62.27
+ACC-133,Azure,Functions,eastus,2026-03-31,602,185.27,1203.22,237.99,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,61.94
+ACC-144,AWS,S3,us-east-1,2026-01-03,686,160.86,269.92,237.81,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,61.89
+ACC-132,Azure,Functions,eastus,2026-01-08,427,833.38,171.93,234.88,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,61.13
+ACC-132,Azure,Virtual Machines,eastus,2026-03-10,614,417.23,53.12,234.15,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,60.94
+ACC-110,AWS,Lambda,us-east-1,2026-01-19,698,972.09,201.68,233.84,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,60.86
+ACC-104,Azure,Virtual Machines,centralindia,2026-01-28,642,82.3,858.92,232.33,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,60.47
+ACC-105,GCP,Cloud Storage,asia-south1,2026-03-20,586,253.78,161.86,231.18,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,60.17
+ACC-121,AWS,RDS,us-east-1,2026-03-13,445,291.31,1452.99,230.38,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,59.96
+ACC-136,AWS,EC2,ap-south-1,2026-03-25,479,232.27,511.56,230.18,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,59.91
+ACC-144,Azure,Functions,centralindia,2026-01-31,537,649.44,991.83,229.94,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,59.85
+ACC-131,GCP,Cloud Functions,asia-south1,2026-03-27,416,851.61,1595.44,229.32,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,59.68
+ACC-100,Azure,Functions,centralindia,2026-03-15,477,677.5,1789.85,228.92,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,59.58
+ACC-128,GCP,Cloud SQL,us-west1,2026-03-20,566,432.47,1815.57,228.53,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,59.48
+ACC-145,AWS,EC2,us-east-1,2026-02-01,536,615.16,1541.61,228.42,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,59.45
+ACC-143,GCP,Cloud SQL,us-central1,2026-02-05,637,233.9,869.64,228.4,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,59.45
+ACC-137,GCP,Compute Engine,asia-south1,2026-03-02,321,967.4,1570.15,227.66,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,59.25
+ACC-141,AWS,S3,us-east-1,2026-02-10,460,275.06,437.75,226.8,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,59.03
+ACC-118,AWS,EC2,ap-south-1,2026-01-21,466,656.36,1763.68,226.72,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,59.01
+ACC-129,AWS,Lambda,us-east-1,2026-02-04,496,490.79,789.94,225.54,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,58.7
+ACC-106,Azure,Azure SQL,eastus,2026-01-21,482,346.85,327.85,225.4,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,58.66
+ACC-119,Azure,Virtual Machines,westus,2026-03-12,636,375.22,1611.25,222.19,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,57.83
+ACC-136,Azure,Blob Storage,centralindia,2026-03-24,357,462.65,1859.46,221.88,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,57.75
+ACC-127,GCP,Compute Engine,us-west1,2026-02-28,653,956.63,286.58,221.27,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,57.59
+ACC-103,Azure,Azure SQL,westus,2026-02-13,610,582.15,1140.96,220.73,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,57.45
+ACC-142,AWS,S3,us-east-1,2026-01-28,567,461.45,139.69,220.43,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,57.37
+ACC-106,Azure,Virtual Machines,centralindia,2026-01-09,290,634.85,1843.44,220.19,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,57.31
+ACC-114,Azure,Blob Storage,westus,2026-03-25,437,371.64,1313.61,220.11,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,57.29
+ACC-138,Azure,Virtual Machines,westus,2026-02-08,449,854.91,1907.79,219.57,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,57.15
+ACC-143,GCP,Cloud Storage,us-west1,2026-01-13,532,136.66,532.13,219.56,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,57.14
+ACC-133,Azure,Virtual Machines,westus,2026-02-22,447,781.38,1455.19,219.1,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,57.02
+ACC-119,GCP,Cloud SQL,asia-south1,2026-01-27,635,422.42,1285.2,218.33,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,56.82
+ACC-121,AWS,EC2,us-west-2,2026-02-07,516,730.55,1200.81,218.32,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,56.82
+ACC-142,AWS,RDS,us-west-2,2026-02-13,569,274.5,25.08,218.05,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,56.75
+ACC-101,AWS,RDS,us-west-2,2026-01-18,479,207.46,1771.61,217.31,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,56.56
+ACC-108,Azure,Functions,centralindia,2026-02-05,552,191.04,1533.24,217.13,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,56.51
+ACC-120,AWS,S3,us-east-1,2026-03-12,461,509.65,1321.91,217.03,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,56.49
+ACC-113,AWS,S3,ap-south-1,2026-03-23,661,971.38,120.15,216.38,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,56.32
+ACC-108,GCP,Compute Engine,us-west1,2026-03-28,540,484.23,1189.77,214.79,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,55.9
+ACC-139,GCP,Cloud SQL,us-central1,2026-03-01,563,515.31,805.63,214.09,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,55.72
+ACC-111,GCP,Compute Engine,asia-south1,2026-01-18,581,215.27,663.6,213.87,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,55.66
+ACC-136,AWS,S3,ap-south-1,2026-02-10,417,914.84,75.85,213.75,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,55.63
+ACC-100,AWS,EC2,us-west-2,2026-02-27,619,750.6,514.71,213.11,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,55.47
+ACC-133,GCP,Cloud Storage,asia-south1,2026-02-16,457,321.24,571.81,212.74,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,55.37
+ACC-132,Azure,Azure SQL,eastus,2026-01-22,463,28.93,464.16,211.53,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,55.05
+ACC-105,AWS,RDS,ap-south-1,2026-03-10,545,470.23,1654.95,211.18,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,54.96
+ACC-136,GCP,Cloud Functions,us-central1,2026-02-22,554,882.95,715.44,211.04,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,54.93
+ACC-110,AWS,S3,us-west-2,2026-03-13,567,656.54,830.09,210.76,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,54.85
+ACC-108,Azure,Virtual Machines,westus,2026-02-03,506,222.42,1231.52,210.36,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,54.75
+ACC-115,AWS,RDS,us-east-1,2026-01-28,581,106.15,1455.84,208.44,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,54.25
+ACC-139,AWS,EC2,ap-south-1,2026-03-26,554,617.69,1533.2,208.23,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,54.2
+ACC-119,Azure,Blob Storage,eastus,2026-01-09,518,46.61,419.15,205.9,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,53.59
+ACC-124,Azure,Blob Storage,eastus,2026-03-21,422,778.26,492.8,205.53,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,53.49
+ACC-123,GCP,Cloud Functions,us-west1,2026-01-15,464,30.65,663.04,205.02,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,53.36
+ACC-149,AWS,S3,us-west-2,2026-02-06,530,539.75,1381.78,203.19,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,52.88
+ACC-111,AWS,RDS,ap-south-1,2026-01-08,274,579.94,1965.68,202.68,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,52.75
+ACC-112,AWS,S3,us-east-1,2026-02-09,568,409.35,1565.42,202.55,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,52.72
+ACC-105,AWS,Lambda,ap-south-1,2026-02-05,427,460.15,986.33,201.98,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,52.57
+ACC-135,GCP,Cloud Storage,us-west1,2026-02-26,546,130.21,1946.83,201.97,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,52.57
+ACC-130,GCP,Cloud Functions,us-central1,2026-01-28,647,359.37,120.07,200.37,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,52.15
+ACC-116,AWS,EC2,us-west-2,2026-03-17,627,666.37,186.22,199.91,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,52.03
+ACC-146,AWS,S3,ap-south-1,2026-02-20,608,302.03,1275.41,199.47,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,51.92
+ACC-149,GCP,Cloud Storage,us-west1,2026-02-09,351,136.07,1463.09,199.24,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,51.86
+ACC-118,GCP,Cloud SQL,asia-south1,2026-03-12,371,714.76,1872.31,199.18,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,51.84
+ACC-109,GCP,Compute Engine,us-central1,2026-03-19,375,921.83,1935.71,198.24,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,51.6
+ACC-114,Azure,Virtual Machines,westus,2026-01-04,445,59.15,1710.57,197.73,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,51.46
+ACC-149,GCP,Cloud Functions,us-west1,2026-02-21,299,156.1,1381.49,196.38,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,51.11
+ACC-115,Azure,Virtual Machines,westus,2026-03-20,467,939.66,573.89,196.27,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,51.08
+ACC-125,AWS,RDS,us-west-2,2026-02-01,690,500.84,1241.0,194.6,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,50.65
+ACC-149,Azure,Blob Storage,centralindia,2026-02-20,551,150.75,1272.16,194.1,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,50.52
+ACC-128,Azure,Blob Storage,eastus,2026-02-02,440,829.97,261.48,193.7,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,50.41
+ACC-112,Azure,Blob Storage,westus,2026-03-10,545,351.67,1112.8,193.36,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,50.33
+ACC-125,Azure,Virtual Machines,eastus,2026-01-22,456,111.98,146.31,191.77,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,49.91
+ACC-108,Azure,Azure SQL,centralindia,2026-03-25,591,17.74,1637.87,191.64,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,49.88
+ACC-140,Azure,Functions,centralindia,2026-03-06,478,548.21,1585.63,191.58,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,49.86
+ACC-104,AWS,S3,us-east-1,2026-01-26,460,378.52,1267.99,191.55,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,49.85
+ACC-136,GCP,Cloud Storage,us-west1,2026-03-06,276,161.67,1353.8,190.84,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,49.67
+ACC-105,GCP,Cloud SQL,us-central1,2026-03-12,618,149.96,102.71,189.31,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,49.27
+ACC-104,Azure,Virtual Machines,centralindia,2026-01-30,532,34.77,1770.78,189.03,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,49.2
+ACC-117,AWS,Lambda,us-west-2,2026-01-04,678,884.27,910.16,188.04,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,48.94
+ACC-124,Azure,Virtual Machines,westus,2026-02-22,234,771.28,1536.34,187.2,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,48.72
+ACC-132,GCP,Compute Engine,asia-south1,2026-02-27,590,706.73,174.64,186.05,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,48.42
+ACC-100,GCP,Cloud Storage,us-central1,2026-02-20,690,312.45,1404.89,186.03,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,48.42
+ACC-107,GCP,Cloud SQL,us-central1,2026-03-12,705,591.91,1540.21,185.7,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,48.33
+ACC-138,Azure,Functions,westus,2026-02-26,392,436.31,1650.6,184.65,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,48.06
+ACC-133,AWS,EC2,ap-south-1,2026-02-08,704,512.59,413.84,184.56,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,48.03
+ACC-104,AWS,S3,us-east-1,2026-02-05,459,359.6,802.38,184.56,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,48.03
+ACC-133,GCP,Compute Engine,asia-south1,2026-01-14,599,195.09,665.45,184.48,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,48.01
+ACC-135,AWS,Lambda,us-east-1,2026-02-26,139,812.41,1935.77,182.26,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,47.44
+ACC-104,AWS,RDS,ap-south-1,2026-03-11,667,204.5,1455.33,181.39,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,47.21
+ACC-121,Azure,Blob Storage,centralindia,2026-02-05,583,489.75,493.71,180.45,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,46.97
+ACC-118,Azure,Azure SQL,centralindia,2026-03-31,639,106.74,285.09,179.38,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,46.69
+ACC-148,GCP,Cloud Functions,asia-south1,2026-01-11,386,853.82,1721.5,179.32,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,46.67
+ACC-119,Azure,Blob Storage,centralindia,2026-01-14,441,873.45,1720.01,179.11,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,46.62
+ACC-140,GCP,Cloud SQL,us-central1,2026-03-23,244,624.68,1361.97,178.97,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,46.58
+ACC-143,GCP,Cloud Storage,us-west1,2026-03-12,345,82.8,1018.43,178.1,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,46.35
+ACC-115,AWS,S3,us-west-2,2026-01-04,233,739.2,677.73,177.99,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,46.33
+ACC-134,AWS,S3,us-west-2,2026-03-23,310,464.97,1340.34,176.52,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,45.94
+ACC-141,GCP,Cloud SQL,us-west1,2026-03-18,593,301.95,1020.99,176.5,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,45.94
+ACC-140,GCP,Cloud Functions,asia-south1,2026-03-26,422,718.75,245.77,176.48,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,45.93
+ACC-146,GCP,Cloud Storage,asia-south1,2026-01-18,506,167.63,1141.39,176.41,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,45.91
+ACC-124,GCP,Compute Engine,us-central1,2026-03-27,402,810.1,839.69,176.12,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,45.84
+ACC-104,Azure,Azure SQL,westus,2026-03-23,423,171.03,723.44,175.86,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,45.77
+ACC-115,Azure,Azure SQL,westus,2026-01-12,616,462.18,750.46,175.45,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,45.66
+ACC-126,GCP,Cloud Functions,us-west1,2026-03-19,304,280.86,1927.92,174.76,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,45.48
+ACC-140,AWS,S3,ap-south-1,2026-02-21,396,802.85,1235.77,174.53,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,45.42
+ACC-138,GCP,Compute Engine,us-central1,2026-01-13,453,379.47,1973.84,174.37,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,45.38
+ACC-143,Azure,Virtual Machines,westus,2026-01-07,699,587.74,1889.72,173.54,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,45.17
+ACC-130,AWS,Lambda,us-east-1,2026-01-02,637,291.5,967.85,173.33,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,45.11
+ACC-117,AWS,RDS,us-west-2,2026-03-01,506,365.15,624.83,173.32,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,45.11
+ACC-148,AWS,EC2,us-east-1,2026-03-26,413,174.68,1233.1,172.97,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,45.02
+ACC-121,GCP,Cloud Storage,us-west1,2026-02-17,339,393.54,1553.44,172.39,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,44.87
+ACC-128,GCP,Cloud Storage,us-central1,2026-02-07,317,852.4,1853.56,172.34,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,44.85
+ACC-111,Azure,Azure SQL,westus,2026-03-24,552,466.22,1470.89,172.18,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,44.81
+ACC-126,GCP,Compute Engine,asia-south1,2026-03-07,638,249.52,304.28,171.57,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,44.65
+ACC-149,GCP,Cloud Functions,us-west1,2026-01-06,353,899.3,401.17,170.74,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,44.44
+ACC-108,GCP,Cloud SQL,us-west1,2026-03-03,533,251.29,1111.5,170.73,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,44.44
+ACC-125,AWS,RDS,ap-south-1,2026-03-13,646,354.61,1927.31,170.64,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,44.41
+ACC-102,AWS,Lambda,ap-south-1,2026-01-20,677,290.3,831.41,169.91,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,44.22
+ACC-120,GCP,Compute Engine,us-west1,2026-01-15,314,76.88,1274.65,169.51,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,44.12
+ACC-126,AWS,RDS,us-east-1,2026-03-15,440,87.69,130.73,169.3,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,44.06
+ACC-103,Azure,Functions,eastus,2026-01-05,678,622.98,506.65,168.69,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,43.9
+ACC-114,Azure,Virtual Machines,centralindia,2026-03-29,100,911.51,1495.44,166.9,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,43.44
+ACC-140,Azure,Virtual Machines,westus,2026-01-02,320,541.21,920.48,166.87,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,43.43
+ACC-122,Azure,Azure SQL,eastus,2026-01-11,385,664.31,626.86,166.67,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,43.38
+ACC-124,AWS,S3,us-west-2,2026-03-02,248,374.16,1895.32,166.32,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,43.29
+ACC-137,AWS,S3,us-west-2,2026-03-22,128,730.15,1786.37,165.99,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,43.2
+ACC-104,AWS,RDS,us-west-2,2026-02-19,630,42.06,323.81,165.78,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,43.15
+ACC-115,GCP,Cloud Storage,asia-south1,2026-01-14,412,782.32,1770.59,165.37,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,43.04
+ACC-114,Azure,Blob Storage,eastus,2026-03-12,316,548.03,1997.48,164.9,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,42.92
+ACC-132,Azure,Functions,centralindia,2026-03-12,416,82.15,1421.21,164.28,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,42.76
+ACC-127,AWS,RDS,us-east-1,2026-02-17,455,590.16,686.39,163.9,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,42.66
+ACC-128,Azure,Virtual Machines,westus,2026-01-27,305,696.24,713.95,163.8,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,42.63
+ACC-109,GCP,Compute Engine,us-west1,2026-01-22,356,904.39,111.06,163.74,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,42.62
+ACC-133,AWS,Lambda,us-west-2,2026-01-15,471,446.28,145.41,163.18,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,42.47
+ACC-143,GCP,Cloud SQL,asia-south1,2026-02-19,675,398.62,246.18,162.83,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,42.38
+ACC-104,AWS,Lambda,us-west-2,2026-01-12,598,727.34,397.15,162.36,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,42.26
+ACC-116,GCP,Compute Engine,us-central1,2026-03-15,555,157.65,198.36,161.83,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,42.12
+ACC-117,AWS,S3,ap-south-1,2026-02-25,454,501.17,777.8,161.46,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,42.02
+ACC-146,GCP,Compute Engine,asia-south1,2026-03-13,625,336.35,262.02,161.28,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,41.98
+ACC-116,AWS,EC2,us-west-2,2026-03-26,647,569.57,646.41,161.17,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,41.95
+ACC-103,AWS,S3,us-east-1,2026-01-09,396,30.82,1116.76,161.01,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,41.91
+ACC-101,Azure,Azure SQL,centralindia,2026-03-05,250,735.14,1102.19,160.86,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,41.87
+ACC-128,Azure,Functions,westus,2026-03-29,370,966.17,126.53,160.47,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,41.77
+ACC-115,GCP,Cloud SQL,us-west1,2026-01-21,703,182.35,735.75,159.63,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,41.55
+ACC-117,AWS,EC2,ap-south-1,2026-02-14,595,288.27,1086.76,159.39,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,41.48
+ACC-117,Azure,Azure SQL,westus,2026-02-05,511,188.09,279.66,158.57,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,41.27
+ACC-142,GCP,Cloud Functions,asia-south1,2026-02-10,228,710.11,1132.72,158.39,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,41.22
+ACC-115,GCP,Cloud Functions,us-central1,2026-01-26,601,278.42,1132.8,158.29,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,41.2
+ACC-132,GCP,Compute Engine,us-west1,2026-01-23,466,511.18,1126.09,157.84,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,41.08
+ACC-100,Azure,Functions,eastus,2026-01-10,503,809.94,1714.81,157.76,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,41.06
+ACC-138,GCP,Cloud Functions,us-central1,2026-03-23,360,249.6,1324.15,157.51,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,40.99
+ACC-136,GCP,Cloud Storage,us-west1,2026-02-10,231,964.93,1938.08,157.43,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,40.97
+ACC-114,GCP,Compute Engine,asia-south1,2026-03-26,340,947.78,448.85,157.39,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,40.96
+ACC-139,Azure,Azure SQL,westus,2026-02-03,442,658.24,1152.61,157.34,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,40.95
+ACC-107,Azure,Virtual Machines,westus,2026-02-12,316,367.35,1129.49,156.72,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,40.79
+ACC-137,AWS,Lambda,ap-south-1,2026-02-23,424,550.89,362.09,156.07,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,40.62
+ACC-121,AWS,Lambda,us-east-1,2026-02-01,496,592.98,1057.45,156.06,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,40.62
+ACC-144,AWS,RDS,ap-south-1,2026-03-16,427,478.53,1071.23,156.04,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,40.61
+ACC-141,AWS,RDS,us-west-2,2026-02-28,628,250.78,1400.53,155.51,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,40.47
+ACC-122,AWS,Lambda,us-west-2,2026-02-16,406,198.58,702.16,155.4,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,40.45
+ACC-125,AWS,Lambda,us-east-1,2026-03-07,475,462.23,134.32,155.22,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,40.4
+ACC-144,Azure,Blob Storage,westus,2026-01-06,319,445.34,541.53,155.05,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,40.35
+ACC-110,GCP,Cloud Functions,us-central1,2026-03-13,677,64.02,1293.93,154.94,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,40.33
+ACC-135,GCP,Cloud SQL,us-central1,2026-03-01,127,149.35,1933.67,154.77,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,40.28
+ACC-134,GCP,Compute Engine,asia-south1,2026-01-09,265,673.63,1551.69,154.72,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,40.27
+ACC-135,Azure,Virtual Machines,westus,2026-01-29,269,857.16,62.97,154.61,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,40.24
+ACC-131,GCP,Cloud Storage,us-west1,2026-02-06,193,195.23,1687.13,154.56,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,40.23
+ACC-124,AWS,Lambda,us-east-1,2026-02-08,216,568.32,1142.06,153.9,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,40.06
+ACC-128,AWS,S3,ap-south-1,2026-02-23,588,122.51,145.84,153.82,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,40.03
+ACC-110,Azure,Azure SQL,centralindia,2026-02-20,191,856.45,1325.38,153.79,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,40.03
+ACC-149,GCP,Compute Engine,us-central1,2026-01-03,312,223.5,316.05,153.77,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,40.02
+ACC-124,GCP,Cloud Functions,us-central1,2026-03-22,201,835.77,530.61,152.39,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,39.66
+ACC-122,GCP,Compute Engine,us-west1,2026-01-15,158,502.76,1225.82,152.38,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,39.66
+ACC-129,Azure,Virtual Machines,centralindia,2026-02-17,607,902.68,1296.76,151.81,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,39.51
+ACC-116,GCP,Cloud Functions,us-west1,2026-03-14,685,69.63,1921.02,151.64,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,39.47
+ACC-114,GCP,Cloud Functions,us-west1,2026-02-14,548,794.73,1776.6,151.22,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,39.36
+ACC-145,Azure,Functions,westus,2026-01-20,357,382.7,1513.74,151.03,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,39.31
+ACC-121,GCP,Cloud Functions,us-central1,2026-02-18,678,293.66,1270.79,150.72,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,39.23
+ACC-140,GCP,Cloud SQL,asia-south1,2026-01-06,229,475.8,1309.99,150.51,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,39.17
+ACC-138,GCP,Cloud Storage,asia-south1,2026-03-14,358,412.01,1670.78,148.29,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,38.6
+ACC-118,AWS,S3,ap-south-1,2026-02-16,593,506.78,559.6,147.77,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,38.46
+ACC-101,AWS,Lambda,us-west-2,2026-03-15,508,97.14,1006.94,147.77,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,38.46
+ACC-139,Azure,Virtual Machines,centralindia,2026-01-19,469,872.22,1940.51,146.92,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,38.24
+ACC-128,Azure,Functions,eastus,2026-03-11,255,715.82,810.0,146.89,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,38.23
+ACC-105,Azure,Azure SQL,centralindia,2026-02-11,631,600.26,1769.02,145.72,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,37.93
+ACC-102,GCP,Cloud Functions,asia-south1,2026-03-29,536,576.99,486.57,145.35,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,37.83
+ACC-134,Azure,Azure SQL,centralindia,2026-01-12,338,767.62,886.6,145.31,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,37.82
+ACC-105,GCP,Cloud Functions,asia-south1,2026-01-19,501,54.43,1639.98,145.17,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,37.78
+ACC-149,AWS,S3,us-east-1,2026-01-19,312,205.3,1212.75,144.91,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,37.72
+ACC-127,AWS,S3,ap-south-1,2026-01-21,551,787.36,1563.91,144.74,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,37.67
+ACC-132,GCP,Cloud Storage,us-central1,2026-03-09,208,454.89,1642.45,144.73,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,37.67
+ACC-105,Azure,Azure SQL,eastus,2026-02-28,384,344.13,1761.69,143.93,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,37.46
+ACC-126,GCP,Compute Engine,asia-south1,2026-03-01,264,444.07,596.84,143.66,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,37.39
+ACC-128,GCP,Cloud Functions,us-central1,2026-02-22,423,679.6,490.31,143.3,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,37.3
+ACC-132,AWS,RDS,ap-south-1,2026-02-10,216,399.03,1240.67,142.78,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,37.16
+ACC-102,GCP,Cloud Storage,us-central1,2026-01-16,452,223.43,1652.62,142.13,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,36.99
+ACC-132,Azure,Azure SQL,westus,2026-02-02,273,472.03,1360.85,142.12,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,36.99
+ACC-120,GCP,Cloud Functions,asia-south1,2026-01-23,642,181.91,1634.18,142.11,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,36.99
+ACC-129,GCP,Cloud Storage,us-west1,2026-02-10,403,975.62,278.92,141.95,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,36.94
+ACC-146,Azure,Virtual Machines,westus,2026-03-13,475,823.81,1592.61,141.69,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,36.88
+ACC-146,Azure,Virtual Machines,centralindia,2026-01-15,324,777.36,1650.1,141.68,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,36.87
+ACC-144,GCP,Cloud SQL,us-central1,2026-01-06,410,550.55,1630.75,141.51,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,36.83
+ACC-114,GCP,Compute Engine,asia-south1,2026-01-05,126,945.74,1343.07,141.17,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,36.74
+ACC-147,AWS,S3,us-west-2,2026-01-27,390,310.16,1819.81,141.16,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,36.74
+ACC-118,Azure,Virtual Machines,eastus,2026-02-15,278,746.77,628.03,140.92,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,36.68
+ACC-133,Azure,Blob Storage,westus,2026-01-05,179,507.27,1188.56,140.85,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,36.66
+ACC-112,AWS,S3,ap-south-1,2026-03-03,333,727.34,1953.68,140.36,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,36.53
+ACC-143,GCP,Cloud Functions,us-west1,2026-01-20,250,336.57,772.08,140.15,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,36.48
+ACC-134,GCP,Cloud Functions,us-west1,2026-03-08,323,803.14,1459.62,139.78,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,36.38
+ACC-106,Azure,Functions,westus,2026-03-31,687,497.08,654.87,139.48,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,36.3
+ACC-113,GCP,Cloud Storage,us-west1,2026-01-17,92,315.18,1799.98,139.32,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,36.26
+ACC-136,Azure,Virtual Machines,eastus,2026-02-25,187,883.63,1460.47,137.29,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,35.73
+ACC-146,GCP,Cloud Functions,asia-south1,2026-03-28,498,189.45,771.91,137.04,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,35.67
+ACC-105,GCP,Cloud SQL,us-central1,2026-02-16,276,609.89,160.33,136.84,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,35.62
+ACC-119,GCP,Cloud Storage,us-central1,2026-01-05,521,362.1,294.05,136.5,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,35.53
+ACC-109,AWS,S3,ap-south-1,2026-01-28,288,335.27,312.16,136.26,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,35.46
+ACC-127,GCP,Compute Engine,us-central1,2026-02-05,300,230.98,1478.21,135.77,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,35.34
+ACC-144,GCP,Cloud Functions,us-west1,2026-01-29,319,88.42,1258.14,135.77,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,35.34
+ACC-148,AWS,RDS,us-east-1,2026-02-04,532,958.94,699.33,135.53,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,35.27
+ACC-144,AWS,S3,us-west-2,2026-02-09,401,460.78,429.6,135.52,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,35.27
+ACC-107,Azure,Functions,centralindia,2026-02-24,547,611.01,840.08,135.41,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,35.24
+ACC-138,GCP,Cloud SQL,asia-south1,2026-03-31,551,197.88,389.52,135.27,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,35.21
+ACC-105,GCP,Cloud Storage,us-west1,2026-01-22,215,329.43,1424.48,134.95,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,35.12
+ACC-127,GCP,Cloud Storage,asia-south1,2026-01-06,583,308.61,1293.81,134.81,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,35.09
+ACC-133,GCP,Cloud Storage,asia-south1,2026-03-28,487,560.29,112.83,134.7,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,35.06
+ACC-149,AWS,EC2,ap-south-1,2026-03-27,483,513.4,56.1,134.48,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,35.0
+ACC-121,AWS,RDS,us-east-1,2026-01-20,241,165.78,1212.0,133.68,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,34.79
+ACC-111,GCP,Compute Engine,asia-south1,2026-03-26,323,38.66,561.08,133.32,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,34.7
+ACC-124,GCP,Cloud Storage,asia-south1,2026-02-19,289,857.45,833.33,132.89,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,34.59
+ACC-116,GCP,Cloud SQL,asia-south1,2026-02-20,258,419.1,1571.9,132.36,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,34.45
+ACC-127,GCP,Cloud Storage,asia-south1,2026-01-02,279,259.87,1614.07,131.68,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,34.27
+ACC-138,Azure,Azure SQL,westus,2026-03-11,546,350.59,1139.99,131.38,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,34.19
+ACC-149,AWS,RDS,us-west-2,2026-02-05,452,371.37,1865.49,131.29,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,34.17
+ACC-136,AWS,Lambda,us-west-2,2026-03-07,418,64.88,1721.53,131.08,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,34.12
+ACC-142,Azure,Functions,westus,2026-03-17,583,965.87,839.7,130.37,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,33.93
+ACC-108,Azure,Functions,westus,2026-01-11,602,141.66,1723.37,130.18,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,33.88
+ACC-104,Azure,Azure SQL,centralindia,2026-03-28,213,953.26,302.7,130.04,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,33.85
+ACC-112,AWS,S3,us-west-2,2026-02-10,412,226.38,1155.95,129.48,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,33.7
+ACC-120,GCP,Cloud Storage,asia-south1,2026-02-01,217,467.64,554.5,129.28,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,33.65
+ACC-134,Azure,Blob Storage,eastus,2026-03-09,224,38.29,1333.83,129.22,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,33.63
+ACC-100,GCP,Cloud SQL,us-west1,2026-03-03,602,234.86,197.32,129.06,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,33.59
+ACC-129,GCP,Cloud Storage,us-central1,2026-01-03,355,468.37,1443.81,128.93,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,33.56
+ACC-108,GCP,Cloud SQL,us-west1,2026-01-20,535,76.46,1666.91,128.47,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,33.44
+ACC-113,Azure,Functions,centralindia,2026-03-27,365,54.96,802.62,128.42,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,33.42
+ACC-136,AWS,Lambda,ap-south-1,2026-01-28,129,726.34,1589.95,127.57,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,33.2
+ACC-142,AWS,EC2,ap-south-1,2026-03-12,583,130.92,972.83,127.46,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,33.17
+ACC-120,GCP,Cloud Storage,us-west1,2026-02-27,283,419.68,1658.29,127.34,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,33.14
+ACC-114,GCP,Compute Engine,us-west1,2026-01-11,214,280.06,1812.51,126.9,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,33.03
+ACC-127,AWS,Lambda,us-east-1,2026-01-17,657,233.93,1366.37,126.87,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,33.02
+ACC-146,GCP,Cloud Functions,us-central1,2026-03-02,466,198.51,211.92,125.55,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,32.68
+ACC-103,GCP,Compute Engine,us-west1,2026-03-16,589,53.05,357.23,124.88,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,32.5
+ACC-122,GCP,Cloud Storage,asia-south1,2026-02-13,581,527.87,1407.15,124.75,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,32.47
+ACC-148,Azure,Virtual Machines,centralindia,2026-03-11,103,999.91,712.92,123.41,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,32.12
+ACC-140,AWS,S3,us-east-1,2026-02-28,101,918.85,1415.18,123.22,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,32.07
+ACC-121,GCP,Cloud Functions,us-central1,2026-02-20,389,693.61,117.6,122.42,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,31.86
+ACC-116,Azure,Virtual Machines,eastus,2026-03-12,209,279.62,1217.56,122.06,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,31.77
+ACC-105,AWS,EC2,us-west-2,2026-03-04,125,581.25,1379.17,121.99,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,31.75
+ACC-123,GCP,Cloud SQL,asia-south1,2026-02-06,354,245.17,118.28,121.99,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,31.75
+ACC-147,Azure,Functions,westus,2026-02-24,619,665.25,983.61,121.94,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,31.74
+ACC-123,Azure,Azure SQL,eastus,2026-01-29,549,239.43,543.43,121.75,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,31.69
+ACC-110,AWS,EC2,ap-south-1,2026-03-04,120,978.2,1074.76,121.59,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,31.65
+ACC-143,Azure,Blob Storage,eastus,2026-03-30,352,211.96,1091.52,121.52,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,31.63
+ACC-115,GCP,Compute Engine,asia-south1,2026-02-08,260,522.57,1028.85,121.31,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,31.57
+ACC-149,AWS,EC2,us-west-2,2026-01-28,90,923.35,1898.39,121.3,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,31.57
+ACC-119,Azure,Blob Storage,westus,2026-01-09,530,447.79,619.58,121.27,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,31.56
+ACC-106,AWS,RDS,ap-south-1,2026-03-28,434,402.69,1435.73,120.8,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,31.44
+ACC-126,GCP,Cloud Functions,asia-south1,2026-02-11,332,524.49,1835.98,120.55,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,31.38
+ACC-138,Azure,Virtual Machines,centralindia,2026-01-29,713,157.5,545.95,119.56,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,31.12
+ACC-115,AWS,Lambda,us-west-2,2026-01-31,388,970.44,119.69,119.54,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,31.11
+ACC-124,GCP,Cloud Storage,us-west1,2026-03-20,503,861.36,191.64,119.36,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,31.07
+ACC-119,GCP,Cloud Storage,us-west1,2026-02-25,121,949.39,1843.13,118.78,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,30.91
+ACC-145,GCP,Compute Engine,us-central1,2026-02-22,110,992.56,1736.75,118.78,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,30.91
+ACC-116,Azure,Azure SQL,centralindia,2026-01-14,96,897.91,995.0,118.76,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,30.91
+ACC-140,GCP,Cloud SQL,asia-south1,2026-03-24,658,612.96,610.98,118.09,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,30.73
+ACC-111,GCP,Cloud Functions,us-west1,2026-03-18,191,579.06,857.62,117.35,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,30.54
+ACC-135,GCP,Compute Engine,us-central1,2026-02-25,346,788.5,313.06,117.33,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,30.54
+ACC-116,GCP,Cloud SQL,us-west1,2026-02-08,306,566.52,1144.31,116.83,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,30.41
+ACC-135,GCP,Compute Engine,us-central1,2026-02-15,710,162.38,1081.98,116.71,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,30.38
+ACC-146,Azure,Azure SQL,westus,2026-02-05,660,704.17,567.01,116.66,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,30.36
+ACC-124,AWS,EC2,us-east-1,2026-03-02,664,441.02,146.88,116.18,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,30.24
+ACC-121,Azure,Virtual Machines,eastus,2026-02-14,377,176.21,1772.93,116.1,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,30.22
+ACC-136,AWS,RDS,us-west-2,2026-01-03,164,929.81,1759.87,114.57,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,29.82
+ACC-115,Azure,Blob Storage,westus,2026-01-25,165,41.9,1327.19,114.38,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,29.77
+ACC-113,Azure,Functions,eastus,2026-03-01,633,614.23,770.4,113.4,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,29.51
+ACC-118,Azure,Blob Storage,eastus,2026-02-12,216,733.81,1303.6,113.39,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,29.51
+ACC-109,Azure,Blob Storage,eastus,2026-02-13,231,919.59,1691.68,113.35,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,29.5
+ACC-112,AWS,RDS,ap-south-1,2026-02-06,514,80.47,482.18,112.89,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,29.38
+ACC-146,Azure,Azure SQL,eastus,2026-01-15,317,186.78,1925.82,112.52,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,29.29
+ACC-141,AWS,S3,ap-south-1,2026-03-21,669,344.24,1849.38,112.48,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,29.27
+ACC-108,GCP,Cloud Storage,us-west1,2026-01-10,284,389.24,1466.91,112.28,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,29.22
+ACC-125,Azure,Functions,eastus,2026-01-11,215,350.19,640.69,111.99,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,29.15
+ACC-120,AWS,EC2,us-east-1,2026-02-28,146,525.93,1964.59,111.74,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,29.08
+ACC-132,AWS,RDS,us-west-2,2026-01-15,445,264.02,1453.47,111.19,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,28.94
+ACC-100,AWS,EC2,us-east-1,2026-03-23,494,331.27,351.37,110.68,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,28.81
+ACC-140,AWS,Lambda,us-east-1,2026-03-21,352,800.07,1431.95,110.57,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,28.78
+ACC-145,AWS,RDS,us-east-1,2026-02-27,365,468.71,1707.91,110.46,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,28.75
+ACC-107,AWS,S3,us-east-1,2026-02-25,168,458.84,1225.49,109.64,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,28.54
+ACC-107,GCP,Compute Engine,asia-south1,2026-01-30,314,413.56,913.23,108.76,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,28.31
+ACC-137,GCP,Cloud SQL,us-central1,2026-02-08,196,985.84,1052.08,108.47,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,28.23
+ACC-120,Azure,Azure SQL,westus,2026-03-04,150,972.77,471.36,108.35,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,28.2
+ACC-137,Azure,Blob Storage,centralindia,2026-03-12,331,133.92,619.59,108.24,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,28.17
+ACC-121,AWS,S3,us-west-2,2026-02-09,451,137.66,1423.49,107.85,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,28.07
+ACC-141,AWS,Lambda,us-east-1,2026-03-13,472,968.11,1123.43,107.69,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,28.03
+ACC-149,Azure,Functions,westus,2026-01-18,303,284.2,186.81,107.47,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,27.97
+ACC-124,Azure,Virtual Machines,westus,2026-02-20,532,494.21,1328.86,107.38,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,27.95
+ACC-123,AWS,S3,ap-south-1,2026-01-02,217,501.45,706.48,107.16,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,27.89
+ACC-137,AWS,Lambda,ap-south-1,2026-03-29,234,178.28,176.36,107.1,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,27.87
+ACC-121,Azure,Blob Storage,centralindia,2026-02-21,354,459.01,1383.45,106.51,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,27.72
+ACC-144,AWS,Lambda,ap-south-1,2026-01-22,671,890.86,331.07,106.37,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,27.68
+ACC-122,AWS,RDS,ap-south-1,2026-02-09,410,112.56,1024.68,106.17,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,27.63
+ACC-149,AWS,EC2,ap-south-1,2026-03-09,281,641.57,123.93,105.82,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,27.54
+ACC-106,GCP,Compute Engine,asia-south1,2026-03-21,114,758.4,1179.5,105.7,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,27.51
+ACC-130,AWS,S3,us-east-1,2026-02-26,371,424.59,837.66,105.69,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,27.51
+ACC-141,AWS,RDS,ap-south-1,2026-01-09,306,107.22,1456.67,105.23,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,27.39
+ACC-116,Azure,Blob Storage,centralindia,2026-02-14,266,418.53,1298.94,105.09,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,27.35
+ACC-147,Azure,Functions,westus,2026-01-06,90,980.78,661.66,104.81,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,27.28
+ACC-133,Azure,Blob Storage,eastus,2026-01-18,208,86.39,1691.97,103.39,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,26.91
+ACC-140,Azure,Azure SQL,centralindia,2026-02-03,94,732.43,1081.73,102.8,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,26.76
+ACC-120,AWS,Lambda,us-west-2,2026-03-13,618,517.32,224.52,102.78,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,26.75
+ACC-142,Azure,Azure SQL,centralindia,2026-03-18,108,946.26,1644.05,102.47,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,26.67
+ACC-111,AWS,EC2,us-east-1,2026-02-21,397,802.59,236.35,101.75,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,26.48
+ACC-144,Azure,Blob Storage,westus,2026-01-23,359,24.01,1077.59,101.66,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,26.46
+ACC-111,Azure,Azure SQL,centralindia,2026-01-08,141,655.78,479.8,100.92,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,26.27
+ACC-117,GCP,Cloud Functions,us-west1,2026-01-07,242,523.25,1252.82,100.53,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,26.16
+ACC-112,AWS,EC2,ap-south-1,2026-02-28,66,132.99,1718.15,100.42,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,26.14
+ACC-130,AWS,EC2,ap-south-1,2026-02-16,119,953.87,1097.28,99.44,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,25.88
+ACC-128,AWS,RDS,us-east-1,2026-01-18,89,294.01,1662.93,99.4,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,25.87
+ACC-108,AWS,Lambda,us-west-2,2026-01-26,199,802.04,1482.31,99.13,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,25.8
+ACC-141,AWS,EC2,ap-south-1,2026-03-23,166,535.3,403.93,98.99,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,25.76
+ACC-135,GCP,Cloud Storage,asia-south1,2026-03-27,517,950.85,739.42,96.92,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,25.23
+ACC-103,AWS,EC2,us-west-2,2026-03-25,88,381.44,1287.84,96.08,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,25.01
+ACC-104,GCP,Cloud SQL,asia-south1,2026-03-18,173,798.26,1140.55,95.81,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,24.94
+ACC-132,AWS,Lambda,us-east-1,2026-01-29,166,466.83,252.58,95.11,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,24.75
+ACC-116,GCP,Cloud Functions,us-west1,2026-02-14,199,297.55,589.51,95.02,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,24.73
+ACC-102,GCP,Compute Engine,us-central1,2026-01-31,227,556.47,329.93,94.39,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,24.57
+ACC-138,GCP,Cloud Storage,asia-south1,2026-01-11,562,748.0,704.8,94.1,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,24.49
+ACC-143,GCP,Cloud SQL,asia-south1,2026-02-22,384,408.38,605.4,93.73,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,24.39
+ACC-134,Azure,Functions,centralindia,2026-01-05,388,89.42,1506.13,93.28,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,24.28
+ACC-121,Azure,Functions,centralindia,2026-01-15,147,852.73,1782.78,93.05,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,24.22
+ACC-100,GCP,Cloud Functions,asia-south1,2026-01-05,515,97.18,519.75,92.69,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,24.12
+ACC-137,AWS,EC2,us-west-2,2026-03-21,121,901.12,649.22,92.17,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,23.99
+ACC-128,AWS,EC2,us-east-1,2026-03-21,201,870.06,1643.87,91.81,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,23.9
+ACC-110,Azure,Azure SQL,eastus,2026-02-08,95,812.08,247.87,91.6,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,23.84
+ACC-109,Azure,Functions,centralindia,2026-03-12,92,455.24,1623.44,91.47,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,23.81
+ACC-112,Azure,Functions,eastus,2026-01-05,596,207.42,758.74,90.41,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,23.53
+ACC-109,AWS,S3,us-west-2,2026-02-19,185,117.48,420.65,90.23,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,23.48
+ACC-102,Azure,Azure SQL,centralindia,2026-01-18,76,658.85,1994.99,90.2,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,23.48
+ACC-131,Azure,Blob Storage,westus,2026-01-16,98,246.06,1285.12,89.83,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,23.38
+ACC-100,GCP,Cloud Functions,us-west1,2026-01-21,90,552.66,1822.51,89.56,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,23.31
+ACC-113,Azure,Blob Storage,centralindia,2026-03-28,196,77.73,1135.32,88.91,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,23.14
+ACC-128,Azure,Functions,eastus,2026-01-02,150,266.15,1031.14,88.31,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,22.98
+ACC-113,AWS,Lambda,ap-south-1,2026-03-10,463,101.03,457.97,88.14,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,22.94
+ACC-133,AWS,S3,us-east-1,2026-01-26,159,490.52,215.53,87.76,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,22.84
+ACC-130,AWS,EC2,ap-south-1,2026-03-25,491,526.82,753.35,86.43,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,22.49
+ACC-111,AWS,EC2,us-west-2,2026-02-26,84,583.78,1470.07,86.07,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,22.4
+ACC-106,AWS,RDS,ap-south-1,2026-03-30,59,951.48,22.89,86.03,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,22.39
+ACC-116,AWS,S3,ap-south-1,2026-03-07,172,383.43,868.45,85.48,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,22.25
+ACC-110,AWS,EC2,ap-south-1,2026-02-01,281,696.59,701.81,85.1,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,22.15
+ACC-123,Azure,Functions,centralindia,2026-03-24,141,196.06,438.55,84.1,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,21.89
+ACC-105,AWS,Lambda,us-east-1,2026-02-07,690,604.21,415.36,84.04,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,21.87
+ACC-106,AWS,EC2,us-west-2,2026-02-23,153,665.86,554.55,83.55,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,21.75
+ACC-132,AWS,RDS,us-west-2,2026-02-11,172,17.65,1499.09,82.77,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,21.54
+ACC-119,GCP,Cloud Functions,asia-south1,2026-03-14,356,480.14,52.94,82.01,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,21.34
+ACC-128,GCP,Cloud SQL,us-west1,2026-01-25,71,692.36,729.17,81.14,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,21.12
+ACC-137,Azure,Functions,centralindia,2026-02-28,196,272.23,508.32,81.09,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,21.11
+ACC-129,Azure,Virtual Machines,centralindia,2026-03-28,103,187.55,1612.59,80.61,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,20.98
+ACC-109,GCP,Compute Engine,asia-south1,2026-01-03,99,692.85,845.22,79.81,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,20.77
+ACC-125,GCP,Cloud Storage,us-central1,2026-03-22,574,48.8,1153.09,79.0,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,20.56
+ACC-136,AWS,EC2,us-east-1,2026-02-12,122,519.01,571.38,78.7,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,20.48
+ACC-142,GCP,Cloud Storage,asia-south1,2026-02-08,212,875.68,1755.66,78.48,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,20.43
+ACC-144,AWS,Lambda,us-west-2,2026-03-11,83,507.45,799.56,78.23,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,20.36
+ACC-141,Azure,Blob Storage,centralindia,2026-03-19,259,402.67,493.88,77.7,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,20.22
+ACC-132,GCP,Compute Engine,us-west1,2026-03-25,418,695.84,143.01,77.38,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,20.14
+ACC-126,Azure,Blob Storage,eastus,2026-01-26,189,782.14,1177.72,76.54,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,19.92
+ACC-141,GCP,Cloud Functions,asia-south1,2026-03-02,309,46.25,1300.86,76.18,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,19.83
+ACC-108,GCP,Cloud SQL,us-west1,2026-02-27,508,960.23,20.39,76.1,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,19.81
+ACC-114,AWS,EC2,us-east-1,2026-01-28,288,510.3,72.54,74.85,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,19.48
+ACC-123,AWS,RDS,us-west-2,2026-02-16,159,163.23,1310.12,74.34,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,19.35
+ACC-140,AWS,RDS,ap-south-1,2026-01-16,80,341.66,870.06,74.25,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,19.32
+ACC-129,Azure,Azure SQL,westus,2026-01-07,204,145.99,416.59,73.76,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,19.2
+ACC-106,Azure,Blob Storage,eastus,2026-01-31,321,214.71,421.48,73.63,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,19.16
+ACC-138,AWS,S3,us-east-1,2026-03-18,119,678.46,485.7,73.51,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,19.13
+ACC-130,AWS,Lambda,us-east-1,2026-01-18,325,308.12,996.39,72.81,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,18.95
+ACC-125,GCP,Cloud Functions,us-central1,2026-01-14,148,529.14,497.12,72.44,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,18.85
+ACC-105,AWS,Lambda,us-west-2,2026-02-16,159,100.61,1887.06,71.84,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,18.7
+ACC-129,Azure,Virtual Machines,eastus,2026-01-20,286,389.2,322.55,68.21,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,17.75
+ACC-149,AWS,EC2,us-east-1,2026-02-07,83,282.1,1084.47,66.71,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,17.36
+ACC-116,GCP,Compute Engine,us-central1,2026-02-11,201,100.3,511.47,66.11,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,17.21
+ACC-132,AWS,S3,us-east-1,2026-03-26,247,404.48,571.63,65.79,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,17.12
+ACC-134,Azure,Functions,centralindia,2026-03-07,168,391.34,1161.64,64.3,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,16.74
+ACC-105,GCP,Cloud Storage,us-central1,2026-02-27,227,949.57,350.99,62.37,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,16.23
+ACC-128,AWS,EC2,us-east-1,2026-03-18,84,451.98,1350.61,61.99,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,16.13
+ACC-132,GCP,Cloud Functions,asia-south1,2026-01-06,96,48.52,1432.91,61.35,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,15.97
+ACC-110,AWS,RDS,us-west-2,2026-02-01,194,105.84,594.62,60.56,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,15.76
+ACC-116,GCP,Cloud Functions,us-west1,2026-01-07,144,637.94,1662.11,60.46,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,15.74
+ACC-132,GCP,Compute Engine,asia-south1,2026-02-10,108,59.64,964.04,60.03,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,15.62
+ACC-121,Azure,Azure SQL,centralindia,2026-03-10,59,703.81,541.43,59.31,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,15.44
+ACC-117,AWS,RDS,ap-south-1,2026-01-24,132,492.71,1269.44,58.94,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,15.34
+ACC-111,Azure,Azure SQL,westus,2026-02-02,286,129.45,401.32,57.93,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,15.08
+ACC-143,GCP,Cloud Storage,us-west1,2026-02-07,320,469.63,217.62,56.98,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,14.83
+ACC-137,GCP,Compute Engine,us-west1,2026-02-26,125,900.27,657.78,56.82,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,14.79
+ACC-100,AWS,Lambda,ap-south-1,2026-02-09,229,495.53,198.71,56.75,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,14.77
+ACC-109,GCP,Compute Engine,us-central1,2026-03-07,52,53.6,1728.6,54.94,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,14.3
+ACC-126,GCP,Cloud Functions,us-west1,2026-03-25,220,121.93,1398.42,54.54,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,14.19
+ACC-133,AWS,Lambda,us-east-1,2026-02-13,136,509.5,361.67,54.03,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,14.06
+ACC-145,Azure,Azure SQL,centralindia,2026-01-30,57,552.73,393.37,53.47,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,13.92
+ACC-127,AWS,EC2,us-west-2,2026-02-18,436,557.17,131.11,52.59,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,13.69
+ACC-124,Azure,Functions,centralindia,2026-02-04,145,378.9,698.59,51.86,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,13.5
+ACC-146,AWS,Lambda,us-west-2,2026-02-01,56,268.18,486.33,51.43,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,13.39
+ACC-109,GCP,Cloud SQL,asia-south1,2026-03-17,136,675.39,640.11,51.13,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,13.31
+ACC-123,AWS,RDS,us-west-2,2026-02-24,222,14.78,507.43,50.8,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,13.22
+ACC-137,AWS,RDS,us-west-2,2026-02-22,96,566.9,458.12,50.59,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,13.17
+ACC-115,GCP,Cloud Functions,asia-south1,2026-03-25,59,123.57,705.09,49.72,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,12.94
+ACC-125,GCP,Cloud SQL,us-central1,2026-02-20,93,441.86,930.31,49.5,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,12.88
+ACC-143,GCP,Compute Engine,us-central1,2026-02-18,198,62.53,132.08,45.98,No Immediate Action,LOW,Check utilization and consider right-sizing the compute resource.,Normal Cost,11.97
+ACC-141,GCP,Cloud Functions,us-west1,2026-01-25,55,712.06,1583.06,45.44,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,11.83
+ACC-116,GCP,Cloud Functions,asia-south1,2026-01-10,207,33.52,1439.4,44.61,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,11.61
+ACC-132,AWS,RDS,ap-south-1,2026-02-13,164,300.57,333.15,44.44,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,11.57
+ACC-120,Azure,Azure SQL,eastus,2026-02-23,104,402.49,760.44,43.94,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,11.44
+ACC-142,AWS,RDS,us-west-2,2026-01-20,90,162.17,658.81,43.91,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,11.43
+ACC-116,AWS,RDS,us-east-1,2026-01-15,76,140.49,729.32,43.2,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,11.24
+ACC-113,Azure,Functions,centralindia,2026-02-21,134,644.13,1084.56,42.77,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,11.13
+ACC-148,AWS,Lambda,ap-south-1,2026-03-18,208,377.68,197.17,41.82,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,10.88
+ACC-133,AWS,S3,us-west-2,2026-03-04,111,972.83,301.9,38.9,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,10.12
+ACC-121,GCP,Cloud Storage,us-central1,2026-02-27,125,801.2,86.16,34.81,No Immediate Action,LOW,"Review stored data, remove unnecessary storage, and consider lifecycle policies.",Normal Cost,9.06
+ACC-137,AWS,Lambda,us-west-2,2026-02-02,66,363.52,153.77,33.7,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,8.77
+ACC-116,GCP,Cloud Functions,us-west1,2026-03-30,58,21.7,437.29,32.91,No Immediate Action,LOW,"Review invocation patterns, execution usage, and unnecessary workloads.",Normal Cost,8.57
+ACC-106,GCP,Cloud SQL,asia-south1,2026-01-25,121,55.37,471.24,32.6,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,8.48
+ACC-131,Azure,Azure SQL,eastus,2026-02-26,58,240.48,318.35,30.54,No Immediate Action,LOW,"Review database utilization, sizing, and scaling requirements.",Normal Cost,7.95

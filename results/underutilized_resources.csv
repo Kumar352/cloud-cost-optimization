@@ -1,0 +1,501 @@
+Account_ID,Cloud_Provider,Service,Region,Usage_Date,Usage_Hours,Data_Transfer_GB,Storage_GB,Monthly_Cost,Cost_Per_Hour,Underutilization_Score,Underutilization_Priority,Underutilization_Flag,Underutilization_Action
+ACC-114,Azure,Virtual Machines,centralindia,2026-03-29,100,911.51,1495.44,166.9,1.669,68.16,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-135,AWS,Lambda,us-east-1,2026-02-26,139,812.41,1935.77,182.26,1.3112230215827338,64.68,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-137,AWS,S3,us-west-2,2026-03-22,128,730.15,1786.37,165.99,1.296796875,64.06,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-135,GCP,Cloud SQL,us-central1,2026-03-01,127,149.35,1933.67,154.77,1.2186614173228347,62.7,HIGH,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-122,GCP,Compute Engine,us-west1,2026-01-15,158,502.76,1225.82,152.38,0.9644303797468354,57.99,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-110,Azure,Azure SQL,centralindia,2026-02-20,191,856.45,1325.38,153.79,0.8051832460732984,53.5,HIGH,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-131,GCP,Cloud Storage,us-west1,2026-02-06,193,195.23,1687.13,154.56,0.8008290155440415,53.31,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-124,GCP,Cloud Functions,us-central1,2026-03-22,201,835.77,530.61,152.39,0.7581592039800994,51.89,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-124,Azure,Virtual Machines,westus,2026-02-22,234,771.28,1536.34,187.2,0.7999999999999999,51.87,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-115,AWS,S3,us-west-2,2026-01-04,233,739.2,677.73,177.99,0.7639055793991417,50.78,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-124,AWS,Lambda,us-east-1,2026-02-08,216,568.32,1142.06,153.9,0.7125,49.96,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-140,GCP,Cloud SQL,us-central1,2026-03-23,244,624.68,1361.97,178.97,0.7334836065573771,49.35,HIGH,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-142,GCP,Cloud Functions,asia-south1,2026-02-10,228,710.11,1132.72,158.39,0.6946929824561403,48.86,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-106,Azure,Virtual Machines,centralindia,2026-01-09,290,634.85,1843.44,220.19,0.7592758620689655,48.34,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-136,GCP,Cloud Storage,us-west1,2026-02-10,231,964.93,1938.08,157.43,0.6815151515151515,48.31,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-111,AWS,RDS,ap-south-1,2026-01-08,274,579.94,1965.68,202.68,0.7397080291970803,48.27,HIGH,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-140,GCP,Cloud SQL,asia-south1,2026-01-06,229,475.8,1309.99,150.51,0.6572489082969432,47.67,HIGH,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-124,AWS,S3,us-west-2,2026-03-02,248,374.16,1895.32,166.32,0.6706451612903226,47.09,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-136,GCP,Cloud Storage,us-west1,2026-03-06,276,161.67,1353.8,190.84,0.6914492753623188,46.4,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-101,Azure,Azure SQL,centralindia,2026-03-05,250,735.14,1102.19,160.86,0.64344,46.07,HIGH,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-137,GCP,Compute Engine,asia-south1,2026-03-02,321,967.4,1570.15,227.66,0.709221183800623,44.94,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-149,GCP,Cloud Functions,us-west1,2026-02-21,299,156.1,1381.49,196.38,0.6567892976588628,43.88,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-134,GCP,Compute Engine,asia-south1,2026-01-09,265,673.63,1551.69,154.72,0.5838490566037736,43.12,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-135,Azure,Virtual Machines,westus,2026-01-29,269,857.16,62.97,154.61,0.5747583643122677,42.54,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-126,GCP,Cloud Functions,us-west1,2026-03-19,304,280.86,1927.92,174.76,0.5748684210526316,40.27,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-134,AWS,S3,us-west-2,2026-03-23,310,464.97,1340.34,176.52,0.5694193548387098,39.66,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-136,Azure,Blob Storage,centralindia,2026-03-24,357,462.65,1859.46,221.88,0.6215126050420168,39.06,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-128,Azure,Virtual Machines,westus,2026-01-27,305,696.24,713.95,163.8,0.5370491803278689,38.67,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-120,GCP,Compute Engine,us-west1,2026-01-15,314,76.88,1274.65,169.51,0.5398407643312102,38.15,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-128,GCP,Cloud Storage,us-central1,2026-02-07,317,852.4,1853.56,172.34,0.5436593059936908,38.11,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-114,Azure,Blob Storage,eastus,2026-03-12,316,548.03,1997.48,164.9,0.5218354430379747,37.25,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-140,Azure,Virtual Machines,westus,2026-01-02,320,541.21,920.48,166.87,0.52146875,36.95,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-149,GCP,Cloud Storage,us-west1,2026-02-09,351,136.07,1463.09,199.24,0.5676353276353276,36.88,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-149,GCP,Compute Engine,us-central1,2026-01-03,312,223.5,316.05,153.77,0.4928525641025641,36.33,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-107,Azure,Virtual Machines,westus,2026-02-12,316,367.35,1129.49,156.72,0.4959493670886076,36.16,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-144,Azure,Blob Storage,westus,2026-01-06,319,445.34,541.53,155.05,0.48605015673981194,35.51,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-121,GCP,Cloud Storage,us-west1,2026-02-17,339,393.54,1553.44,172.39,0.5085250737463126,34.99,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-143,GCP,Cloud Storage,us-west1,2026-03-12,345,82.8,1018.43,178.1,0.516231884057971,34.91,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-118,GCP,Cloud SQL,asia-south1,2026-03-12,371,714.76,1872.31,199.18,0.5368733153638814,34.04,HIGH,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-109,GCP,Compute Engine,us-central1,2026-03-19,375,921.83,1935.71,198.24,0.52864,33.35,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-114,GCP,Compute Engine,asia-south1,2026-03-26,340,947.78,448.85,157.39,0.4629117647058823,32.84,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-149,GCP,Cloud Functions,us-west1,2026-01-06,353,899.3,401.17,170.74,0.48368271954674225,32.79,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-131,GCP,Cloud Functions,asia-south1,2026-03-27,416,851.61,1595.44,229.32,0.55125,31.69,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-109,GCP,Compute Engine,us-west1,2026-01-22,356,904.39,111.06,163.74,0.45994382022471914,31.42,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-138,GCP,Cloud Functions,us-central1,2026-03-23,360,249.6,1324.15,157.51,0.43752777777777774,30.02,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-145,Azure,Functions,westus,2026-01-20,357,382.7,1513.74,151.03,0.4230532212885154,29.58,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-136,AWS,S3,ap-south-1,2026-02-10,417,914.84,75.85,213.75,0.512589928057554,29.47,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-148,GCP,Cloud Functions,asia-south1,2026-01-11,386,853.82,1721.5,179.32,0.464559585492228,29.25,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-138,Azure,Functions,westus,2026-02-26,392,436.31,1650.6,184.65,0.47104591836734694,29.12,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-128,Azure,Functions,westus,2026-03-29,370,966.17,126.53,160.47,0.4337027027027027,29.0,HIGH,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-122,Azure,Azure SQL,eastus,2026-01-11,385,664.31,626.86,166.67,0.43290909090909085,27.7,HIGH,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-124,Azure,Blob Storage,eastus,2026-03-21,422,778.26,492.8,205.53,0.48703791469194313,27.66,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-140,AWS,S3,ap-south-1,2026-02-21,396,802.85,1235.77,174.53,0.44073232323232325,27.19,HIGH,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-124,GCP,Compute Engine,us-central1,2026-03-27,402,810.1,839.69,176.12,0.4381094527363184,26.56,HIGH,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-113,GCP,Cloud Storage,us-west1,2026-01-17,92,315.18,1799.98,139.32,1.5143478260869565,65.6,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-112,AWS,EC2,ap-south-1,2026-02-28,66,132.99,1718.15,100.42,1.5215151515151515,64.08,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-149,AWS,EC2,us-west-2,2026-01-28,90,923.35,1898.39,121.3,1.3477777777777777,63.47,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-106,AWS,RDS,ap-south-1,2026-03-30,59,951.48,22.89,86.03,1.458135593220339,63.15,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-116,Azure,Azure SQL,centralindia,2026-01-14,96,897.91,995.0,118.76,1.2370833333333333,62.28,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-140,AWS,S3,us-east-1,2026-02-28,101,918.85,1415.18,123.22,1.22,62.17,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-148,Azure,Virtual Machines,centralindia,2026-03-11,103,999.91,712.92,123.41,1.1981553398058251,61.91,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-102,Azure,Azure SQL,centralindia,2026-01-18,76,658.85,1994.99,90.2,1.186842105263158,61.29,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-147,Azure,Functions,westus,2026-01-06,90,980.78,661.66,104.81,1.1645555555555556,61.26,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-114,GCP,Compute Engine,asia-south1,2026-01-05,126,945.74,1343.07,141.17,1.1203968253968253,61.03,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-128,GCP,Cloud SQL,us-west1,2026-01-25,71,692.36,729.17,81.14,1.1428169014084506,60.79,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-128,AWS,RDS,us-east-1,2026-01-18,89,294.01,1662.93,99.4,1.1168539325842697,60.68,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-140,Azure,Azure SQL,centralindia,2026-02-03,94,732.43,1081.73,102.8,1.0936170212765957,60.43,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-103,AWS,EC2,us-west-2,2026-03-25,88,381.44,1287.84,96.08,1.0918181818181818,60.38,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-145,GCP,Compute Engine,us-central1,2026-02-22,110,992.56,1736.75,118.78,1.0798181818181818,60.3,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-109,GCP,Compute Engine,us-central1,2026-03-07,52,53.6,1728.6,54.94,1.0565384615384614,59.98,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-111,AWS,EC2,us-west-2,2026-02-26,84,583.78,1470.07,86.07,1.024642857142857,59.61,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-121,Azure,Azure SQL,centralindia,2026-03-10,59,703.81,541.43,59.31,1.0052542372881357,59.57,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-110,AWS,EC2,ap-south-1,2026-03-04,120,978.2,1074.76,121.59,1.01325,59.26,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-100,GCP,Cloud Functions,us-west1,2026-01-21,90,552.66,1822.51,89.56,0.9951111111111112,59.22,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-109,Azure,Functions,centralindia,2026-03-12,92,455.24,1623.44,91.47,0.9942391304347826,59.2,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-145,Azure,Azure SQL,centralindia,2026-01-30,57,552.73,393.37,53.47,0.9380701754385965,59.07,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-146,AWS,Lambda,us-west-2,2026-02-01,56,268.18,486.33,51.43,0.9183928571428571,58.94,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-110,Azure,Azure SQL,eastus,2026-02-08,95,812.08,247.87,91.6,0.9642105263157894,58.79,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-136,AWS,Lambda,ap-south-1,2026-01-28,129,726.34,1589.95,127.57,0.9889147286821705,58.78,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-119,GCP,Cloud Storage,us-west1,2026-02-25,121,949.39,1843.13,118.78,0.9816528925619835,58.74,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-144,AWS,Lambda,us-west-2,2026-03-11,83,507.45,799.56,78.23,0.9425301204819277,58.7,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-105,AWS,EC2,us-west-2,2026-03-04,125,581.25,1379.17,121.99,0.97592,58.6,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-140,AWS,RDS,ap-south-1,2026-01-16,80,341.66,870.06,74.25,0.928125,58.59,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-142,Azure,Azure SQL,centralindia,2026-03-18,108,946.26,1644.05,102.47,0.9487962962962962,58.4,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-115,GCP,Cloud Functions,asia-south1,2026-03-25,59,123.57,705.09,49.72,0.8427118644067796,58.29,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-141,GCP,Cloud Functions,us-west1,2026-01-25,55,712.06,1583.06,45.44,0.8261818181818181,58.28,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-131,Azure,Blob Storage,westus,2026-01-16,98,246.06,1285.12,89.83,0.9166326530612244,58.12,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-106,GCP,Compute Engine,asia-south1,2026-03-21,114,758.4,1179.5,105.7,0.9271929824561403,57.98,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-149,AWS,EC2,us-east-1,2026-02-07,83,282.1,1084.47,66.71,0.8037349397590361,57.16,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-109,GCP,Compute Engine,asia-south1,2026-01-03,99,692.85,845.22,79.81,0.8061616161616162,56.64,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-130,AWS,EC2,ap-south-1,2026-02-16,119,953.87,1097.28,99.44,0.8356302521008403,56.43,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-128,AWS,EC2,us-east-1,2026-03-18,84,451.98,1350.61,61.99,0.7379761904761905,56.38,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-129,Azure,Virtual Machines,centralindia,2026-03-28,103,187.55,1612.59,80.61,0.782621359223301,56.18,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-116,GCP,Cloud Functions,us-west1,2026-03-30,58,21.7,437.29,32.91,0.5674137931034482,56.18,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-131,Azure,Azure SQL,eastus,2026-02-26,58,240.48,318.35,30.54,0.526551724137931,55.86,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-137,AWS,EC2,us-west-2,2026-03-21,121,901.12,649.22,92.17,0.7617355371900827,55.18,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-137,AWS,Lambda,us-west-2,2026-02-02,66,363.52,153.77,33.7,0.5106060606060606,55.15,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-116,AWS,RDS,us-east-1,2026-01-15,76,140.49,729.32,43.2,0.5684210526315789,55.0,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-132,GCP,Cloud Functions,asia-south1,2026-01-06,96,48.52,1432.91,61.35,0.6390625,54.6,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-120,AWS,EC2,us-east-1,2026-02-28,146,525.93,1964.59,111.74,0.7653424657534246,54.25,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-111,Azure,Azure SQL,centralindia,2026-01-08,141,655.78,479.8,100.92,0.7157446808510638,53.51,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-133,Azure,Blob Storage,westus,2026-01-05,179,507.27,1188.56,140.85,0.7868715083798883,53.47,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-125,GCP,Cloud SQL,us-central1,2026-02-20,93,441.86,930.31,49.5,0.532258064516129,53.44,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-136,AWS,EC2,us-east-1,2026-02-12,122,519.01,571.38,78.7,0.6450819672131147,53.23,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-120,Azure,Azure SQL,westus,2026-03-04,150,972.77,471.36,108.35,0.7223333333333333,53.23,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-137,AWS,RDS,us-west-2,2026-02-22,96,566.9,458.12,50.59,0.5269791666666667,53.16,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-142,AWS,RDS,us-west-2,2026-01-20,90,162.17,658.81,43.91,0.48788888888888887,53.11,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-138,AWS,S3,us-east-1,2026-03-18,119,678.46,485.7,73.51,0.6177310924369749,52.96,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-132,GCP,Compute Engine,asia-south1,2026-02-10,108,59.64,964.04,60.03,0.5558333333333333,52.72,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-136,AWS,RDS,us-west-2,2026-01-03,164,929.81,1759.87,114.57,0.6985975609756098,52.07,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-115,Azure,Blob Storage,westus,2026-01-25,165,41.9,1327.19,114.38,0.6932121212121212,51.91,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-136,Azure,Virtual Machines,eastus,2026-02-25,187,883.63,1460.47,137.29,0.7341711229946524,51.85,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-121,Azure,Functions,centralindia,2026-01-15,147,852.73,1782.78,93.05,0.6329931972789116,51.61,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-123,Azure,Functions,centralindia,2026-03-24,141,196.06,438.55,84.1,0.5964539007092198,51.26,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-120,Azure,Azure SQL,eastus,2026-02-23,104,402.49,760.44,43.94,0.4225,51.13,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-107,AWS,S3,us-east-1,2026-02-25,168,458.84,1225.49,109.64,0.6526190476190477,50.85,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-128,Azure,Functions,eastus,2026-01-02,150,266.15,1031.14,88.31,0.5887333333333333,50.55,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-137,GCP,Compute Engine,us-west1,2026-02-26,125,900.27,657.78,56.82,0.45456,49.88,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-132,GCP,Cloud Storage,us-central1,2026-03-09,208,454.89,1642.45,144.73,0.6958173076923077,49.87,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-141,AWS,EC2,ap-south-1,2026-03-23,166,535.3,403.93,98.99,0.5963253012048192,49.71,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-106,AWS,EC2,us-west-2,2026-02-23,153,665.86,554.55,83.55,0.546078431372549,49.48,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-133,AWS,S3,us-east-1,2026-01-26,159,490.52,215.53,87.76,0.5519496855345912,49.2,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-132,AWS,Lambda,us-east-1,2026-01-29,166,466.83,252.58,95.11,0.5729518072289157,49.19,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-117,AWS,RDS,ap-south-1,2026-01-24,132,492.71,1269.44,58.94,0.4465151515151515,49.17,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-125,GCP,Cloud Functions,us-central1,2026-01-14,148,529.14,497.12,72.44,0.48945945945945946,48.7,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-111,GCP,Cloud Functions,us-west1,2026-03-18,191,579.06,857.62,117.35,0.6143979057591623,48.62,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-132,AWS,RDS,ap-south-1,2026-02-10,216,399.03,1240.67,142.78,0.6610185185185186,48.48,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-104,GCP,Cloud SQL,asia-south1,2026-03-18,173,798.26,1140.55,95.81,0.5538150289017341,48.29,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-116,GCP,Cloud Functions,us-west1,2026-01-07,144,637.94,1662.11,60.46,0.41986111111111113,47.67,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-105,GCP,Cloud Storage,us-west1,2026-01-22,215,329.43,1424.48,134.95,0.6276744186046511,47.57,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-123,AWS,RDS,us-west-2,2026-02-16,159,163.23,1310.12,74.34,0.4675471698113208,47.4,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-104,Azure,Azure SQL,centralindia,2026-03-28,213,953.26,302.7,130.04,0.6105164319248826,47.2,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-105,AWS,Lambda,us-west-2,2026-02-16,159,100.61,1887.06,71.84,0.4518238993710692,47.06,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-116,AWS,S3,ap-south-1,2026-03-07,172,383.43,868.45,85.48,0.49697674418604654,47.05,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-137,GCP,Cloud SQL,us-central1,2026-02-08,196,985.84,1052.08,108.47,0.5534183673469387,46.72,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-116,Azure,Virtual Machines,eastus,2026-03-12,209,279.62,1217.56,122.06,0.5840191387559809,46.69,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-132,AWS,RDS,us-west-2,2026-02-11,172,17.65,1499.09,82.77,0.48122093023255813,46.68,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-114,GCP,Compute Engine,us-west1,2026-01-11,214,280.06,1812.51,126.9,0.5929906542056075,46.63,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-120,GCP,Cloud Storage,asia-south1,2026-02-01,217,467.64,554.5,129.28,0.5957603686635945,46.53,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-109,AWS,S3,us-west-2,2026-02-19,185,117.48,420.65,90.23,0.4877297297297298,45.84,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-134,Azure,Blob Storage,eastus,2026-03-09,224,38.29,1333.83,129.22,0.576875,45.53,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-108,AWS,Lambda,us-west-2,2026-01-26,199,802.04,1482.31,99.13,0.49814070351758793,45.04,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-118,Azure,Blob Storage,eastus,2026-02-12,216,733.81,1303.6,113.39,0.5249537037037038,44.54,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-125,Azure,Functions,eastus,2026-01-11,215,350.19,640.69,111.99,0.5208837209302325,44.5,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-116,GCP,Cloud Functions,us-west1,2026-02-14,199,297.55,589.51,95.02,0.4774874371859296,44.49,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-133,Azure,Blob Storage,eastus,2026-01-18,208,86.39,1691.97,103.39,0.49706730769230767,44.34,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-113,Azure,Blob Storage,centralindia,2026-03-28,196,77.73,1135.32,88.91,0.4536224489795918,44.1,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-128,AWS,EC2,us-east-1,2026-03-21,201,870.06,1643.87,91.81,0.45676616915422885,43.78,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-121,AWS,RDS,us-east-1,2026-01-20,241,165.78,1212.0,133.68,0.554688796680498,43.71,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-123,AWS,S3,ap-south-1,2026-01-02,217,501.45,706.48,107.16,0.4938248847926267,43.57,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-128,Azure,Functions,eastus,2026-03-11,255,715.82,810.0,146.89,0.5760392156862745,43.49,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-143,GCP,Cloud Functions,us-west1,2026-01-20,250,336.57,772.08,140.15,0.5606,43.3,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-109,Azure,Blob Storage,eastus,2026-02-13,231,919.59,1691.68,113.35,0.4906926406926407,42.41,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-126,GCP,Compute Engine,asia-south1,2026-03-01,264,444.07,596.84,143.66,0.5441666666666667,41.78,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-137,AWS,Lambda,ap-south-1,2026-03-29,234,178.28,176.36,107.1,0.4576923076923077,41.15,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-116,GCP,Cloud SQL,asia-south1,2026-02-20,258,419.1,1571.9,132.36,0.5130232558139536,41.12,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-132,Azure,Azure SQL,westus,2026-02-02,273,472.03,1360.85,142.12,0.5205860805860806,40.3,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-118,Azure,Virtual Machines,eastus,2026-02-15,278,746.77,628.03,140.92,0.5069064748201438,39.43,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-115,GCP,Compute Engine,asia-south1,2026-02-08,260,522.57,1028.85,121.31,0.4665769230769231,39.36,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-105,GCP,Cloud SQL,us-central1,2026-02-16,276,609.89,160.33,136.84,0.49579710144927536,39.17,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-127,GCP,Cloud Storage,asia-south1,2026-01-02,279,259.87,1614.07,131.68,0.4719713261648746,38.05,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-109,AWS,S3,ap-south-1,2026-01-28,288,335.27,312.16,136.26,0.47312499999999996,37.39,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-120,GCP,Cloud Storage,us-west1,2026-02-27,283,419.68,1658.29,127.34,0.44996466431095405,36.91,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-124,GCP,Cloud Storage,asia-south1,2026-02-19,289,857.45,833.33,132.89,0.4598269896193771,36.8,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-127,GCP,Compute Engine,us-central1,2026-02-05,300,230.98,1478.21,135.77,0.45256666666666673,35.62,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-149,AWS,S3,us-east-1,2026-01-19,312,205.3,1212.75,144.91,0.4644551282051282,35.14,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-146,Azure,Virtual Machines,centralindia,2026-01-15,324,777.36,1650.1,141.68,0.437283950617284,33.01,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-144,GCP,Cloud Functions,us-west1,2026-01-29,319,88.42,1258.14,135.77,0.4256112852664577,32.93,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-134,GCP,Cloud Functions,us-west1,2026-03-08,323,803.14,1459.62,139.78,0.43275541795665634,32.9,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-112,AWS,S3,ap-south-1,2026-03-03,333,727.34,1953.68,140.36,0.42150150150150156,31.56,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-134,Azure,Azure SQL,centralindia,2026-01-12,338,767.62,886.6,145.31,0.4299112426035503,31.51,MEDIUM,YES,Review database utilization and sizing. Consider scaling based on workload.
+ACC-103,AWS,S3,us-east-1,2026-01-09,396,30.82,1116.76,161.01,0.40659090909090906,25.38,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-148,AWS,EC2,us-east-1,2026-03-26,413,174.68,1233.1,172.97,0.4188135593220339,24.57,MEDIUM,YES,"Review compute utilization, consider right-sizing, scheduling, or removing unnecessary resources."
+ACC-140,GCP,Cloud Functions,asia-south1,2026-03-26,422,718.75,245.77,176.48,0.4181990521327014,23.77,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-115,GCP,Cloud Storage,asia-south1,2026-01-14,412,782.32,1770.59,165.37,0.4013834951456311,23.7,MEDIUM,YES,"Review stored data, remove unnecessary objects, and consider storage lifecycle policies."
+ACC-122,AWS,Lambda,us-west-2,2026-02-16,406,198.58,702.16,155.4,0.38275862068965516,23.21,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-132,Azure,Functions,centralindia,2026-03-12,416,82.15,1421.21,164.28,0.39490384615384616,22.98,MEDIUM,YES,Review invocation and execution patterns and identify unnecessary workloads.
+ACC-133,AWS,S3,us-west-2,2026-03-04,111,972.83,301.9,38.9,0.3504504504504504,49.46,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-133,AWS,Lambda,us-east-1,2026-02-13,136,509.5,361.67,54.03,0.3972794117647059,47.94,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-109,GCP,Cloud SQL,asia-south1,2026-03-17,136,675.39,640.11,51.13,0.3759558823529412,47.55,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-106,GCP,Cloud SQL,asia-south1,2026-01-25,121,55.37,471.24,32.6,0.2694214876033058,47.2,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,GCP,Cloud Storage,us-central1,2026-02-27,125,801.2,86.16,34.81,0.27848,46.93,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-113,Azure,Functions,centralindia,2026-02-21,134,644.13,1084.56,42.77,0.31917910447761194,46.72,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-124,Azure,Functions,centralindia,2026-02-04,145,378.9,698.59,51.86,0.3576551724137931,46.38,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-134,Azure,Functions,centralindia,2026-03-07,168,391.34,1161.64,64.3,0.3827380952380952,44.78,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-126,Azure,Blob Storage,eastus,2026-01-26,189,782.14,1177.72,76.54,0.404973544973545,43.44,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-137,Azure,Functions,centralindia,2026-02-28,196,272.23,508.32,81.09,0.41372448979591836,43.05,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,AWS,RDS,ap-south-1,2026-02-13,164,300.57,333.15,44.44,0.2709756097560975,42.69,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,Azure,Azure SQL,westus,2026-01-07,204,145.99,416.59,73.76,0.3615686274509804,40.94,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-110,AWS,RDS,us-west-2,2026-02-01,194,105.84,594.62,60.56,0.31216494845360826,40.59,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-102,GCP,Compute Engine,us-central1,2026-01-31,227,556.47,329.93,94.39,0.4158149779735683,40.44,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-142,GCP,Cloud Storage,asia-south1,2026-02-08,212,875.68,1755.66,78.48,0.37018867924528304,40.44,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-116,GCP,Compute Engine,us-central1,2026-02-11,201,100.3,511.47,66.11,0.3289054726368159,40.34,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-146,Azure,Virtual Machines,westus,2026-02-18,660,996.16,1067.65,371.09,0.5622575757575757,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-112,AWS,RDS,ap-south-1,2026-03-26,698,623.07,204.91,322.77,0.4624212034383954,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-137,Azure,Azure SQL,eastus,2026-03-19,671,964.1,1442.35,299.84,0.4468554396423248,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,AWS,EC2,ap-south-1,2026-02-23,670,600.17,1244.47,325.55,0.4858955223880597,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,GCP,Cloud SQL,us-west1,2026-01-16,529,691.79,1405.47,299.8,0.5667296786389414,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-101,GCP,Compute Engine,us-west1,2026-02-11,668,257.86,200.83,315.48,0.4722754491017964,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-106,GCP,Cloud Functions,asia-south1,2026-02-08,714,414.21,296.76,328.89,0.4606302521008403,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-131,Azure,Azure SQL,eastus,2026-02-17,497,890.59,1491.75,310.3,0.6243460764587525,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-140,Azure,Virtual Machines,centralindia,2026-02-15,679,998.17,563.62,384.07,0.565640648011782,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-144,Azure,Blob Storage,centralindia,2026-03-22,684,776.86,772.78,309.03,0.45179824561403503,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,Azure,Azure SQL,westus,2026-03-31,612,913.67,1519.55,354.01,0.5784477124183006,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-149,AWS,S3,us-east-1,2026-01-18,565,993.55,483.64,302.78,0.5358938053097345,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-120,Azure,Azure SQL,westus,2026-02-16,575,883.98,942.69,308.49,0.536504347826087,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-117,GCP,Cloud SQL,asia-south1,2026-01-13,590,919.96,474.94,313.25,0.5309322033898305,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,Azure,Functions,westus,2026-03-28,652,693.53,318.47,330.17,0.5063957055214724,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-111,GCP,Cloud Storage,asia-south1,2026-01-23,615,168.53,1128.5,301.29,0.4899024390243903,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,Azure,Blob Storage,westus,2026-01-14,719,753.83,609.46,369.23,0.5135326842837274,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-142,AWS,EC2,us-west-2,2026-01-08,533,534.14,1538.35,303.08,0.5686303939962476,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-106,AWS,Lambda,us-east-1,2026-01-19,630,592.05,1521.59,363.15,0.5764285714285714,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-110,GCP,Cloud Storage,us-west1,2026-01-29,597,641.93,961.96,299.24,0.5012395309882747,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,AWS,Lambda,us-west-2,2026-01-05,620,553.61,1655.3,332.86,0.5368709677419355,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-135,AWS,EC2,us-east-1,2026-03-27,630,853.73,1705.75,384.22,0.6098730158730159,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-131,Azure,Blob Storage,centralindia,2026-03-15,715,652.64,365.59,299.88,0.4194125874125874,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-118,GCP,Compute Engine,us-central1,2026-02-03,682,163.72,1316.57,309.38,0.4536363636363636,40.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-110,AWS,EC2,ap-south-1,2026-01-28,568,272.55,1867.85,296.35,0.5217429577464789,39.67,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-138,Azure,Azure SQL,westus,2026-03-25,717,305.8,316.86,296.13,0.4130125523012552,39.64,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-103,GCP,Cloud Storage,asia-south1,2026-03-24,624,395.0,1031.63,296.0,0.47435897435897434,39.63,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-110,AWS,RDS,ap-south-1,2026-01-17,661,382.95,341.25,295.16,0.44653555219364605,39.51,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-117,GCP,Cloud Functions,us-west1,2026-01-07,242,523.25,1252.82,100.53,0.4154132231404959,39.13,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-145,AWS,Lambda,us-east-1,2026-01-10,610,942.42,1956.52,288.97,0.47372131147540986,38.68,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,GCP,Cloud Functions,us-west1,2026-01-04,699,280.59,1985.32,287.19,0.41085836909871243,38.45,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-113,Azure,Virtual Machines,eastus,2026-01-27,652,692.24,1724.88,286.81,0.43989263803680984,38.39,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,GCP,Cloud Storage,us-west1,2026-03-25,469,518.15,1731.97,285.44,0.6086140724946695,38.21,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-125,Azure,Azure SQL,eastus,2026-01-21,560,996.01,944.29,284.43,0.5079107142857143,38.08,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,GCP,Compute Engine,us-central1,2026-02-18,198,62.53,132.08,45.98,0.23222222222222222,38.07,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-128,AWS,S3,us-east-1,2026-02-11,582,447.42,1366.98,283.55,0.4871993127147767,37.96,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-115,AWS,RDS,us-west-2,2026-03-17,699,765.59,1306.68,282.47,0.4041058655221746,37.81,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-142,GCP,Cloud SQL,us-west1,2026-02-26,502,678.87,1032.12,280.69,0.5591434262948207,37.58,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-137,AWS,EC2,ap-south-1,2026-02-05,606,567.87,85.15,279.03,0.4604455445544554,37.35,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-137,Azure,Blob Storage,centralindia,2026-01-24,688,663.05,543.75,277.22,0.40293604651162795,37.11,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-140,GCP,Cloud Functions,us-west1,2026-03-14,643,454.42,1849.83,275.2,0.4279937791601866,36.84,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-124,AWS,EC2,us-west-2,2026-02-14,651,306.16,1924.82,273.72,0.4204608294930876,36.64,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-116,GCP,Cloud Functions,asia-south1,2026-01-10,207,33.52,1439.4,44.61,0.2155072463768116,36.61,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-140,GCP,Cloud SQL,us-west1,2026-03-25,594,810.72,837.55,271.63,0.4572895622895623,36.36,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-116,Azure,Blob Storage,centralindia,2026-02-14,266,418.53,1298.94,105.09,0.3950751879699248,36.34,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-109,AWS,S3,us-west-2,2026-02-28,429,673.78,1491.42,270.18,0.6297902097902098,36.17,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-107,AWS,RDS,us-west-2,2026-01-27,550,323.87,710.63,270.16,0.4912,36.17,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,GCP,Cloud Storage,us-central1,2026-02-27,227,949.57,350.99,62.37,0.2747577092511013,36.15,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-126,GCP,Cloud Functions,us-west1,2026-03-25,220,121.93,1398.42,54.54,0.2479090909090909,36.1,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-148,AWS,Lambda,ap-south-1,2026-03-18,208,377.68,197.17,41.82,0.2010576923076923,36.09,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,Azure,Blob Storage,eastus,2026-03-31,580,469.9,1123.66,269.21,0.46415517241379306,36.04,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-148,GCP,Cloud SQL,asia-south1,2026-01-17,715,975.43,372.07,268.25,0.3751748251748252,35.91,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-141,GCP,Cloud SQL,us-central1,2026-01-05,663,515.44,1402.93,267.64,0.4036802413273001,35.83,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-111,GCP,Cloud Storage,us-central1,2026-03-20,704,898.07,1657.44,265.92,0.37772727272727274,35.6,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-123,AWS,RDS,us-west-2,2026-02-24,222,14.78,507.43,50.8,0.22882882882882882,35.31,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-109,Azure,Virtual Machines,westus,2026-01-27,600,219.76,1101.92,263.7,0.4395,35.3,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,Azure,Azure SQL,eastus,2026-01-18,571,498.58,1516.45,262.79,0.4602276707530648,35.18,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-124,Azure,Virtual Machines,eastus,2026-02-23,448,905.79,1176.48,262.3,0.5854910714285715,35.11,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-100,AWS,Lambda,ap-south-1,2026-02-09,229,495.53,198.71,56.75,0.24781659388646288,35.11,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-149,GCP,Cloud SQL,us-west1,2026-02-22,698,436.28,1457.22,261.57,0.3747421203438395,35.02,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-120,AWS,S3,ap-south-1,2026-03-25,666,929.37,1275.1,261.38,0.39246246246246247,34.99,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-123,AWS,Lambda,ap-south-1,2026-02-24,624,19.57,168.98,260.62,0.4176602564102564,34.89,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-110,AWS,EC2,us-east-1,2026-02-17,550,598.1,371.62,260.61,0.47383636363636367,34.89,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,GCP,Cloud Storage,us-west1,2026-01-10,284,389.24,1466.91,112.28,0.39535211267605636,34.75,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,GCP,Compute Engine,us-west1,2026-02-06,515,989.21,1095.73,258.46,0.5018640776699028,34.6,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,Azure,Azure SQL,westus,2026-01-11,644,104.62,284.36,257.8,0.4003105590062112,34.51,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,Azure,Azure SQL,centralindia,2026-02-15,708,805.62,543.44,257.02,0.36302259887005645,34.41,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,Azure,Functions,centralindia,2026-02-22,469,825.11,166.03,256.26,0.5463965884861407,34.31,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-149,AWS,EC2,ap-south-1,2026-03-09,281,641.57,123.93,105.82,0.3765836298932384,34.31,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,AWS,EC2,us-east-1,2026-03-24,504,811.21,202.12,255.38,0.5067063492063492,34.19,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,GCP,Cloud SQL,us-central1,2026-02-23,551,114.48,1922.36,255.05,0.46288566243194196,34.14,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-124,AWS,S3,us-east-1,2026-02-22,547,486.54,1732.01,254.35,0.4649908592321755,34.05,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,AWS,S3,us-east-1,2026-03-26,247,404.48,571.63,65.79,0.26635627530364375,33.77,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-141,Azure,Blob Storage,centralindia,2026-03-19,259,402.67,493.88,77.7,0.3,33.66,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-142,GCP,Compute Engine,us-central1,2026-03-02,679,603.82,1757.95,249.8,0.3678939617083947,33.44,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-109,GCP,Cloud SQL,asia-south1,2026-01-16,704,916.97,604.17,248.92,0.35357954545454545,33.32,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-125,Azure,Azure SQL,eastus,2026-02-21,563,440.15,1401.78,248.12,0.4407104795737123,33.22,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-118,Azure,Virtual Machines,westus,2026-02-14,468,339.98,1346.86,248.05,0.5300213675213675,33.21,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,Azure,Blob Storage,eastus,2026-02-20,557,194.45,1503.03,247.5,0.44434470377019747,33.13,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-125,Azure,Virtual Machines,eastus,2026-02-18,635,365.37,605.83,245.48,0.3865826771653543,32.86,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,Azure,Azure SQL,centralindia,2026-02-26,436,567.54,1544.54,244.73,0.5613073394495413,32.76,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-116,GCP,Cloud SQL,us-west1,2026-02-08,306,566.52,1144.31,116.83,0.38179738562091503,32.24,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,GCP,Cloud Storage,asia-south1,2026-03-13,475,748.65,1537.24,240.74,0.506821052631579,32.23,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-120,Azure,Functions,eastus,2026-01-31,561,641.7,160.6,240.24,0.42823529411764705,32.16,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-111,GCP,Compute Engine,asia-south1,2026-03-26,323,38.66,561.08,133.32,0.4127554179566563,32.03,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-106,GCP,Cloud Functions,us-central1,2026-01-26,669,147.01,515.01,239.27,0.3576532137518685,32.03,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-133,Azure,Functions,eastus,2026-03-31,602,185.27,1203.22,237.99,0.39533222591362127,31.86,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-144,AWS,S3,us-east-1,2026-01-03,686,160.86,269.92,237.81,0.34666180758017495,31.84,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-110,AWS,EC2,ap-south-1,2026-02-01,281,696.59,701.81,85.1,0.30284697508896796,31.53,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,Azure,Functions,eastus,2026-01-08,427,833.38,171.93,234.88,0.5500702576112412,31.44,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-149,Azure,Functions,westus,2026-01-18,303,284.2,186.81,107.47,0.3546864686468647,31.41,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,Azure,Virtual Machines,eastus,2026-03-10,614,417.23,53.12,234.15,0.3813517915309446,31.35,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-110,AWS,Lambda,us-east-1,2026-01-19,698,972.09,201.68,233.84,0.3350143266475645,31.3,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-104,Azure,Virtual Machines,centralindia,2026-01-28,642,82.3,858.92,232.33,0.36188473520249226,31.1,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,GCP,Cloud Storage,asia-south1,2026-03-20,586,253.78,161.86,231.18,0.3945051194539249,30.95,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,AWS,RDS,us-east-1,2026-03-13,445,291.31,1452.99,230.38,0.5177078651685393,30.84,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-136,AWS,EC2,ap-south-1,2026-03-25,479,232.27,511.56,230.18,0.4805427974947808,30.81,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-144,Azure,Functions,centralindia,2026-01-31,537,649.44,991.83,229.94,0.42819366852886404,30.78,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-141,AWS,RDS,ap-south-1,2026-01-09,306,107.22,1456.67,105.23,0.3438888888888889,30.68,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-100,Azure,Functions,centralindia,2026-03-15,477,677.5,1789.85,228.92,0.47991614255765197,30.65,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-128,GCP,Cloud SQL,us-west1,2026-03-20,566,432.47,1815.57,228.53,0.4037632508833922,30.59,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-145,AWS,EC2,us-east-1,2026-02-01,536,615.16,1541.61,228.42,0.4261567164179104,30.58,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,GCP,Cloud SQL,us-central1,2026-02-05,637,233.9,869.64,228.4,0.3585557299843014,30.58,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-141,AWS,S3,us-east-1,2026-02-10,460,275.06,437.75,226.8,0.4930434782608696,30.36,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-118,AWS,EC2,ap-south-1,2026-01-21,466,656.36,1763.68,226.72,0.4865236051502146,30.35,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,AWS,Lambda,us-east-1,2026-02-04,496,490.79,789.94,225.54,0.45471774193548387,30.19,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-106,Azure,Azure SQL,eastus,2026-01-21,482,346.85,327.85,225.4,0.46763485477178424,30.17,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-146,Azure,Azure SQL,eastus,2026-01-15,317,186.78,1925.82,112.52,0.3549526813880126,30.1,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-107,GCP,Compute Engine,asia-south1,2026-01-30,314,413.56,913.23,108.76,0.3463694267515924,30.02,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,Azure,Virtual Machines,westus,2026-03-12,636,375.22,1611.25,222.19,0.34935534591194967,29.74,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,GCP,Compute Engine,us-west1,2026-02-28,653,956.63,286.58,221.27,0.33885145482388973,29.62,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-103,Azure,Azure SQL,westus,2026-02-13,610,582.15,1140.96,220.73,0.3618524590163934,29.55,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-142,AWS,S3,us-east-1,2026-01-28,567,461.45,139.69,220.43,0.38876543209876546,29.51,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-114,Azure,Blob Storage,westus,2026-03-25,437,371.64,1313.61,220.11,0.5036842105263158,29.47,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-138,Azure,Virtual Machines,westus,2026-02-08,449,854.91,1907.79,219.57,0.48902004454342984,29.39,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,GCP,Cloud Storage,us-west1,2026-01-13,532,136.66,532.13,219.56,0.41270676691729324,29.39,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-133,Azure,Virtual Machines,westus,2026-02-22,447,781.38,1455.19,219.1,0.4901565995525727,29.33,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,GCP,Cloud SQL,asia-south1,2026-01-27,635,422.42,1285.2,218.33,0.3438267716535433,29.23,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,AWS,EC2,us-west-2,2026-02-07,516,730.55,1200.81,218.32,0.42310077519379846,29.23,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-142,AWS,RDS,us-west-2,2026-02-13,569,274.5,25.08,218.05,0.38321616871704745,29.19,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-114,AWS,EC2,us-east-1,2026-01-28,288,510.3,72.54,74.85,0.2598958333333333,29.17,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-101,AWS,RDS,us-west-2,2026-01-18,479,207.46,1771.61,217.31,0.45367432150313153,29.09,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-138,GCP,Cloud Storage,asia-south1,2026-03-14,358,412.01,1670.78,148.29,0.41421787709497204,29.07,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,Azure,Functions,centralindia,2026-02-05,552,191.04,1533.24,217.13,0.3933514492753623,29.07,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-126,GCP,Cloud Functions,asia-south1,2026-02-11,332,524.49,1835.98,120.55,0.3631024096385542,29.05,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-120,AWS,S3,us-east-1,2026-03-12,461,509.65,1321.91,217.03,0.4707809110629067,29.05,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-113,AWS,S3,ap-south-1,2026-03-23,661,971.38,120.15,216.38,0.32735249621785173,28.97,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,GCP,Compute Engine,us-west1,2026-03-28,540,484.23,1189.77,214.79,0.39775925925925926,28.75,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-139,GCP,Cloud SQL,us-central1,2026-03-01,563,515.31,805.63,214.09,0.3802664298401421,28.66,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-111,GCP,Compute Engine,asia-south1,2026-01-18,581,215.27,663.6,213.87,0.3681067125645439,28.63,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,Azure,Virtual Machines,eastus,2026-01-20,286,389.2,322.55,68.21,0.23849650349650348,28.56,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-100,AWS,EC2,us-west-2,2026-02-27,619,750.6,514.71,213.11,0.34428109854604205,28.53,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-133,GCP,Cloud Storage,asia-south1,2026-02-16,457,321.24,571.81,212.74,0.4655142231947484,28.48,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,Azure,Azure SQL,eastus,2026-01-22,463,28.93,464.16,211.53,0.45686825053995683,28.32,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,AWS,RDS,ap-south-1,2026-03-10,545,470.23,1654.95,211.18,0.3874862385321101,28.27,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-136,GCP,Cloud Functions,us-central1,2026-02-22,554,882.95,715.44,211.04,0.38093862815884477,28.25,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-110,AWS,S3,us-west-2,2026-03-13,567,656.54,830.09,210.76,0.371710758377425,28.21,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,Azure,Virtual Machines,westus,2026-02-03,506,222.42,1231.52,210.36,0.41573122529644274,28.16,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-115,AWS,RDS,us-east-1,2026-01-28,581,106.15,1455.84,208.44,0.3587607573149742,27.9,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-139,AWS,EC2,ap-south-1,2026-03-26,554,617.69,1533.2,208.23,0.37586642599277975,27.88,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,Azure,Blob Storage,eastus,2026-01-09,518,46.61,419.15,205.9,0.3974903474903475,27.56,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-137,Azure,Blob Storage,centralindia,2026-03-12,331,133.92,619.59,108.24,0.32700906344410874,27.54,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-123,GCP,Cloud Functions,us-west1,2026-01-15,464,30.65,663.04,205.02,0.4418534482758621,27.45,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-149,AWS,S3,us-west-2,2026-02-06,530,539.75,1381.78,203.19,0.38337735849056603,27.2,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-111,Azure,Azure SQL,westus,2026-02-02,286,129.45,401.32,57.93,0.20255244755244756,27.19,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-112,AWS,S3,us-east-1,2026-02-09,568,409.35,1565.42,202.55,0.35660211267605635,27.12,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-135,GCP,Cloud Storage,us-west1,2026-02-26,546,130.21,1946.83,201.97,0.3699084249084249,27.04,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,AWS,Lambda,ap-south-1,2026-02-05,427,460.15,986.33,201.98,0.47302107728337234,27.04,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,GCP,Cloud Storage,us-central1,2026-01-03,355,468.37,1443.81,128.93,0.3631830985915493,26.91,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-130,GCP,Cloud Functions,us-central1,2026-01-28,647,359.37,120.07,200.37,0.30969088098918085,26.82,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-116,AWS,EC2,us-west-2,2026-03-17,627,666.37,186.22,199.91,0.3188357256778309,26.76,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-146,AWS,S3,ap-south-1,2026-02-20,608,302.03,1275.41,199.47,0.32807565789473686,26.7,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-135,GCP,Compute Engine,us-central1,2026-02-25,346,788.5,313.06,117.33,0.33910404624277457,26.63,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-114,Azure,Virtual Machines,westus,2026-01-04,445,59.15,1710.57,197.73,0.44433707865168537,26.47,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-141,GCP,Cloud Functions,asia-south1,2026-03-02,309,46.25,1300.86,76.18,0.24653721682847898,26.37,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,Azure,Blob Storage,eastus,2026-03-30,352,211.96,1091.52,121.52,0.3452272727272727,26.34,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-115,Azure,Virtual Machines,westus,2026-03-20,467,939.66,573.89,196.27,0.4202783725910064,26.27,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-123,GCP,Cloud SQL,asia-south1,2026-02-06,354,245.17,118.28,121.99,0.3446045197740113,26.12,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-125,AWS,RDS,us-west-2,2026-02-01,690,500.84,1241.0,194.6,0.28202898550724637,26.05,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-149,Azure,Blob Storage,centralindia,2026-02-20,551,150.75,1272.16,194.1,0.35226860254083486,25.98,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-128,Azure,Blob Storage,eastus,2026-02-02,440,829.97,261.48,193.7,0.4402272727272727,25.93,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-112,Azure,Blob Storage,westus,2026-03-10,545,351.67,1112.8,193.36,0.3547889908256881,25.88,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-125,Azure,Virtual Machines,eastus,2026-01-22,456,111.98,146.31,191.77,0.4205482456140351,25.67,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,Azure,Azure SQL,centralindia,2026-03-25,591,17.74,1637.87,191.64,0.32426395939086294,25.65,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-140,Azure,Functions,centralindia,2026-03-06,478,548.21,1585.63,191.58,0.40079497907949796,25.65,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-104,AWS,S3,us-east-1,2026-01-26,460,378.52,1267.99,191.55,0.4164130434782609,25.64,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-113,Azure,Functions,centralindia,2026-03-27,365,54.96,802.62,128.42,0.35183561643835615,25.42,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,GCP,Cloud SQL,us-central1,2026-03-12,618,149.96,102.71,189.31,0.30632686084142396,25.34,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-104,Azure,Virtual Machines,centralindia,2026-01-30,532,34.77,1770.78,189.03,0.3553195488721805,25.31,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-117,AWS,Lambda,us-west-2,2026-01-04,678,884.27,910.16,188.04,0.2773451327433628,25.17,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,GCP,Compute Engine,asia-south1,2026-02-27,590,706.73,174.64,186.05,0.31533898305084745,24.91,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-100,GCP,Cloud Storage,us-central1,2026-02-20,690,312.45,1404.89,186.03,0.26960869565217394,24.9,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-140,AWS,Lambda,us-east-1,2026-03-21,352,800.07,1431.95,110.57,0.31411931818181815,24.87,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-107,GCP,Cloud SQL,us-central1,2026-03-12,705,591.91,1540.21,185.7,0.2634042553191489,24.86,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,Azure,Azure SQL,eastus,2026-02-28,384,344.13,1761.69,143.93,0.37481770833333333,24.8,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-133,AWS,EC2,ap-south-1,2026-02-08,704,512.59,413.84,184.56,0.2621590909090909,24.71,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-104,AWS,S3,us-east-1,2026-02-05,459,359.6,802.38,184.56,0.4020915032679739,24.71,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-133,GCP,Compute Engine,asia-south1,2026-01-14,599,195.09,665.45,184.48,0.30797996661101834,24.7,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-106,Azure,Blob Storage,eastus,2026-01-31,321,214.71,421.48,73.63,0.22937694704049844,24.32,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-104,AWS,RDS,ap-south-1,2026-03-11,667,204.5,1455.33,181.39,0.27194902548725636,24.28,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,Azure,Blob Storage,centralindia,2026-02-05,583,489.75,493.71,180.45,0.3095197255574614,24.16,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,Azure,Blob Storage,centralindia,2026-02-21,354,459.01,1383.45,106.51,0.3008757062146893,24.05,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-118,Azure,Azure SQL,centralindia,2026-03-31,639,106.74,285.09,179.38,0.2807198748043818,24.01,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,Azure,Blob Storage,centralindia,2026-01-14,441,873.45,1720.01,179.11,0.40614512471655334,23.98,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-130,AWS,Lambda,us-east-1,2026-01-18,325,308.12,996.39,72.81,0.22403076923076923,23.65,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-141,GCP,Cloud SQL,us-west1,2026-03-18,593,301.95,1020.99,176.5,0.2976391231028668,23.63,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-146,GCP,Cloud Storage,asia-south1,2026-01-18,506,167.63,1141.39,176.41,0.34863636363636363,23.62,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-147,AWS,S3,us-west-2,2026-01-27,390,310.16,1819.81,141.16,0.3619487179487179,23.58,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-104,Azure,Azure SQL,westus,2026-03-23,423,171.03,723.44,175.86,0.41574468085106386,23.54,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-115,Azure,Azure SQL,westus,2026-01-12,616,462.18,750.46,175.45,0.28482142857142856,23.49,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-138,GCP,Compute Engine,us-central1,2026-01-13,453,379.47,1973.84,174.37,0.3849227373068433,23.34,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,Azure,Virtual Machines,westus,2026-01-07,699,587.74,1889.72,173.54,0.24826895565092988,23.23,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-130,AWS,Lambda,us-east-1,2026-01-02,637,291.5,967.85,173.33,0.27210361067503924,23.2,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-117,AWS,RDS,us-west-2,2026-03-01,506,365.15,624.83,173.32,0.3425296442687747,23.2,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-111,Azure,Azure SQL,westus,2026-03-24,552,466.22,1470.89,172.18,0.3119202898550725,23.05,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-145,AWS,RDS,us-east-1,2026-02-27,365,468.71,1707.91,110.46,0.30263013698630137,23.01,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-126,GCP,Compute Engine,asia-south1,2026-03-07,638,249.52,304.28,171.57,0.26891849529780565,22.97,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,GCP,Cloud SQL,us-west1,2026-03-03,533,251.29,1111.5,170.73,0.32031894934333954,22.86,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-125,AWS,RDS,ap-south-1,2026-03-13,646,354.61,1927.31,170.64,0.2641486068111455,22.84,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-102,AWS,Lambda,ap-south-1,2026-01-20,677,290.3,831.41,169.91,0.2509748892171344,22.75,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-144,Azure,Blob Storage,westus,2026-01-23,359,24.01,1077.59,101.66,0.28317548746518106,22.69,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-126,AWS,RDS,us-east-1,2026-03-15,440,87.69,130.73,169.3,0.3847727272727273,22.66,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-103,Azure,Functions,eastus,2026-01-05,678,622.98,506.65,168.69,0.24880530973451326,22.58,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,GCP,Cloud Storage,us-west1,2026-02-07,320,469.63,217.62,56.98,0.17806249999999998,22.24,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-104,AWS,RDS,us-west-2,2026-02-19,630,42.06,323.81,165.78,0.2631428571428571,22.19,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,Azure,Virtual Machines,eastus,2026-02-14,377,176.21,1772.93,116.1,0.3079575596816976,22.07,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,AWS,RDS,us-east-1,2026-02-17,455,590.16,686.39,163.9,0.36021978021978024,21.94,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,GCP,Cloud Storage,us-west1,2026-02-10,403,975.62,278.92,141.95,0.3522332506203474,21.84,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-133,AWS,Lambda,us-west-2,2026-01-15,471,446.28,145.41,163.18,0.3464543524416136,21.84,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,GCP,Cloud SQL,asia-south1,2026-02-19,675,398.62,246.18,162.83,0.24122962962962965,21.8,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-104,AWS,Lambda,us-west-2,2026-01-12,598,727.34,397.15,162.36,0.27150501672240807,21.73,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-116,GCP,Compute Engine,us-central1,2026-03-15,555,157.65,198.36,161.83,0.2915855855855856,21.66,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-117,AWS,S3,ap-south-1,2026-02-25,454,501.17,777.8,161.46,0.3556387665198238,21.61,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-146,GCP,Compute Engine,asia-south1,2026-03-13,625,336.35,262.02,161.28,0.258048,21.59,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-116,AWS,EC2,us-west-2,2026-03-26,647,569.57,646.41,161.17,0.2491035548686244,21.58,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-130,AWS,S3,us-east-1,2026-02-26,371,424.59,837.66,105.69,0.28487870619946093,21.52,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-115,GCP,Cloud SQL,us-west1,2026-01-21,703,182.35,735.75,159.63,0.22706970128022758,21.37,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-117,AWS,EC2,ap-south-1,2026-02-14,595,288.27,1086.76,159.39,0.26788235294117646,21.34,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-144,AWS,S3,us-west-2,2026-02-09,401,460.78,429.6,135.52,0.3379551122194514,21.26,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-117,Azure,Azure SQL,westus,2026-02-05,511,188.09,279.66,158.57,0.31031311154598823,21.23,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,GCP,Cloud Functions,us-central1,2026-02-20,389,693.61,117.6,122.42,0.31470437017994857,21.21,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-115,GCP,Cloud Functions,us-central1,2026-01-26,601,278.42,1132.8,158.29,0.2633777038269551,21.19,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,GCP,Compute Engine,us-west1,2026-01-23,466,511.18,1126.09,157.84,0.3387124463519313,21.13,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-100,Azure,Functions,eastus,2026-01-10,503,809.94,1714.81,157.76,0.31363817097415503,21.12,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-139,Azure,Azure SQL,westus,2026-02-03,442,658.24,1152.61,157.34,0.355972850678733,21.06,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-115,AWS,Lambda,us-west-2,2026-01-31,388,970.44,119.69,119.54,0.3080927835051547,20.97,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-144,AWS,RDS,ap-south-1,2026-03-16,427,478.53,1071.23,156.04,0.3654332552693208,20.89,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,AWS,Lambda,us-east-1,2026-02-01,496,592.98,1057.45,156.06,0.31463709677419355,20.89,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-137,AWS,Lambda,ap-south-1,2026-02-23,424,550.89,362.09,156.07,0.3680896226415094,20.89,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-141,AWS,RDS,us-west-2,2026-02-28,628,250.78,1400.53,155.51,0.24762738853503183,20.82,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-144,GCP,Cloud SQL,us-central1,2026-01-06,410,550.55,1630.75,141.51,0.3451463414634146,20.79,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-125,AWS,Lambda,us-east-1,2026-03-07,475,462.23,134.32,155.22,0.32677894736842106,20.78,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-110,GCP,Cloud Functions,us-central1,2026-03-13,677,64.02,1293.93,154.94,0.22886262924667652,20.74,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-128,AWS,S3,ap-south-1,2026-02-23,588,122.51,145.84,153.82,0.2615986394557823,20.59,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,GCP,Cloud Functions,asia-south1,2026-03-14,356,480.14,52.94,82.01,0.23036516853932587,20.48,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-129,Azure,Virtual Machines,centralindia,2026-02-17,607,902.68,1296.76,151.81,0.2500988467874794,20.32,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-116,GCP,Cloud Functions,us-west1,2026-03-14,685,69.63,1921.02,151.64,0.2213722627737226,20.3,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-114,GCP,Cloud Functions,us-west1,2026-02-14,548,794.73,1776.6,151.22,0.27594890510948905,20.24,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,GCP,Cloud Functions,us-central1,2026-02-18,678,293.66,1270.79,150.72,0.2223008849557522,20.18,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-118,AWS,S3,ap-south-1,2026-02-16,593,506.78,559.6,147.77,0.24919055649241148,19.78,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-101,AWS,Lambda,us-west-2,2026-03-15,508,97.14,1006.94,147.77,0.2908858267716536,19.78,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-139,Azure,Virtual Machines,centralindia,2026-01-19,469,872.22,1940.51,146.92,0.31326226012793174,19.67,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,Azure,Azure SQL,centralindia,2026-02-11,631,600.26,1769.02,145.72,0.23093502377179081,19.51,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-102,GCP,Cloud Functions,asia-south1,2026-03-29,536,576.99,486.57,145.35,0.2711753731343283,19.46,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,GCP,Cloud Functions,asia-south1,2026-01-19,501,54.43,1639.98,145.17,0.28976047904191615,19.43,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,AWS,S3,ap-south-1,2026-01-21,551,787.36,1563.91,144.74,0.26268602540834846,19.38,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-128,GCP,Cloud Functions,us-central1,2026-02-22,423,679.6,490.31,143.3,0.33877068557919626,19.18,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-102,GCP,Cloud Storage,us-central1,2026-01-16,452,223.43,1652.62,142.13,0.31444690265486724,19.03,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-120,GCP,Cloud Functions,asia-south1,2026-01-23,642,181.91,1634.18,142.11,0.2213551401869159,19.02,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-146,Azure,Virtual Machines,westus,2026-03-13,475,823.81,1592.61,141.69,0.2982947368421053,18.97,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-112,AWS,S3,us-west-2,2026-02-10,412,226.38,1155.95,129.48,0.31427184466019414,18.89,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-106,Azure,Functions,westus,2026-03-31,687,497.08,654.87,139.48,0.20302765647743812,18.67,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-146,GCP,Cloud Functions,asia-south1,2026-03-28,498,189.45,771.91,137.04,0.27518072289156625,18.35,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,GCP,Cloud Storage,us-central1,2026-01-05,521,362.1,294.05,136.5,0.2619961612284069,18.27,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-136,AWS,Lambda,us-west-2,2026-03-07,418,64.88,1721.53,131.08,0.3135885167464115,18.26,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-148,AWS,RDS,us-east-1,2026-02-04,532,958.94,699.33,135.53,0.25475563909774435,18.14,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-107,Azure,Functions,centralindia,2026-02-24,547,611.01,840.08,135.41,0.24755027422303472,18.13,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-138,GCP,Cloud SQL,asia-south1,2026-03-31,551,197.88,389.52,135.27,0.2454990925589837,18.11,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-143,GCP,Cloud SQL,asia-south1,2026-02-22,384,408.38,605.4,93.73,0.2440885416666667,18.08,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,GCP,Cloud Storage,asia-south1,2026-01-06,583,308.61,1293.81,134.81,0.23123499142367068,18.05,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-133,GCP,Cloud Storage,asia-south1,2026-03-28,487,560.29,112.83,134.7,0.2765913757700205,18.03,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-149,AWS,EC2,ap-south-1,2026-03-27,483,513.4,56.1,134.48,0.27842650103519667,18.0,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-138,Azure,Azure SQL,westus,2026-03-11,546,350.59,1139.99,131.38,0.24062271062271062,17.59,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-149,AWS,RDS,us-west-2,2026-02-05,452,371.37,1865.49,131.29,0.2904646017699115,17.58,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-142,Azure,Functions,westus,2026-03-17,583,965.87,839.7,130.37,0.22361921097770154,17.45,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-134,Azure,Functions,centralindia,2026-01-05,388,89.42,1506.13,93.28,0.2404123711340206,17.45,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,Azure,Functions,westus,2026-01-11,602,141.66,1723.37,130.18,0.21624584717607975,17.43,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-111,AWS,EC2,us-east-1,2026-02-21,397,802.59,236.35,101.75,0.25629722921914355,17.31,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-100,GCP,Cloud SQL,us-west1,2026-03-03,602,234.86,197.32,129.06,0.21438538205980068,17.28,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,GCP,Cloud SQL,us-west1,2026-01-20,535,76.46,1666.91,128.47,0.24013084112149533,17.2,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-142,AWS,EC2,ap-south-1,2026-03-12,583,130.92,972.83,127.46,0.21862778730703258,17.06,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,AWS,Lambda,us-east-1,2026-01-17,657,233.93,1366.37,126.87,0.19310502283105024,16.98,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-146,GCP,Cloud Functions,us-central1,2026-03-02,466,198.51,211.92,125.55,0.2694206008583691,16.81,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-103,GCP,Compute Engine,us-west1,2026-03-16,589,53.05,357.23,124.88,0.21202037351443123,16.72,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-122,GCP,Cloud Storage,asia-south1,2026-02-13,581,527.87,1407.15,124.75,0.2147160068846816,16.7,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-147,Azure,Functions,westus,2026-02-24,619,665.25,983.61,121.94,0.1969951534733441,16.32,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-123,Azure,Azure SQL,eastus,2026-01-29,549,239.43,543.43,121.75,0.22176684881602915,16.3,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-119,Azure,Blob Storage,westus,2026-01-09,530,447.79,619.58,121.27,0.22881132075471697,16.23,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-106,AWS,RDS,ap-south-1,2026-03-28,434,402.69,1435.73,120.8,0.2783410138248848,16.17,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-122,AWS,RDS,ap-south-1,2026-02-09,410,112.56,1024.68,106.17,0.25895121951219513,16.06,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-138,Azure,Virtual Machines,centralindia,2026-01-29,713,157.5,545.95,119.56,0.16768583450210378,16.01,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-124,GCP,Cloud Storage,us-west1,2026-03-20,503,861.36,191.64,119.36,0.2372962226640159,15.98,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-140,GCP,Cloud SQL,asia-south1,2026-03-24,658,612.96,610.98,118.09,0.17946808510638299,15.81,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-146,Azure,Azure SQL,westus,2026-02-05,660,704.17,567.01,116.66,0.17675757575757575,15.62,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-135,GCP,Compute Engine,us-central1,2026-02-15,710,162.38,1081.98,116.71,0.16438028169014082,15.62,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-124,AWS,EC2,us-east-1,2026-03-02,664,441.02,146.88,116.18,0.1749698795180723,15.55,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-113,Azure,Functions,eastus,2026-03-01,633,614.23,770.4,113.4,0.17914691943127964,15.18,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-112,AWS,RDS,ap-south-1,2026-02-06,514,80.47,482.18,112.89,0.21963035019455254,15.11,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-141,AWS,S3,ap-south-1,2026-03-21,669,344.24,1849.38,112.48,0.16813153961136024,15.06,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,AWS,RDS,us-west-2,2026-01-15,445,264.02,1453.47,111.19,0.24986516853932583,14.88,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-100,AWS,EC2,us-east-1,2026-03-23,494,331.27,351.37,110.68,0.22404858299595143,14.82,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-121,AWS,S3,us-west-2,2026-02-09,451,137.66,1423.49,107.85,0.23913525498891353,14.44,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-141,AWS,Lambda,us-east-1,2026-03-13,472,968.11,1123.43,107.69,0.22815677966101694,14.42,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-124,Azure,Virtual Machines,westus,2026-02-20,532,494.21,1328.86,107.38,0.20184210526315788,14.37,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-144,AWS,Lambda,ap-south-1,2026-01-22,671,890.86,331.07,106.37,0.15852459016393444,14.24,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-120,AWS,Lambda,us-west-2,2026-03-13,618,517.32,224.52,102.78,0.1663106796116505,13.76,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-135,GCP,Cloud Storage,asia-south1,2026-03-27,517,950.85,739.42,96.92,0.1874661508704062,12.97,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-138,GCP,Cloud Storage,asia-south1,2026-01-11,562,748.0,704.8,94.1,0.16743772241992882,12.6,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-100,GCP,Cloud Functions,asia-south1,2026-01-05,515,97.18,519.75,92.69,0.17998058252427185,12.41,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-112,Azure,Functions,eastus,2026-01-05,596,207.42,758.74,90.41,0.15169463087248322,12.1,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-113,AWS,Lambda,ap-south-1,2026-03-10,463,101.03,457.97,88.14,0.1903671706263499,11.8,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-130,AWS,EC2,ap-south-1,2026-03-25,491,526.82,753.35,86.43,0.17602851323828922,11.57,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-105,AWS,Lambda,us-east-1,2026-02-07,690,604.21,415.36,84.04,0.12179710144927537,11.25,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-132,GCP,Compute Engine,us-west1,2026-03-25,418,695.84,143.01,77.38,0.18511961722488038,11.07,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-125,GCP,Cloud Storage,us-central1,2026-03-22,574,48.8,1153.09,79.0,0.13763066202090593,10.58,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-108,GCP,Cloud SQL,us-west1,2026-02-27,508,960.23,20.39,76.1,0.1498031496062992,10.19,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
+ACC-127,AWS,EC2,us-west-2,2026-02-18,436,557.17,131.11,52.59,0.12061926605504587,7.04,LOW,NO,No immediate action. Continue monitoring resource utilization and cost.
