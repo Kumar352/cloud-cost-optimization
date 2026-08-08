@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 # ============================================================
 # CLOUD COST OPTIMIZATION ANALYTICS DASHBOARD
+# FINAL YEAR PROJECT VERSION
 # ============================================================
 
 st.set_page_config(
@@ -17,10 +18,27 @@ st.set_page_config(
 # ============================================================
 
 DATA_FILE = "data/processed/cloud_cost_analysis.csv"
-RECOMMENDATION_FILE = "results/optimization_candidates.csv"
-UNDERUTILIZATION_FILE = "results/underutilized_resources.csv"
-ML_RESULTS_FILE = "results/ml_model_comparison.csv"
-ML_PREDICTIONS_FILE = "results/ml_cost_predictions.csv"
+RAW_DATA_FILE = "data/raw/cloud_cost_data.csv"
+
+RECOMMENDATION_FILE = (
+    "results/optimization_candidates.csv"
+)
+
+UNDERUTILIZATION_FILE = (
+    "results/underutilized_resources.csv"
+)
+
+PROVIDER_RECOMMENDATION_FILE = (
+    "results/provider_recommendations.csv"
+)
+
+ML_RESULTS_FILE = (
+    "results/ml_model_comparison.csv"
+)
+
+ML_PREDICTIONS_FILE = (
+    "results/ml_cost_predictions.csv"
+)
 
 # ============================================================
 # LOAD DATA
@@ -29,7 +47,9 @@ ML_PREDICTIONS_FILE = "results/ml_cost_predictions.csv"
 @st.cache_data
 def load_data():
 
-    cost_df = pd.read_csv(DATA_FILE)
+    cost_df = pd.read_csv(
+        DATA_FILE
+    )
 
     recommendation_df = pd.read_csv(
         RECOMMENDATION_FILE
@@ -37,6 +57,10 @@ def load_data():
 
     underutilization_df = pd.read_csv(
         UNDERUTILIZATION_FILE
+    )
+
+    provider_df = pd.read_csv(
+        PROVIDER_RECOMMENDATION_FILE
     )
 
     ml_results_df = pd.read_csv(
@@ -47,12 +71,18 @@ def load_data():
         ML_PREDICTIONS_FILE
     )
 
+    raw_df = pd.read_csv(
+        RAW_DATA_FILE
+    )
+
     return (
         cost_df,
         recommendation_df,
         underutilization_df,
+        provider_df,
         ml_results_df,
-        ml_predictions_df
+        ml_predictions_df,
+        raw_df
     )
 
 
@@ -60,23 +90,270 @@ def load_data():
     df,
     recommendation_df,
     underutilization_df,
+    provider_df,
     ml_results_df,
-    ml_predictions_df
+    ml_predictions_df,
+    raw_df
 ) = load_data()
 
 # ============================================================
-# TITLE
+# PROJECT HEADER
 # ============================================================
 
-st.title("☁️ Cloud Cost Optimization Analytics")
+st.title(
+    "☁️ Cloud Cost Optimization Analytics Using Hadoop"
+)
 
 st.markdown(
-    "### Big Data Analytics Platform for Cloud Cost Monitoring "
-    "and Optimization"
+    """
+    ### Intelligent Multi-Cloud Cost Analysis,
+    Optimization & Prediction Platform
+    """
+)
+
+st.write(
+    """
+    A Big Data analytics platform for analyzing cloud resource
+    usage and identifying cost optimization opportunities across
+    **AWS, Azure, and GCP**.
+    """
 )
 
 st.caption(
-    "Hadoop HDFS • MapReduce • Python • Pandas • Streamlit • Machine Learning"
+    "Hadoop HDFS • MapReduce • Python • Pandas • "
+    "Machine Learning • Streamlit"
+)
+
+st.divider()
+
+# ============================================================
+# EXECUTIVE SUMMARY
+# ============================================================
+
+st.subheader(
+    "📊 Executive Project Summary"
+)
+
+# ------------------------------------------------------------
+# Overall cost metrics
+# ------------------------------------------------------------
+
+total_records = len(
+    raw_df
+)
+
+total_monthly_cost = (
+    raw_df["Monthly_Cost"].sum()
+)
+
+average_cost = (
+    raw_df["Monthly_Cost"].mean()
+)
+
+high_cost_threshold = (
+    raw_df["Monthly_Cost"].quantile(
+        0.90
+    )
+)
+
+high_cost_records = (
+    raw_df[
+        raw_df["Monthly_Cost"]
+        >=
+        high_cost_threshold
+    ]
+)
+
+high_cost_count = len(
+    high_cost_records
+)
+
+high_cost_spending = (
+    high_cost_records[
+        "Monthly_Cost"
+    ].sum()
+)
+
+optimization_savings = (
+    high_cost_spending * 0.15
+)
+
+# ------------------------------------------------------------
+# Underutilization metrics
+# ------------------------------------------------------------
+
+underutilized_candidates = (
+    underutilization_df[
+        underutilization_df[
+            "Underutilization_Flag"
+        ]
+        == "YES"
+    ]
+)
+
+underutilized_count = len(
+    underutilized_candidates
+)
+
+underutilized_spending = (
+    underutilized_candidates[
+        "Monthly_Cost"
+    ].sum()
+)
+
+underutilization_savings = (
+    underutilized_spending * 0.20
+)
+
+# ------------------------------------------------------------
+# Provider migration metrics
+# ------------------------------------------------------------
+
+migration_candidates = (
+    provider_df[
+        (
+            provider_df[
+                "Recommended_Provider"
+            ]
+            !=
+            provider_df[
+                "Current_Provider"
+            ]
+        )
+        &
+        (
+            provider_df[
+                "Estimated_Monthly_Savings"
+            ]
+            > 0
+        )
+    ]
+)
+
+migration_count = len(
+    migration_candidates
+)
+
+migration_monthly_savings = (
+    migration_candidates[
+        "Estimated_Monthly_Savings"
+    ].sum()
+)
+
+migration_annual_savings = (
+    migration_monthly_savings * 12
+)
+
+# ============================================================
+# EXECUTIVE KPI ROW 1
+# ============================================================
+
+col1, col2, col3, col4 = st.columns(4)
+
+col1.metric(
+    "☁️ Resources Analyzed",
+    f"{total_records:,}"
+)
+
+col2.metric(
+    "💰 Monthly Cloud Spend",
+    f"${total_monthly_cost:,.2f}"
+)
+
+col3.metric(
+    "📊 Average Cost / Resource",
+    f"${average_cost:,.2f}"
+)
+
+col4.metric(
+    "🚨 High-Cost Resources",
+    f"{high_cost_count:,}"
+)
+
+# ============================================================
+# EXECUTIVE KPI ROW 2
+# ============================================================
+
+col5, col6, col7, col8 = st.columns(4)
+
+col5.metric(
+    "💵 Optimization Savings",
+    f"${optimization_savings:,.2f}"
+)
+
+col6.metric(
+    "⚠️ Underutilization Candidates",
+    f"{underutilized_count:,}"
+)
+
+col7.metric(
+    "💡 Underutilization Savings",
+    f"${underutilization_savings:,.2f}"
+)
+
+col8.metric(
+    "🔄 Migration Candidates",
+    f"{migration_count:,}"
+)
+
+st.caption(
+    "Savings figures are analytical scenarios based on "
+    "the project's optimization assumptions and observed "
+    "dataset benchmarks. They are not guaranteed savings."
+)
+
+st.divider()
+
+# ============================================================
+# ANALYTICS PIPELINE
+# ============================================================
+
+st.subheader(
+    "⚙️ Project Analytics Pipeline"
+)
+
+pipe1, pipe2, pipe3, pipe4, pipe5, pipe6 = st.columns(6)
+
+pipe1.markdown(
+    """
+    ### 🗄️
+    **Hadoop / HDFS**
+    """
+)
+
+pipe2.markdown(
+    """
+    ### 🐍
+    **Python + Pandas**
+    """
+)
+
+pipe3.markdown(
+    """
+    ### 📊
+    **Cost Analytics**
+    """
+)
+
+pipe4.markdown(
+    """
+    ### 🔍
+    **Optimization Engines**
+    """
+)
+
+pipe5.markdown(
+    """
+    ### 🤖
+    **Machine Learning**
+    """
+)
+
+pipe6.markdown(
+    """
+    ### 📈
+    **Streamlit**
+    """
 )
 
 st.divider()
@@ -85,13 +362,17 @@ st.divider()
 # SIDEBAR
 # ============================================================
 
-st.sidebar.header("🔎 Analysis Filters")
+st.sidebar.header(
+    "🔎 Analysis Filters"
+)
 
 # ------------------------------------------------------------
 # Cloud Provider
 # ------------------------------------------------------------
 
-providers = ["All"] + sorted(
+providers = [
+    "All"
+] + sorted(
     df["Cloud_Provider"]
     .dropna()
     .unique()
@@ -121,7 +402,8 @@ else:
     available_services = sorted(
         df.loc[
             df["Cloud_Provider"]
-            == selected_provider,
+            ==
+            selected_provider,
             "Service"
         ]
         .dropna()
@@ -129,7 +411,9 @@ else:
         .tolist()
     )
 
-services = ["All"] + available_services
+services = [
+    "All"
+] + available_services
 
 selected_service = st.sidebar.selectbox(
     "Cloud Service",
@@ -137,7 +421,7 @@ selected_service = st.sidebar.selectbox(
 )
 
 # ------------------------------------------------------------
-# Filters
+# Dashboard filters
 # ------------------------------------------------------------
 
 high_cost_only = st.sidebar.checkbox(
@@ -158,9 +442,13 @@ underutilized_only = st.sidebar.checkbox(
 
 filtered_df = df.copy()
 
-filtered_recommendations = recommendation_df.copy()
+filtered_recommendations = (
+    recommendation_df.copy()
+)
 
-filtered_underutilization = underutilization_df.copy()
+filtered_underutilization = (
+    underutilization_df.copy()
+)
 
 # ------------------------------------------------------------
 # Provider filter
@@ -170,20 +458,27 @@ if selected_provider != "All":
 
     filtered_df = filtered_df[
         filtered_df["Cloud_Provider"]
-        == selected_provider
+        ==
+        selected_provider
     ]
 
     filtered_recommendations = (
         filtered_recommendations[
-            filtered_recommendations["Cloud_Provider"]
-            == selected_provider
+            filtered_recommendations[
+                "Cloud_Provider"
+            ]
+            ==
+            selected_provider
         ]
     )
 
     filtered_underutilization = (
         filtered_underutilization[
-            filtered_underutilization["Cloud_Provider"]
-            == selected_provider
+            filtered_underutilization[
+                "Cloud_Provider"
+            ]
+            ==
+            selected_provider
         ]
     )
 
@@ -195,20 +490,27 @@ if selected_service != "All":
 
     filtered_df = filtered_df[
         filtered_df["Service"]
-        == selected_service
+        ==
+        selected_service
     ]
 
     filtered_recommendations = (
         filtered_recommendations[
-            filtered_recommendations["Service"]
-            == selected_service
+            filtered_recommendations[
+                "Service"
+            ]
+            ==
+            selected_service
         ]
     )
 
     filtered_underutilization = (
         filtered_underutilization[
-            filtered_underutilization["Service"]
-            == selected_service
+            filtered_underutilization[
+                "Service"
+            ]
+            ==
+            selected_service
         ]
     )
 
@@ -219,14 +521,20 @@ if selected_service != "All":
 if high_cost_only:
 
     filtered_df = filtered_df[
-        filtered_df["Optimization_Flag"]
-        == "High Cost"
+        filtered_df[
+            "Optimization_Flag"
+        ]
+        ==
+        "High Cost"
     ]
 
     filtered_recommendations = (
         filtered_recommendations[
-            filtered_recommendations["Optimization_Flag"]
-            == "High Cost"
+            filtered_recommendations[
+                "Optimization_Flag"
+            ]
+            ==
+            "High Cost"
         ]
     )
 
@@ -241,7 +549,8 @@ if high_priority_only:
             filtered_recommendations[
                 "Optimization_Priority"
             ]
-            == "HIGH"
+            ==
+            "HIGH"
         ]
     )
 
@@ -256,7 +565,8 @@ if underutilized_only:
             filtered_underutilization[
                 "Underutilization_Flag"
             ]
-            == "YES"
+            ==
+            "YES"
         ]
     )
 
@@ -267,49 +577,64 @@ if underutilized_only:
 if filtered_df.empty:
 
     st.warning(
-        "⚠️ No cost data is available for the selected filters."
+        "⚠️ No cost data is available for "
+        "the selected filters."
     )
 
     st.info(
-        "Try selecting 'All' for Cloud Provider or Cloud Service."
+        "Try selecting 'All' for Cloud Provider "
+        "or Cloud Service."
     )
 
     st.stop()
 
 # ============================================================
-# KPI CALCULATIONS
+# FILTERED KPI CALCULATIONS
 # ============================================================
 
 total_cost = (
     filtered_df["Monthly_Cost"].sum()
 )
 
-average_cost = (
+average_cost_filtered = (
     filtered_df["Monthly_Cost"].mean()
 )
 
-record_count = len(filtered_df)
+record_count = len(
+    filtered_df
+)
 
-high_cost_count = (
-    filtered_df["Optimization_Flag"]
-    == "High Cost"
+high_cost_count_filtered = (
+    filtered_df[
+        "Optimization_Flag"
+    ]
+    ==
+    "High Cost"
 ).sum()
 
-high_cost_spending = filtered_df.loc[
-    filtered_df["Optimization_Flag"]
-    == "High Cost",
-    "Monthly_Cost"
-].sum()
+high_cost_spending_filtered = (
+    filtered_df.loc[
+        filtered_df[
+            "Optimization_Flag"
+        ]
+        ==
+        "High Cost",
+        "Monthly_Cost"
+    ].sum()
+)
 
 potential_savings = (
-    high_cost_spending * 0.15
+    high_cost_spending_filtered
+    * 0.15
 )
 
 # ============================================================
-# COST OVERVIEW
+# FILTERED COST OVERVIEW
 # ============================================================
 
-st.subheader("📊 Cost Overview")
+st.subheader(
+    "📊 Filtered Cost Overview"
+)
 
 col1, col2, col3, col4 = st.columns(4)
 
@@ -325,12 +650,12 @@ col2.metric(
 
 col3.metric(
     "Average Cost / Record",
-    f"${average_cost:,.2f}"
+    f"${average_cost_filtered:,.2f}"
 )
 
 col4.metric(
     "High-Cost Records",
-    f"{high_cost_count:,}"
+    f"{high_cost_count_filtered:,}"
 )
 
 st.divider()
@@ -339,13 +664,21 @@ st.divider()
 # PROVIDER ANALYSIS
 # ============================================================
 
-st.subheader("☁️ Cost by Cloud Provider")
+st.subheader(
+    "☁️ Cost by Cloud Provider"
+)
 
 provider_cost = (
     filtered_df
-    .groupby("Cloud_Provider")["Monthly_Cost"]
+    .groupby(
+        "Cloud_Provider"
+    )[
+        "Monthly_Cost"
+    ]
     .sum()
-    .sort_values(ascending=False)
+    .sort_values(
+        ascending=False
+    )
 )
 
 if not provider_cost.empty:
@@ -394,13 +727,21 @@ st.divider()
 # SERVICE ANALYSIS
 # ============================================================
 
-st.subheader("🛠️ Cost by Cloud Service")
+st.subheader(
+    "🛠️ Cost by Cloud Service"
+)
 
 service_cost = (
     filtered_df
-    .groupby("Service")["Monthly_Cost"]
+    .groupby(
+        "Service"
+    )[
+        "Monthly_Cost"
+    ]
     .sum()
-    .sort_values(ascending=False)
+    .sort_values(
+        ascending=False
+    )
 )
 
 if not service_cost.empty:
@@ -449,13 +790,21 @@ st.divider()
 # REGION ANALYSIS
 # ============================================================
 
-st.subheader("🌎 Cost by Region")
+st.subheader(
+    "🌎 Cost by Region"
+)
 
 region_cost = (
     filtered_df
-    .groupby("Region")["Monthly_Cost"]
+    .groupby(
+        "Region"
+    )[
+        "Monthly_Cost"
+    ]
     .sum()
-    .sort_values(ascending=False)
+    .sort_values(
+        ascending=False
+    )
 )
 
 if not region_cost.empty:
@@ -504,7 +853,9 @@ st.divider()
 # RECOMMENDATION ENGINE
 # ============================================================
 
-st.subheader("🤖 Recommendation Engine")
+st.subheader(
+    "🤖 Recommendation Engine"
+)
 
 priority_counts = (
     filtered_recommendations[
@@ -551,14 +902,17 @@ st.divider()
 # OPTIMIZATION CENTER
 # ============================================================
 
-st.subheader("🚨 Optimization Center")
+st.subheader(
+    "🚨 Optimization Center"
+)
 
 optimization_candidates = (
     filtered_recommendations[
         filtered_recommendations[
             "Optimization_Flag"
         ]
-        == "High Cost"
+        ==
+        "High Cost"
     ]
     .sort_values(
         "Monthly_Cost",
@@ -575,6 +929,7 @@ if not optimization_candidates.empty:
     )
 
     display_columns = [
+
         "Account_ID",
         "Cloud_Provider",
         "Service",
@@ -590,7 +945,8 @@ if not optimization_candidates.empty:
     available_columns = [
         column
         for column in display_columns
-        if column in optimization_candidates.columns
+        if column
+        in optimization_candidates.columns
     ]
 
     st.dataframe(
@@ -641,7 +997,8 @@ if not top_candidates.empty:
             info1, info2, info3 = st.columns(3)
 
             info1.write(
-                f"**Region:** {row['Region']}"
+                f"**Region:** "
+                f"{row['Region']}"
             )
 
             info2.write(
@@ -686,7 +1043,8 @@ high_underutilized = (
         filtered_underutilization[
             "Underutilization_Priority"
         ]
-        == "HIGH"
+        ==
+        "HIGH"
     ]
 )
 
@@ -695,27 +1053,30 @@ medium_underutilized = (
         filtered_underutilization[
             "Underutilization_Priority"
         ]
-        == "MEDIUM"
+        ==
+        "MEDIUM"
     ]
 )
 
-underutilized_candidates = (
+underutilized_candidates_filtered = (
     filtered_underutilization[
         filtered_underutilization[
             "Underutilization_Flag"
         ]
-        == "YES"
+        ==
+        "YES"
     ]
 )
 
-underutilized_spending = (
-    underutilized_candidates[
+underutilized_spending_filtered = (
+    underutilized_candidates_filtered[
         "Monthly_Cost"
     ].sum()
 )
 
-underutilized_savings = (
-    underutilized_spending * 0.20
+underutilized_savings_filtered = (
+    underutilized_spending_filtered
+    * 0.20
 )
 
 ucol1, ucol2, ucol3, ucol4 = st.columns(4)
@@ -732,12 +1093,14 @@ ucol2.metric(
 
 ucol3.metric(
     "⚠️ Candidates",
-    len(underutilized_candidates)
+    len(
+        underutilized_candidates_filtered
+    )
 )
 
 ucol4.metric(
     "Potential Savings",
-    f"${underutilized_savings:,.2f}"
+    f"${underutilized_savings_filtered:,.2f}"
 )
 
 st.caption(
@@ -745,14 +1108,15 @@ st.caption(
     "based on candidate spending, not guaranteed savings."
 )
 
-if not underutilized_candidates.empty:
+if not underutilized_candidates_filtered.empty:
 
     st.write(
-        f"**{len(underutilized_candidates)} "
+        f"**{len(underutilized_candidates_filtered)} "
         "resources show potential underutilization signals.**"
     )
 
     underutilized_display = [
+
         "Account_ID",
         "Cloud_Provider",
         "Service",
@@ -766,13 +1130,15 @@ if not underutilized_candidates.empty:
     ]
 
     available_underutilized_columns = [
+
         column
         for column in underutilized_display
-        if column in underutilized_candidates.columns
+        if column
+        in underutilized_candidates_filtered.columns
     ]
 
     st.dataframe(
-        underutilized_candidates[
+        underutilized_candidates_filtered[
             available_underutilized_columns
         ],
         use_container_width=True,
@@ -859,31 +1225,14 @@ st.subheader(
     "☁️ Cross-Cloud Provider Optimization"
 )
 
-PROVIDER_RECOMMENDATION_FILE = (
-    "results/provider_recommendations.csv"
+filtered_provider_df = (
+    provider_df.copy()
 )
 
 # ------------------------------------------------------------
-# Load provider recommendations
+# Provider filter
 # ------------------------------------------------------------
 
-@st.cache_data
-def load_provider_recommendations():
-
-    return pd.read_csv(
-        PROVIDER_RECOMMENDATION_FILE
-    )
-
-
-provider_df = load_provider_recommendations()
-
-# ------------------------------------------------------------
-# Apply dashboard filters
-# ------------------------------------------------------------
-
-filtered_provider_df = provider_df.copy()
-
-# Cloud provider filter
 if selected_provider != "All":
 
     filtered_provider_df = (
@@ -896,7 +1245,10 @@ if selected_provider != "All":
         ]
     )
 
+# ------------------------------------------------------------
 # Service filter
+# ------------------------------------------------------------
+
 if selected_service != "All":
 
     filtered_provider_df = (
@@ -913,7 +1265,7 @@ if selected_service != "All":
 # Migration candidates
 # ------------------------------------------------------------
 
-migration_candidates = (
+migration_candidates_filtered = (
     filtered_provider_df[
         (
             filtered_provider_df[
@@ -936,15 +1288,31 @@ migration_candidates = (
 )
 
 # ------------------------------------------------------------
+# High-priority filter
+# ------------------------------------------------------------
+
+if high_priority_only:
+
+    migration_candidates_filtered = (
+        migration_candidates_filtered[
+            migration_candidates_filtered[
+                "Recommendation_Confidence"
+            ]
+            ==
+            "HIGH"
+        ]
+    )
+
+# ------------------------------------------------------------
 # KPIs
 # ------------------------------------------------------------
 
-provider_candidate_count = (
-    len(migration_candidates)
+provider_candidate_count = len(
+    migration_candidates_filtered
 )
 
 provider_monthly_savings = (
-    migration_candidates[
+    migration_candidates_filtered[
         "Estimated_Monthly_Savings"
     ].sum()
 )
@@ -954,10 +1322,11 @@ provider_annual_savings = (
 )
 
 high_confidence_count = (
-    migration_candidates[
+    migration_candidates_filtered[
         "Recommendation_Confidence"
     ]
-    == "HIGH"
+    ==
+    "HIGH"
 ).sum()
 
 pcol1, pcol2, pcol3, pcol4 = st.columns(4)
@@ -989,17 +1358,17 @@ st.caption(
 )
 
 # ------------------------------------------------------------
-# Recommended provider distribution
+# Provider distribution
 # ------------------------------------------------------------
 
-if not migration_candidates.empty:
+if not migration_candidates_filtered.empty:
 
     st.subheader(
         "🔄 Recommended Provider Distribution"
     )
 
     provider_distribution = (
-        migration_candidates[
+        migration_candidates_filtered[
             "Recommended_Provider"
         ]
         .value_counts()
@@ -1053,7 +1422,7 @@ st.subheader(
 )
 
 top_provider_candidates = (
-    migration_candidates
+    migration_candidates_filtered
     .sort_values(
         "Estimated_Monthly_Savings",
         ascending=False
@@ -1066,31 +1435,18 @@ if not top_provider_candidates.empty:
     provider_display_columns = [
 
         "Account_ID",
-
         "Current_Provider",
-
         "Current_Service",
-
         "Service_Category",
-
         "Region",
-
         "Usage_Hours",
-
         "Current_Monthly_Cost",
-
         "Current_Cost_Per_Hour",
-
         "Recommended_Provider",
-
         "Alternative_Cost_Per_Hour",
-
         "Estimated_Alternative_Cost",
-
         "Estimated_Monthly_Savings",
-
         "Estimated_Savings_Percentage",
-
         "Recommendation_Confidence"
     ]
 
@@ -1098,7 +1454,8 @@ if not top_provider_candidates.empty:
 
         column
         for column in provider_display_columns
-        if column in top_provider_candidates.columns
+        if column
+        in top_provider_candidates.columns
     ]
 
     st.dataframe(
@@ -1117,7 +1474,7 @@ else:
     )
 
 # ------------------------------------------------------------
-# Detailed recommendations
+# Provider recommendation details
 # ------------------------------------------------------------
 
 if not top_provider_candidates.empty:
@@ -1194,6 +1551,7 @@ if not top_provider_candidates.empty:
             )
 
 st.divider()
+
 # ============================================================
 # MACHINE LEARNING COST PREDICTION
 # ============================================================
@@ -1281,34 +1639,44 @@ st.subheader(
     "🎯 Actual vs Predicted Cloud Cost"
 )
 
-# ------------------------------------------------------------
-# Apply dashboard filters to ML predictions
-# ------------------------------------------------------------
+filtered_ml_predictions = (
+    ml_predictions_df.copy()
+)
 
-filtered_ml_predictions = ml_predictions_df.copy()
-
+# ------------------------------------------------------------
 # Provider filter
+# ------------------------------------------------------------
+
 if selected_provider != "All":
 
     filtered_ml_predictions = (
         filtered_ml_predictions[
-            filtered_ml_predictions["Cloud_Provider"]
-            == selected_provider
-        ]
-    )
-
-# Service filter
-if selected_service != "All":
-
-    filtered_ml_predictions = (
-        filtered_ml_predictions[
-            filtered_ml_predictions["Service"]
-            == selected_service
+            filtered_ml_predictions[
+                "Cloud_Provider"
+            ]
+            ==
+            selected_provider
         ]
     )
 
 # ------------------------------------------------------------
-# Display filtered graph
+# Service filter
+# ------------------------------------------------------------
+
+if selected_service != "All":
+
+    filtered_ml_predictions = (
+        filtered_ml_predictions[
+            filtered_ml_predictions[
+                "Service"
+            ]
+            ==
+            selected_service
+        ]
+    )
+
+# ------------------------------------------------------------
+# Graph
 # ------------------------------------------------------------
 
 if filtered_ml_predictions.empty:
@@ -1322,7 +1690,9 @@ else:
 
     plot_df = (
         filtered_ml_predictions
-        .reset_index(drop=True)
+        .reset_index(
+            drop=True
+        )
         .copy()
     )
 
@@ -1337,17 +1707,20 @@ else:
 
     ax.plot(
         plot_df["Record"],
-        plot_df["Actual_Monthly_Cost"],
+        plot_df[
+            "Actual_Monthly_Cost"
+        ],
         label="Actual Cost"
     )
 
     ax.plot(
         plot_df["Record"],
-        plot_df["Predicted_Monthly_Cost"],
+        plot_df[
+            "Predicted_Monthly_Cost"
+        ],
         label="Predicted Cost"
     )
 
-    # Dynamic title
     provider_text = (
         selected_provider
         if selected_provider != "All"
@@ -1395,6 +1768,7 @@ st.subheader(
 )
 
 ml_display_columns = [
+
     "Cloud_Provider",
     "Service",
     "Region",
@@ -1408,9 +1782,11 @@ ml_display_columns = [
 ]
 
 available_ml_columns = [
+
     column
     for column in ml_display_columns
-    if column in ml_predictions_df.columns
+    if column
+    in ml_predictions_df.columns
 ]
 
 st.dataframe(
@@ -1442,7 +1818,7 @@ scol1, scol2, scol3 = st.columns(3)
 
 scol1.metric(
     "High-Cost Spending",
-    f"${high_cost_spending:,.2f}"
+    f"${high_cost_spending_filtered:,.2f}"
 )
 
 scol2.metric(
@@ -1492,6 +1868,7 @@ with st.expander(
         Cost Analysis
         • Recommendation Engine
         • Underutilization Detection
+        • Cross-Cloud Provider Recommendation
         • Machine Learning Cost Prediction
         ↓
 
@@ -1516,13 +1893,20 @@ with st.expander(
 
         The system identifies high-cost resources, generates
         service-specific optimization recommendations, detects
-        potential underutilization, and evaluates machine-learning
+        potential underutilization, evaluates cross-cloud
+        migration opportunities, and evaluates machine-learning
         models for cloud-cost prediction.
 
         Hadoop HDFS and MapReduce provide the Big Data processing
         foundation, while Python, Pandas, scikit-learn, and
         Streamlit provide analytics, machine learning, and
         interactive visualization.
+
+        Cross-cloud provider recommendations are based on
+        observed cost-per-hour benchmarks for equivalent service
+        categories. Actual cloud migration decisions require
+        consideration of architecture, performance, networking,
+        security, and vendor-specific pricing.
         """
     )
 
@@ -1533,6 +1917,6 @@ with st.expander(
 st.divider()
 
 st.caption(
-    "Cloud Cost Optimization Analytics | "
-    "Hadoop HDFS + MapReduce + Python + ML + Streamlit"
+    "Cloud Cost Optimization Analytics Using Hadoop | "
+    "HDFS + MapReduce + Python + Pandas + ML + Streamlit"
 )
