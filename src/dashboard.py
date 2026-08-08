@@ -19,6 +19,8 @@ st.set_page_config(
 DATA_FILE = "data/processed/cloud_cost_analysis.csv"
 RECOMMENDATION_FILE = "results/optimization_candidates.csv"
 UNDERUTILIZATION_FILE = "results/underutilized_resources.csv"
+ML_RESULTS_FILE = "results/ml_model_comparison.csv"
+ML_PREDICTIONS_FILE = "results/ml_cost_predictions.csv"
 
 # ============================================================
 # LOAD DATA
@@ -37,14 +39,30 @@ def load_data():
         UNDERUTILIZATION_FILE
     )
 
+    ml_results_df = pd.read_csv(
+        ML_RESULTS_FILE
+    )
+
+    ml_predictions_df = pd.read_csv(
+        ML_PREDICTIONS_FILE
+    )
+
     return (
         cost_df,
         recommendation_df,
-        underutilization_df
+        underutilization_df,
+        ml_results_df,
+        ml_predictions_df
     )
 
 
-df, recommendation_df, underutilization_df = load_data()
+(
+    df,
+    recommendation_df,
+    underutilization_df,
+    ml_results_df,
+    ml_predictions_df
+) = load_data()
 
 # ============================================================
 # TITLE
@@ -58,7 +76,7 @@ st.markdown(
 )
 
 st.caption(
-    "Hadoop HDFS • MapReduce • Python • Pandas • Streamlit"
+    "Hadoop HDFS • MapReduce • Python • Pandas • Streamlit • Machine Learning"
 )
 
 st.divider()
@@ -119,24 +137,16 @@ selected_service = st.sidebar.selectbox(
 )
 
 # ------------------------------------------------------------
-# High Cost Filter
+# Filters
 # ------------------------------------------------------------
 
 high_cost_only = st.sidebar.checkbox(
     "Show High-Cost Records Only"
 )
 
-# ------------------------------------------------------------
-# High Priority Filter
-# ------------------------------------------------------------
-
 high_priority_only = st.sidebar.checkbox(
     "Show High-Priority Recommendations Only"
 )
-
-# ------------------------------------------------------------
-# Underutilization Filter
-# ------------------------------------------------------------
 
 underutilized_only = st.sidebar.checkbox(
     "Show Underutilized Resources Only"
@@ -153,7 +163,7 @@ filtered_recommendations = recommendation_df.copy()
 filtered_underutilization = underutilization_df.copy()
 
 # ------------------------------------------------------------
-# Provider
+# Provider filter
 # ------------------------------------------------------------
 
 if selected_provider != "All":
@@ -178,7 +188,7 @@ if selected_provider != "All":
     )
 
 # ------------------------------------------------------------
-# Service
+# Service filter
 # ------------------------------------------------------------
 
 if selected_service != "All":
@@ -203,7 +213,7 @@ if selected_service != "All":
     )
 
 # ------------------------------------------------------------
-# High Cost
+# High-cost filter
 # ------------------------------------------------------------
 
 if high_cost_only:
@@ -221,7 +231,7 @@ if high_cost_only:
     )
 
 # ------------------------------------------------------------
-# High Priority
+# High-priority filter
 # ------------------------------------------------------------
 
 if high_priority_only:
@@ -236,7 +246,7 @@ if high_priority_only:
     )
 
 # ------------------------------------------------------------
-# Underutilization
+# Underutilization filter
 # ------------------------------------------------------------
 
 if underutilized_only:
@@ -735,10 +745,6 @@ st.caption(
     "based on candidate spending, not guaranteed savings."
 )
 
-# ============================================================
-# UNDERUTILIZATION TABLE
-# ============================================================
-
 if not underutilized_candidates.empty:
 
     st.write(
@@ -783,7 +789,7 @@ else:
 st.divider()
 
 # ============================================================
-# UNDERUTILIZATION TOP OPPORTUNITIES
+# TOP UNDERUTILIZATION OPPORTUNITIES
 # ============================================================
 
 st.subheader(
@@ -807,7 +813,8 @@ if not top_underutilized.empty:
             f"{row['Account_ID']} | "
             f"{row['Cloud_Provider']} | "
             f"{row['Service']} | "
-            f"Score {row['Underutilization_Score']:.2f}"
+            f"Score "
+            f"{row['Underutilization_Score']:.2f}"
         ):
 
             u1, u2, u3 = st.columns(3)
@@ -841,6 +848,242 @@ if not top_underutilized.empty:
                 f"**Recommended Action:** "
                 f"{row['Underutilization_Action']}"
             )
+
+st.divider()
+
+# ============================================================
+# MACHINE LEARNING COST PREDICTION
+# ============================================================
+
+st.subheader(
+    "🔮 Machine Learning Cost Prediction"
+)
+
+# ------------------------------------------------------------
+# Best model
+# ------------------------------------------------------------
+
+best_model_row = (
+    ml_results_df
+    .sort_values(
+        "MAE"
+    )
+    .iloc[0]
+)
+
+best_model_name = (
+    best_model_row["Model"]
+)
+
+best_mae = (
+    best_model_row["MAE"]
+)
+
+best_rmse = (
+    best_model_row["RMSE"]
+)
+
+best_r2 = (
+    best_model_row["R2_Score"]
+)
+
+mlcol1, mlcol2, mlcol3, mlcol4 = st.columns(4)
+
+mlcol1.metric(
+    "Best Model",
+    best_model_name
+)
+
+mlcol2.metric(
+    "MAE",
+    f"${best_mae:.2f}"
+)
+
+mlcol3.metric(
+    "RMSE",
+    f"${best_rmse:.2f}"
+)
+
+mlcol4.metric(
+    "R² Score",
+    f"{best_r2:.4f}"
+)
+
+st.caption(
+    "The model was selected using the lowest Mean Absolute Error "
+    "on the held-out test dataset."
+)
+
+# ============================================================
+# MODEL COMPARISON
+# ============================================================
+
+st.subheader(
+    "📈 ML Model Comparison"
+)
+
+st.dataframe(
+    ml_results_df.sort_values(
+        "MAE"
+    ),
+    use_container_width=True,
+    hide_index=True
+)
+
+# ============================================================
+# ACTUAL VS PREDICTED
+# ============================================================
+
+st.subheader(
+    "🎯 Actual vs Predicted Cloud Cost"
+)
+
+# ------------------------------------------------------------
+# Apply dashboard filters to ML predictions
+# ------------------------------------------------------------
+
+filtered_ml_predictions = ml_predictions_df.copy()
+
+# Provider filter
+if selected_provider != "All":
+
+    filtered_ml_predictions = (
+        filtered_ml_predictions[
+            filtered_ml_predictions["Cloud_Provider"]
+            == selected_provider
+        ]
+    )
+
+# Service filter
+if selected_service != "All":
+
+    filtered_ml_predictions = (
+        filtered_ml_predictions[
+            filtered_ml_predictions["Service"]
+            == selected_service
+        ]
+    )
+
+# ------------------------------------------------------------
+# Display filtered graph
+# ------------------------------------------------------------
+
+if filtered_ml_predictions.empty:
+
+    st.warning(
+        "⚠️ No ML test-set predictions are available "
+        "for the selected provider/service combination."
+    )
+
+else:
+
+    plot_df = (
+        filtered_ml_predictions
+        .reset_index(drop=True)
+        .copy()
+    )
+
+    plot_df["Record"] = range(
+        1,
+        len(plot_df) + 1
+    )
+
+    fig, ax = plt.subplots(
+        figsize=(12, 5)
+    )
+
+    ax.plot(
+        plot_df["Record"],
+        plot_df["Actual_Monthly_Cost"],
+        label="Actual Cost"
+    )
+
+    ax.plot(
+        plot_df["Record"],
+        plot_df["Predicted_Monthly_Cost"],
+        label="Predicted Cost"
+    )
+
+    # Dynamic title
+    provider_text = (
+        selected_provider
+        if selected_provider != "All"
+        else "All Providers"
+    )
+
+    service_text = (
+        selected_service
+        if selected_service != "All"
+        else "All Services"
+    )
+
+    ax.set_title(
+        "Actual vs Predicted Monthly Cost\n"
+        f"{provider_text} | {service_text}"
+    )
+
+    ax.set_xlabel(
+        "Test Record"
+    )
+
+    ax.set_ylabel(
+        "Monthly Cost ($)"
+    )
+
+    ax.legend()
+
+    plt.tight_layout()
+
+    st.pyplot(fig)
+
+    plt.close(fig)
+
+    st.caption(
+        f"Showing {len(plot_df)} ML test records "
+        f"for the selected filters."
+    )
+
+# ============================================================
+# ML PREDICTION TABLE
+# ============================================================
+
+st.subheader(
+    "🔬 ML Prediction Results"
+)
+
+ml_display_columns = [
+    "Cloud_Provider",
+    "Service",
+    "Region",
+    "Usage_Hours",
+    "Data_Transfer_GB",
+    "Storage_GB",
+    "Actual_Monthly_Cost",
+    "Predicted_Monthly_Cost",
+    "Absolute_Error",
+    "Best_Model"
+]
+
+available_ml_columns = [
+    column
+    for column in ml_display_columns
+    if column in ml_predictions_df.columns
+]
+
+st.dataframe(
+    ml_predictions_df[
+        available_ml_columns
+    ],
+    use_container_width=True,
+    hide_index=True
+)
+
+st.info(
+    "The current ML component evaluates cloud-cost prediction "
+    "performance on a held-out test set. An R² score of 0.3613 "
+    "indicates moderate predictive capability; it should not be "
+    "interpreted as a guaranteed future-cost forecast."
+)
 
 st.divider()
 
@@ -906,6 +1149,7 @@ with st.expander(
         Cost Analysis
         • Recommendation Engine
         • Underutilization Detection
+        • Machine Learning Cost Prediction
         ↓
 
         **Visualization Layer**
@@ -928,13 +1172,14 @@ with st.expander(
         cost data across AWS, Azure, and GCP.
 
         The system identifies high-cost resources, generates
-        service-specific optimization recommendations, and
-        detects potential underutilization using usage,
-        monthly cost, and cost-per-hour indicators.
+        service-specific optimization recommendations, detects
+        potential underutilization, and evaluates machine-learning
+        models for cloud-cost prediction.
 
         Hadoop HDFS and MapReduce provide the Big Data processing
-        foundation, while Python, Pandas, and Streamlit provide
-        analytics and interactive visualization.
+        foundation, while Python, Pandas, scikit-learn, and
+        Streamlit provide analytics, machine learning, and
+        interactive visualization.
         """
     )
 
@@ -946,5 +1191,5 @@ st.divider()
 
 st.caption(
     "Cloud Cost Optimization Analytics | "
-    "Hadoop HDFS + MapReduce + Python + Streamlit"
+    "Hadoop HDFS + MapReduce + Python + ML + Streamlit"
 )
