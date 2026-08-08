@@ -1,0 +1,501 @@
+Account_ID,Current_Provider,Current_Service,Service_Category,Region,Usage_Hours,Current_Monthly_Cost,Current_Cost_Per_Hour,Recommended_Provider,Alternative_Cost_Per_Hour,Estimated_Alternative_Cost,Estimated_Monthly_Savings,Estimated_Savings_Percentage,Benchmark_Resource_Count,Recommendation,Recommendation_Confidence
+ACC-135,AWS,Lambda,Serverless,us-east-1,139,182.26,1.3112,Azure,0.3981,55.33,126.93,69.64,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-143,Azure,Azure SQL,Database,westus,612,354.01,0.5784,GCP,0.3756,229.85,124.16,35.07,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-131,Azure,Azure SQL,Database,eastus,497,310.3,0.6243,GCP,0.3756,186.66,123.64,39.85,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-114,Azure,Virtual Machines,Compute,centralindia,100,166.9,1.669,GCP,0.4526,45.26,121.64,72.88,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-137,AWS,S3,Storage,us-west-2,128,165.99,1.2968,GCP,0.4127,52.83,113.16,68.17,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-106,AWS,Lambda,Serverless,us-east-1,630,363.15,0.5764,Azure,0.3981,250.78,112.37,30.94,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-105,Azure,Functions,Serverless,westus,652,330.17,0.5064,AWS,0.3407,222.16,108.01,32.71,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-135,GCP,Cloud SQL,Database,us-central1,127,154.77,1.2187,AWS,0.384,48.77,106.0,68.49,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-135,AWS,EC2,Compute,us-east-1,630,384.22,0.6099,Azure,0.4421,278.53,105.69,27.51,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-113,GCP,Cloud Storage,Storage,us-west1,92,139.32,1.5143,AWS,0.4164,38.31,101.01,72.5,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-111,AWS,RDS,Database,ap-south-1,274,202.68,0.7397,GCP,0.3756,102.9,99.78,49.23,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-105,GCP,Cloud SQL,Database,us-west1,529,299.8,0.5667,AWS,0.384,203.13,96.67,32.24,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-143,Azure,Functions,Serverless,centralindia,469,256.26,0.5464,AWS,0.3407,159.8,96.46,37.64,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-149,GCP,Cloud Functions,Serverless,us-west1,299,196.38,0.6568,AWS,0.3407,101.88,94.5,48.12,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-109,AWS,S3,Storage,us-west-2,429,270.18,0.6298,GCP,0.4127,177.05,93.13,34.47,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-120,Azure,Azure SQL,Database,westus,575,308.49,0.5365,GCP,0.3756,215.95,92.54,30.0,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-108,GCP,Cloud Storage,Storage,us-west1,469,285.44,0.6086,AWS,0.4164,195.3,90.14,31.58,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-132,Azure,Functions,Serverless,eastus,427,234.88,0.5501,AWS,0.3407,145.49,89.39,38.06,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-106,Azure,Virtual Machines,Compute,centralindia,290,220.19,0.7593,GCP,0.4526,131.24,88.95,40.39,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-142,GCP,Cloud SQL,Database,us-west1,502,280.69,0.5591,AWS,0.384,192.77,87.92,31.32,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-131,GCP,Cloud Functions,Serverless,asia-south1,416,229.32,0.5513,AWS,0.3407,141.75,87.57,38.19,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-117,GCP,Cloud SQL,Database,asia-south1,590,313.25,0.5309,AWS,0.384,226.56,86.69,27.68,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-132,AWS,Lambda,Serverless,us-west-2,620,332.86,0.5369,Azure,0.3981,246.8,86.06,25.85,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-137,GCP,Compute Engine,Compute,asia-south1,321,227.66,0.7092,Azure,0.4421,141.92,85.74,37.66,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-106,GCP,Cloud Functions,Serverless,asia-south1,714,328.89,0.4606,AWS,0.3407,243.28,85.61,26.03,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-114,GCP,Compute Engine,Compute,asia-south1,126,141.17,1.1204,Azure,0.4421,55.71,85.46,60.54,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,GCP,Cloud SQL,Database,us-central1,244,178.97,0.7335,AWS,0.384,93.69,85.28,47.65,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-124,GCP,Cloud Functions,Serverless,us-central1,201,152.39,0.7582,AWS,0.3407,68.49,83.9,55.06,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-116,Azure,Azure SQL,Database,centralindia,96,118.76,1.2371,GCP,0.3756,36.05,82.71,69.64,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-122,GCP,Compute Engine,Compute,us-west1,158,152.38,0.9644,Azure,0.4421,69.85,82.53,54.16,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-110,Azure,Azure SQL,Database,centralindia,191,153.79,0.8052,GCP,0.3756,71.73,82.06,53.36,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-115,AWS,S3,Storage,us-west-2,233,177.99,0.7639,GCP,0.4127,96.16,81.83,45.97,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,AWS,S3,Storage,us-east-1,101,123.22,1.22,GCP,0.4127,41.68,81.54,66.17,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-149,AWS,EC2,Compute,us-west-2,90,121.3,1.3478,Azure,0.4421,39.79,81.51,67.2,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-124,Azure,Virtual Machines,Compute,westus,234,187.2,0.8,GCP,0.4526,105.9,81.3,43.43,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-129,Azure,Azure SQL,Database,centralindia,436,244.73,0.5613,GCP,0.3756,163.75,80.98,33.09,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-142,GCP,Cloud Functions,Serverless,asia-south1,228,158.39,0.6947,AWS,0.3407,77.69,80.7,50.95,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-148,Azure,Virtual Machines,Compute,centralindia,103,123.41,1.1982,GCP,0.4526,46.61,76.8,62.23,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,Azure,Virtual Machines,Compute,centralindia,679,384.07,0.5656,GCP,0.4526,307.29,76.78,19.99,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-136,AWS,Lambda,Serverless,ap-south-1,129,127.57,0.9889,Azure,0.3981,51.35,76.22,59.75,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-136,GCP,Cloud Storage,Storage,us-west1,276,190.84,0.6914,AWS,0.4164,114.93,75.91,39.78,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-136,Azure,Blob Storage,Storage,centralindia,357,221.88,0.6215,GCP,0.4127,147.34,74.54,33.6,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-131,GCP,Cloud Storage,Storage,us-west1,193,154.56,0.8008,AWS,0.4164,80.37,74.19,48.0,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-147,Azure,Functions,Serverless,westus,90,104.81,1.1646,AWS,0.3407,30.67,74.14,70.74,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-125,Azure,Azure SQL,Database,eastus,560,284.43,0.5079,GCP,0.3756,210.32,74.11,26.06,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-105,Azure,Blob Storage,Storage,westus,719,369.23,0.5135,GCP,0.4127,296.74,72.49,19.63,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-146,Azure,Virtual Machines,Compute,westus,660,371.09,0.5623,GCP,0.4526,298.69,72.4,19.51,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-112,AWS,EC2,Compute,ap-south-1,66,100.42,1.5215,Azure,0.4421,29.18,71.24,70.94,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-126,GCP,Cloud Functions,Serverless,us-west1,304,174.76,0.5749,AWS,0.3407,103.58,71.18,40.73,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-145,GCP,Compute Engine,Compute,us-central1,110,118.78,1.0798,Azure,0.4421,48.63,70.15,59.06,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-149,AWS,S3,Storage,us-east-1,565,302.78,0.5359,GCP,0.4127,233.18,69.6,22.99,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-110,AWS,EC2,Compute,ap-south-1,120,121.59,1.0132,Azure,0.4421,53.05,68.54,56.37,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-119,GCP,Cloud Storage,Storage,us-west1,121,118.78,0.9817,AWS,0.4164,50.39,68.39,57.58,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-124,AWS,Lambda,Serverless,us-east-1,216,153.9,0.7125,Azure,0.3981,85.98,67.92,44.13,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,Azure,Azure SQL,Database,centralindia,94,102.8,1.0936,GCP,0.3756,35.3,67.5,65.66,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-142,AWS,EC2,Compute,us-west-2,533,303.08,0.5686,Azure,0.4421,235.65,67.43,22.25,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-133,Azure,Blob Storage,Storage,westus,179,140.85,0.7869,GCP,0.4127,73.87,66.98,47.55,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-101,Azure,Azure SQL,Database,centralindia,250,160.86,0.6434,GCP,0.3756,93.89,66.97,41.63,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-105,AWS,EC2,Compute,us-west-2,125,121.99,0.9759,Azure,0.4421,55.26,66.73,54.7,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-100,Azure,Functions,Serverless,centralindia,477,228.92,0.4799,AWS,0.3407,162.53,66.39,29.0,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,AWS,RDS,Database,us-east-1,89,99.4,1.1169,GCP,0.3756,33.43,65.97,66.37,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-124,AWS,S3,Storage,us-west-2,248,166.32,0.6706,GCP,0.4127,102.35,63.97,38.46,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-106,AWS,RDS,Database,ap-south-1,59,86.03,1.4581,GCP,0.3756,22.16,63.87,74.24,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-107,AWS,RDS,Database,us-west-2,550,270.16,0.4912,GCP,0.3756,206.56,63.6,23.54,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-121,AWS,RDS,Database,us-east-1,445,230.38,0.5177,GCP,0.3756,167.13,63.25,27.46,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,GCP,Cloud SQL,Database,asia-south1,229,150.51,0.6572,AWS,0.384,87.93,62.58,41.58,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-142,Azure,Azure SQL,Database,centralindia,108,102.47,0.9488,GCP,0.3756,40.56,61.91,60.42,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-102,Azure,Azure SQL,Database,centralindia,76,90.2,1.1868,GCP,0.3756,28.54,61.66,68.36,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-132,AWS,RDS,Database,ap-south-1,216,142.78,0.661,GCP,0.3756,81.12,61.66,43.18,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-136,GCP,Cloud Storage,Storage,us-west1,231,157.43,0.6815,AWS,0.4164,96.19,61.24,38.9,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-112,AWS,RDS,Database,ap-south-1,698,322.77,0.4624,GCP,0.3756,262.14,60.63,18.78,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-109,Azure,Functions,Serverless,centralindia,92,91.47,0.9942,AWS,0.3407,31.35,60.12,65.73,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,Azure,Functions,Serverless,eastus,255,146.89,0.576,AWS,0.3407,86.89,60.0,40.85,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-124,Azure,Virtual Machines,Compute,eastus,448,262.3,0.5855,GCP,0.4526,202.75,59.55,22.7,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-100,GCP,Cloud Functions,Serverless,us-west1,90,89.56,0.9951,AWS,0.3407,30.67,58.89,65.76,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-132,GCP,Cloud Storage,Storage,us-central1,208,144.73,0.6958,AWS,0.4164,86.61,58.12,40.15,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-103,AWS,EC2,Compute,us-west-2,88,96.08,1.0918,Azure,0.4421,38.91,57.17,59.51,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-118,GCP,Cloud SQL,Database,asia-south1,371,199.18,0.5369,AWS,0.384,142.46,56.72,28.48,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,GCP,Cloud Functions,Serverless,us-west1,643,275.2,0.428,AWS,0.3407,219.09,56.11,20.39,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-110,Azure,Azure SQL,Database,eastus,95,91.6,0.9642,GCP,0.3756,35.68,55.92,61.05,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-106,GCP,Compute Engine,Compute,asia-south1,114,105.7,0.9272,Azure,0.4421,50.4,55.3,52.32,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-143,GCP,Cloud Functions,Serverless,us-west1,250,140.15,0.5606,AWS,0.3407,85.18,54.97,39.22,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,GCP,Cloud SQL,Database,us-west1,71,81.14,1.1428,AWS,0.384,27.26,53.88,66.4,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-149,GCP,Cloud Storage,Storage,us-west1,351,199.24,0.5676,AWS,0.4164,146.16,53.08,26.64,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-136,AWS,RDS,Database,us-west-2,164,114.57,0.6986,GCP,0.3756,61.59,52.98,46.24,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-136,Azure,Virtual Machines,Compute,eastus,187,137.29,0.7342,GCP,0.4526,84.63,52.66,38.36,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-111,GCP,Cloud Functions,Serverless,us-west1,191,117.35,0.6144,AWS,0.3407,65.08,52.27,44.54,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-120,Azure,Azure SQL,Database,westus,150,108.35,0.7223,GCP,0.3756,56.33,52.02,48.01,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-138,Azure,Functions,Serverless,westus,392,184.65,0.471,AWS,0.3407,133.57,51.08,27.66,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-110,GCP,Cloud Storage,Storage,us-west1,597,299.24,0.5012,AWS,0.4164,248.6,50.64,16.92,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-149,GCP,Cloud Functions,Serverless,us-west1,353,170.74,0.4837,AWS,0.3407,120.28,50.46,29.55,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-104,Azure,Azure SQL,Database,centralindia,213,130.04,0.6105,GCP,0.3756,80.0,50.04,38.48,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-131,Azure,Blob Storage,Storage,westus,98,89.83,0.9166,GCP,0.4127,40.45,49.38,54.98,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-120,Azure,Functions,Serverless,eastus,561,240.24,0.4282,AWS,0.3407,191.15,49.09,20.43,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-127,GCP,Cloud Functions,Serverless,us-west1,699,287.19,0.4109,AWS,0.3407,238.17,49.02,17.07,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-111,AWS,EC2,Compute,us-west-2,84,86.07,1.0246,Azure,0.4421,37.14,48.93,56.85,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-134,AWS,S3,Storage,us-west-2,310,176.52,0.5694,GCP,0.4127,127.94,48.58,27.52,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-143,Azure,Azure SQL,Database,eastus,571,262.79,0.4602,GCP,0.3756,214.45,48.34,18.4,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-111,Azure,Azure SQL,Database,centralindia,141,100.92,0.7157,GCP,0.3756,52.95,47.97,47.53,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-137,Azure,Azure SQL,Database,eastus,671,299.84,0.4469,GCP,0.3756,252.0,47.84,15.95,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-148,GCP,Cloud Functions,Serverless,asia-south1,386,179.32,0.4646,AWS,0.3407,131.52,47.8,26.65,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-120,AWS,EC2,Compute,us-east-1,146,111.74,0.7653,Azure,0.4421,64.55,47.19,42.23,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-144,Azure,Functions,Serverless,centralindia,537,229.94,0.4282,AWS,0.3407,182.97,46.97,20.43,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-123,GCP,Cloud Functions,Serverless,us-west1,464,205.02,0.4419,AWS,0.3407,158.1,46.92,22.89,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-110,AWS,RDS,Database,ap-south-1,661,295.16,0.4465,GCP,0.3756,248.25,46.91,15.89,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-130,AWS,EC2,Compute,ap-south-1,119,99.44,0.8356,Azure,0.4421,52.61,46.83,47.09,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-115,Azure,Blob Storage,Storage,westus,165,114.38,0.6932,GCP,0.4127,68.1,46.28,40.46,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-145,AWS,Lambda,Serverless,us-east-1,610,288.97,0.4737,Azure,0.3981,242.82,46.15,15.97,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-105,GCP,Cloud Storage,Storage,us-west1,215,134.95,0.6277,AWS,0.4164,89.53,45.42,33.66,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-110,AWS,EC2,Compute,ap-south-1,568,296.35,0.5217,Azure,0.4421,251.12,45.23,15.26,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-111,GCP,Cloud Storage,Storage,asia-south1,615,301.29,0.4899,AWS,0.4164,256.09,45.2,15.0,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-144,AWS,Lambda,Serverless,us-west-2,83,78.23,0.9425,Azure,0.3981,33.04,45.19,57.77,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-106,Azure,Azure SQL,Database,eastus,482,225.4,0.4676,GCP,0.3756,181.02,44.38,19.69,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,AWS,RDS,Database,ap-south-1,80,74.25,0.9281,GCP,0.3756,30.05,44.2,59.54,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,GCP,Cloud SQL,Database,us-west1,594,271.63,0.4573,AWS,0.384,228.09,43.54,16.03,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-127,GCP,Cloud SQL,Database,us-central1,551,255.05,0.4629,AWS,0.384,211.58,43.47,17.04,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,AWS,S3,Storage,us-east-1,582,283.55,0.4872,GCP,0.4127,240.2,43.35,15.29,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-121,AWS,RDS,Database,us-east-1,241,133.68,0.5547,GCP,0.3756,90.51,43.17,32.29,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-121,Azure,Functions,Serverless,centralindia,147,93.05,0.633,AWS,0.3407,50.09,42.96,46.17,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-127,GCP,Cloud Storage,Storage,asia-south1,475,240.74,0.5068,AWS,0.4164,197.8,42.94,17.84,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-136,AWS,S3,Storage,ap-south-1,417,213.75,0.5126,GCP,0.4127,172.1,41.65,19.49,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,GCP,Cloud Storage,Storage,us-central1,317,172.34,0.5437,AWS,0.4164,132.0,40.34,23.41,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-107,AWS,S3,Storage,us-east-1,168,109.64,0.6526,GCP,0.4127,69.33,40.31,36.76,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-114,Azure,Blob Storage,Storage,westus,437,220.11,0.5037,GCP,0.4127,180.35,39.76,18.06,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-132,Azure,Azure SQL,Database,westus,273,142.12,0.5206,GCP,0.3756,102.53,39.59,27.86,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-120,GCP,Cloud Storage,Storage,asia-south1,217,129.28,0.5958,AWS,0.4164,90.36,38.92,30.1,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-125,Azure,Functions,Serverless,eastus,215,111.99,0.5209,AWS,0.3407,73.26,38.73,34.59,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-137,AWS,EC2,Compute,us-west-2,121,92.17,0.7617,Azure,0.4421,53.5,38.67,41.96,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-132,Azure,Azure SQL,Database,eastus,463,211.53,0.4569,GCP,0.3756,173.89,37.64,17.8,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-134,GCP,Compute Engine,Compute,asia-south1,265,154.72,0.5838,Azure,0.4421,117.16,37.56,24.28,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-101,AWS,RDS,Database,us-west-2,479,217.31,0.4537,GCP,0.3756,179.9,37.41,17.22,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,Azure,Functions,Serverless,eastus,150,88.31,0.5887,AWS,0.3407,51.11,37.2,42.12,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-121,Azure,Azure SQL,Database,centralindia,59,59.31,1.0053,GCP,0.3756,22.16,37.15,62.64,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-141,AWS,S3,Storage,us-east-1,460,226.8,0.493,GCP,0.4127,189.85,36.95,16.29,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-134,Azure,Blob Storage,Storage,eastus,224,129.22,0.5769,GCP,0.4127,92.45,36.77,28.46,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-125,Azure,Azure SQL,Database,eastus,563,248.12,0.4407,GCP,0.3756,211.44,36.68,14.78,40,GCP shows a moderate observed cost advantage for this Database workload.,MEDIUM
+ACC-118,Azure,Virtual Machines,Compute,westus,468,248.05,0.53,GCP,0.4526,211.8,36.25,14.61,43,GCP shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-103,GCP,Cloud Storage,Storage,asia-south1,624,296.0,0.4744,AWS,0.4164,259.84,36.16,12.22,45,AWS shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-123,Azure,Functions,Serverless,centralindia,141,84.1,0.5965,AWS,0.3407,48.04,36.06,42.87,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-109,GCP,Compute Engine,Compute,asia-south1,99,79.81,0.8062,Azure,0.4421,43.77,36.04,45.16,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-138,GCP,Cloud Functions,Serverless,us-central1,360,157.51,0.4375,AWS,0.3407,122.66,34.85,22.12,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-114,Azure,Blob Storage,Storage,eastus,316,164.9,0.5218,GCP,0.4127,130.42,34.48,20.91,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-143,GCP,Cloud Storage,Storage,us-west1,345,178.1,0.5162,AWS,0.4164,143.66,34.44,19.34,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,Azure,Functions,Serverless,westus,370,160.47,0.4337,AWS,0.3407,126.07,34.4,21.44,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-129,Azure,Virtual Machines,Compute,centralindia,103,80.61,0.7826,GCP,0.4526,46.61,34.0,42.17,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-116,GCP,Cloud SQL,Database,asia-south1,258,132.36,0.513,AWS,0.384,99.07,33.29,25.15,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-137,GCP,Cloud SQL,Database,us-central1,196,108.47,0.5534,AWS,0.384,75.26,33.21,30.61,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-133,Azure,Functions,Serverless,eastus,602,237.99,0.3953,AWS,0.3407,205.12,32.87,13.81,40,AWS shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-135,Azure,Virtual Machines,Compute,westus,269,154.61,0.5748,GCP,0.4526,121.74,32.87,21.26,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,GCP,Cloud Functions,Serverless,asia-south1,422,176.48,0.4182,AWS,0.3407,143.79,32.69,18.52,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-129,AWS,EC2,Compute,us-east-1,504,255.38,0.5067,Azure,0.4421,222.83,32.55,12.75,38,Azure shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-109,GCP,Compute Engine,Compute,us-central1,375,198.24,0.5286,Azure,0.4421,165.79,32.45,16.37,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-114,GCP,Compute Engine,Compute,us-west1,214,126.9,0.593,Azure,0.4421,94.61,32.29,25.44,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-145,Azure,Azure SQL,Database,centralindia,57,53.47,0.9381,GCP,0.3756,21.41,32.06,59.96,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-105,AWS,Lambda,Serverless,ap-south-1,427,201.98,0.473,Azure,0.3981,169.97,32.01,15.85,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-109,GCP,Compute Engine,Compute,us-central1,52,54.94,1.0565,Azure,0.4421,22.99,31.95,58.15,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-124,Azure,Blob Storage,Storage,eastus,422,205.53,0.487,GCP,0.4127,174.16,31.37,15.26,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-121,GCP,Cloud Storage,Storage,us-west1,339,172.39,0.5085,AWS,0.4164,141.16,31.23,18.11,45,Consider AWS for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-105,GCP,Cloud SQL,Database,us-central1,276,136.84,0.4958,AWS,0.384,105.98,30.86,22.55,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-129,GCP,Compute Engine,Compute,us-west1,515,258.46,0.5019,Azure,0.4421,227.69,30.77,11.91,38,Azure shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-120,GCP,Compute Engine,Compute,us-west1,314,169.51,0.5398,Azure,0.4421,138.82,30.69,18.1,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-149,AWS,EC2,Compute,us-east-1,83,66.71,0.8037,Azure,0.4421,36.7,30.01,44.99,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-129,Azure,Blob Storage,Storage,eastus,580,269.21,0.4642,GCP,0.4127,239.37,29.84,11.08,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-134,GCP,Cloud Functions,Serverless,us-west1,323,139.78,0.4328,AWS,0.3407,110.06,29.72,21.26,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-115,GCP,Cloud Functions,Serverless,asia-south1,59,49.72,0.8427,AWS,0.3407,20.1,29.62,59.57,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-145,Azure,Functions,Serverless,westus,357,151.03,0.4231,AWS,0.3407,121.64,29.39,19.46,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-104,GCP,Cloud SQL,Database,asia-south1,173,95.81,0.5538,AWS,0.384,66.43,29.38,30.66,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-119,AWS,EC2,Compute,ap-south-1,670,325.55,0.4859,Azure,0.4421,296.22,29.33,9.01,38,Azure shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-146,AWS,Lambda,Serverless,us-west-2,56,51.43,0.9184,Azure,0.3981,22.29,29.14,56.66,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-108,Azure,Functions,Serverless,centralindia,552,217.13,0.3934,AWS,0.3407,188.09,29.04,13.38,40,AWS shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-132,AWS,Lambda,Serverless,us-east-1,166,95.11,0.573,Azure,0.3981,66.08,29.03,30.52,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,Azure,Functions,Serverless,centralindia,478,191.58,0.4008,AWS,0.3407,162.87,28.71,14.99,40,AWS shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-132,GCP,Cloud Functions,Serverless,asia-south1,96,61.35,0.6391,AWS,0.3407,32.71,28.64,46.68,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-124,AWS,S3,Storage,us-east-1,547,254.35,0.465,GCP,0.4127,225.75,28.6,11.24,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-129,AWS,Lambda,Serverless,us-east-1,496,225.54,0.4547,Azure,0.3981,197.44,28.1,12.46,36,Azure shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-116,Azure,Virtual Machines,Compute,eastus,209,122.06,0.584,GCP,0.4526,94.59,27.47,22.51,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-116,GCP,Cloud Functions,Serverless,us-west1,199,95.02,0.4775,AWS,0.3407,67.81,27.21,28.64,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-144,GCP,Cloud Functions,Serverless,us-west1,319,135.77,0.4256,AWS,0.3407,108.69,27.08,19.94,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-126,GCP,Compute Engine,Compute,asia-south1,264,143.66,0.5442,Azure,0.4421,116.72,26.94,18.75,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-138,Azure,Azure SQL,Database,westus,717,296.13,0.413,GCP,0.3756,269.28,26.85,9.07,40,GCP shows a moderate observed cost advantage for this Database workload.,MEDIUM
+ACC-120,AWS,S3,Storage,us-east-1,461,217.03,0.4708,GCP,0.4127,190.26,26.77,12.34,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-144,Azure,Blob Storage,Storage,centralindia,684,309.03,0.4518,GCP,0.4127,282.29,26.74,8.65,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-141,GCP,Cloud Functions,Serverless,us-west1,55,45.44,0.8262,AWS,0.3407,18.74,26.7,58.76,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,Azure,Virtual Machines,Compute,westus,305,163.8,0.537,GCP,0.4526,138.03,25.77,15.73,43,Consider GCP for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-141,AWS,EC2,Compute,ap-south-1,166,98.99,0.5963,Azure,0.4421,73.39,25.6,25.86,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,AWS,EC2,Compute,us-east-1,84,61.99,0.738,Azure,0.4421,37.14,24.85,40.09,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-136,AWS,EC2,Compute,us-east-1,122,78.7,0.6451,Azure,0.4421,53.94,24.76,31.46,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-138,AWS,S3,Storage,us-east-1,119,73.51,0.6177,GCP,0.4127,49.11,24.4,33.19,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-118,Azure,Blob Storage,Storage,eastus,216,113.39,0.525,GCP,0.4127,89.14,24.25,21.38,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-144,Azure,Blob Storage,Storage,westus,319,155.05,0.4861,GCP,0.4127,131.65,23.4,15.09,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-132,Azure,Functions,Serverless,centralindia,416,164.28,0.3949,AWS,0.3407,141.75,22.53,13.72,40,AWS shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-133,GCP,Cloud Storage,Storage,asia-south1,457,212.74,0.4655,AWS,0.4164,190.3,22.44,10.55,45,AWS shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-136,GCP,Cloud Functions,Serverless,us-central1,554,211.04,0.3809,AWS,0.3407,188.77,22.27,10.55,40,AWS shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-133,AWS,S3,Storage,us-east-1,159,87.76,0.5519,GCP,0.4127,65.62,22.14,25.23,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-122,Azure,Azure SQL,Database,eastus,385,166.67,0.4329,GCP,0.3756,144.59,22.08,13.25,40,GCP shows a moderate observed cost advantage for this Database workload.,MEDIUM
+ACC-140,Azure,Virtual Machines,Compute,westus,320,166.87,0.5215,GCP,0.4526,144.82,22.05,13.21,43,GCP shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-125,GCP,Cloud Functions,Serverless,us-central1,148,72.44,0.4895,AWS,0.3407,50.43,22.01,30.39,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-118,AWS,EC2,Compute,ap-south-1,466,226.72,0.4865,Azure,0.4421,206.03,20.69,9.13,38,Azure shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-101,GCP,Compute Engine,Compute,us-west1,668,315.48,0.4723,Azure,0.4421,295.33,20.15,6.39,38,Azure shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-115,AWS,RDS,Database,us-west-2,699,282.47,0.4041,GCP,0.3756,262.52,19.95,7.06,40,GCP shows a moderate observed cost advantage for this Database workload.,MEDIUM
+ACC-108,AWS,Lambda,Serverless,us-west-2,199,99.13,0.4981,Azure,0.3981,79.21,19.92,20.09,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-136,AWS,EC2,Compute,ap-south-1,479,230.18,0.4805,Azure,0.4421,211.77,18.41,8.0,38,Azure shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-134,Azure,Azure SQL,Database,centralindia,338,145.31,0.4299,GCP,0.3756,126.94,18.37,12.64,40,GCP shows a moderate observed cost advantage for this Database workload.,MEDIUM
+ACC-132,AWS,RDS,Database,us-west-2,172,82.77,0.4812,GCP,0.3756,64.6,18.17,21.96,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-117,GCP,Cloud Functions,Serverless,us-west1,242,100.53,0.4154,AWS,0.3407,82.46,18.07,17.98,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-109,Azure,Blob Storage,Storage,eastus,231,113.35,0.4907,GCP,0.4127,95.34,18.01,15.89,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-119,Azure,Blob Storage,Storage,eastus,557,247.5,0.4443,GCP,0.4127,229.88,17.62,7.12,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-123,AWS,S3,Storage,ap-south-1,217,107.16,0.4938,GCP,0.4127,89.56,17.6,16.43,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-133,Azure,Blob Storage,Storage,eastus,208,103.39,0.4971,GCP,0.4127,85.84,17.55,16.97,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-110,AWS,EC2,Compute,us-east-1,550,260.61,0.4738,Azure,0.4421,243.16,17.45,6.69,38,Azure shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-109,AWS,S3,Storage,ap-south-1,288,136.26,0.4731,GCP,0.4127,118.86,17.4,12.77,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-104,Azure,Azure SQL,Database,westus,423,175.86,0.4157,GCP,0.3756,158.86,17.0,9.66,40,GCP shows a moderate observed cost advantage for this Database workload.,MEDIUM
+ACC-133,Azure,Virtual Machines,Compute,westus,447,219.1,0.4902,GCP,0.4526,202.3,16.8,7.67,43,GCP shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-138,Azure,Virtual Machines,Compute,westus,449,219.57,0.489,GCP,0.4526,203.2,16.37,7.45,43,GCP shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-149,AWS,S3,Storage,us-east-1,312,144.91,0.4645,GCP,0.4127,128.76,16.15,11.14,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-127,Azure,Azure SQL,Database,westus,644,257.8,0.4003,GCP,0.3756,241.86,15.94,6.18,40,GCP shows a moderate observed cost advantage for this Database workload.,MEDIUM
+ACC-106,AWS,EC2,Compute,us-west-2,153,83.55,0.5461,Azure,0.4421,67.64,15.91,19.04,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-149,GCP,Compute Engine,Compute,us-central1,312,153.77,0.4929,Azure,0.4421,137.94,15.83,10.29,38,Azure shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-127,GCP,Cloud Storage,Storage,asia-south1,279,131.68,0.472,AWS,0.4164,116.18,15.5,11.77,45,AWS shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-118,Azure,Virtual Machines,Compute,eastus,278,140.92,0.5069,GCP,0.4526,125.81,15.11,10.72,43,GCP shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-116,AWS,RDS,Database,us-east-1,76,43.2,0.5684,GCP,0.3756,28.54,14.66,33.93,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-123,AWS,RDS,Database,us-west-2,159,74.34,0.4675,GCP,0.3756,59.71,14.63,19.67,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-137,AWS,RDS,Database,us-west-2,96,50.59,0.527,GCP,0.3756,36.05,14.54,28.73,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-116,AWS,S3,Storage,ap-south-1,172,85.48,0.497,GCP,0.4127,70.99,14.49,16.96,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-137,Azure,Functions,Serverless,centralindia,196,81.09,0.4137,AWS,0.3407,66.78,14.31,17.64,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-137,AWS,Lambda,Serverless,ap-south-1,234,107.1,0.4577,Azure,0.3981,93.15,13.95,13.03,36,Azure shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-109,AWS,S3,Storage,us-west-2,185,90.23,0.4877,GCP,0.4127,76.35,13.88,15.38,45,Consider GCP for the Storage workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-125,GCP,Cloud SQL,Database,us-central1,93,49.5,0.5323,AWS,0.384,35.71,13.79,27.86,42,Consider AWS for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-107,Azure,Virtual Machines,Compute,westus,316,156.72,0.4959,GCP,0.4526,143.01,13.71,8.75,43,GCP shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-116,GCP,Cloud Functions,Serverless,us-west1,58,32.91,0.5674,AWS,0.3407,19.76,13.15,39.95,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-124,GCP,Cloud Storage,Storage,asia-south1,289,132.89,0.4598,AWS,0.4164,120.34,12.55,9.44,45,AWS shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-132,GCP,Compute Engine,Compute,asia-south1,108,60.03,0.5558,Azure,0.4421,47.75,12.28,20.46,38,Consider Azure for the Compute workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-128,Azure,Blob Storage,Storage,eastus,440,193.7,0.4402,GCP,0.4127,181.59,12.11,6.25,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-116,GCP,Cloud Functions,Serverless,us-west1,144,60.46,0.4199,AWS,0.3407,49.07,11.39,18.85,40,Consider AWS for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-140,AWS,S3,Storage,ap-south-1,396,174.53,0.4407,GCP,0.4127,163.43,11.1,6.36,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-142,AWS,RDS,Database,us-west-2,90,43.91,0.4879,GCP,0.3756,33.8,10.11,23.02,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-120,GCP,Cloud Storage,Storage,us-west1,283,127.34,0.45,AWS,0.4164,117.84,9.5,7.46,45,AWS shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-117,AWS,RDS,Database,ap-south-1,132,58.94,0.4465,GCP,0.3756,49.57,9.37,15.89,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-131,Azure,Azure SQL,Database,eastus,58,30.54,0.5266,GCP,0.3756,21.78,8.76,28.67,40,Consider GCP for the Database workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-105,AWS,Lambda,Serverless,us-west-2,159,71.84,0.4518,Azure,0.3981,63.29,8.55,11.9,36,Azure shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-113,Azure,Blob Storage,Storage,centralindia,196,88.91,0.4536,GCP,0.4127,80.89,8.02,9.02,45,GCP shows a moderate observed cost advantage for this Storage workload.,MEDIUM
+ACC-126,GCP,Cloud Functions,Serverless,asia-south1,332,120.55,0.3631,AWS,0.3407,113.12,7.43,6.16,40,AWS shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-137,AWS,Lambda,Serverless,us-west-2,66,33.7,0.5106,Azure,0.3981,26.27,7.43,22.04,36,Consider Azure for the Serverless workload. The observed median cost per hour is lower for this provider.,HIGH
+ACC-134,Azure,Functions,Serverless,centralindia,168,64.3,0.3827,AWS,0.3407,57.24,7.06,10.97,40,AWS shows a moderate observed cost advantage for this Serverless workload.,MEDIUM
+ACC-115,GCP,Compute Engine,Compute,asia-south1,260,121.31,0.4666,Azure,0.4421,114.95,6.36,5.24,38,Azure shows a moderate observed cost advantage for this Compute workload.,MEDIUM
+ACC-120,Azure,Azure SQL,Database,eastus,104,43.94,0.4225,GCP,0.3756,39.06,4.88,11.11,40,GCP shows a moderate observed cost advantage for this Database workload.,MEDIUM
+ACC-103,GCP,Compute Engine,Compute,us-west1,589,124.88,0.212,GCP,0.212,124.88,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-148,AWS,Lambda,Serverless,ap-south-1,208,41.82,0.2011,AWS,0.2011,41.82,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-115,Azure,Virtual Machines,Compute,westus,467,196.27,0.4203,Azure,0.4203,196.27,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-104,Azure,Virtual Machines,Compute,centralindia,532,189.03,0.3553,Azure,0.3553,189.03,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-118,AWS,S3,Storage,ap-south-1,593,147.77,0.2492,AWS,0.2492,147.77,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-125,Azure,Virtual Machines,Compute,eastus,635,245.48,0.3866,Azure,0.3866,245.48,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-122,AWS,Lambda,Serverless,us-west-2,406,155.4,0.3828,AWS,0.3828,155.4,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-105,GCP,Cloud Storage,Storage,asia-south1,586,231.18,0.3945,GCP,0.3945,231.18,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-135,GCP,Compute Engine,Compute,us-central1,346,117.33,0.3391,GCP,0.3391,117.33,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-120,AWS,S3,Storage,ap-south-1,666,261.38,0.3925,AWS,0.3925,261.38,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-126,AWS,RDS,Database,us-east-1,440,169.3,0.3848,AWS,0.3848,169.3,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-119,GCP,Cloud Storage,Storage,us-central1,521,136.5,0.262,GCP,0.262,136.5,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-111,AWS,EC2,Compute,us-east-1,397,101.75,0.2563,AWS,0.2563,101.75,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-146,GCP,Cloud Functions,Serverless,us-central1,466,125.55,0.2694,GCP,0.2694,125.55,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-138,GCP,Cloud SQL,Database,asia-south1,551,135.27,0.2455,GCP,0.2455,135.27,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-135,GCP,Compute Engine,Compute,us-central1,710,116.71,0.1644,GCP,0.1644,116.71,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-114,AWS,EC2,Compute,us-east-1,288,74.85,0.2599,AWS,0.2599,74.85,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-100,AWS,EC2,Compute,us-east-1,494,110.68,0.224,AWS,0.224,110.68,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-142,AWS,EC2,Compute,ap-south-1,583,127.46,0.2186,AWS,0.2186,127.46,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-134,Azure,Functions,Serverless,centralindia,388,93.28,0.2404,Azure,0.2404,93.28,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-106,Azure,Functions,Serverless,westus,687,139.48,0.203,Azure,0.203,139.48,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-123,AWS,Lambda,Serverless,ap-south-1,624,260.62,0.4177,AWS,0.4177,260.62,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-115,AWS,RDS,Database,us-east-1,581,208.44,0.3588,AWS,0.3588,208.44,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-146,Azure,Virtual Machines,Compute,westus,475,141.69,0.2983,Azure,0.2983,141.69,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-141,Azure,Blob Storage,Storage,centralindia,259,77.7,0.3,Azure,0.3,77.7,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-147,AWS,S3,Storage,us-west-2,390,141.16,0.3619,AWS,0.3619,141.16,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-149,Azure,Blob Storage,Storage,centralindia,551,194.1,0.3523,Azure,0.3523,194.1,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-117,AWS,EC2,Compute,ap-south-1,595,159.39,0.2679,AWS,0.2679,159.39,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-113,Azure,Virtual Machines,Compute,eastus,652,286.81,0.4399,Azure,0.4399,286.81,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-146,Azure,Virtual Machines,Compute,centralindia,324,141.68,0.4373,Azure,0.4373,141.68,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-110,AWS,S3,Storage,us-west-2,567,210.76,0.3717,AWS,0.3717,210.76,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-109,GCP,Cloud SQL,Database,asia-south1,136,51.13,0.376,GCP,0.376,51.13,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-143,GCP,Cloud SQL,Database,asia-south1,675,162.83,0.2412,GCP,0.2412,162.83,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-133,GCP,Compute Engine,Compute,asia-south1,599,184.48,0.308,GCP,0.308,184.48,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-117,AWS,Lambda,Serverless,us-west-2,678,188.04,0.2773,AWS,0.2773,188.04,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-144,AWS,S3,Storage,us-west-2,401,135.52,0.338,AWS,0.338,135.52,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-148,AWS,EC2,Compute,us-east-1,413,172.97,0.4188,AWS,0.4188,172.97,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-111,GCP,Cloud Storage,Storage,us-central1,704,265.92,0.3777,GCP,0.3777,265.92,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-130,AWS,Lambda,Serverless,us-east-1,325,72.81,0.224,AWS,0.224,72.81,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-120,AWS,Lambda,Serverless,us-west-2,618,102.78,0.1663,AWS,0.1663,102.78,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-140,AWS,Lambda,Serverless,us-east-1,352,110.57,0.3141,AWS,0.3141,110.57,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-138,GCP,Cloud Storage,Storage,asia-south1,562,94.1,0.1674,GCP,0.1674,94.1,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-137,AWS,EC2,Compute,ap-south-1,606,279.03,0.4604,AWS,0.4604,279.03,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-127,AWS,EC2,Compute,us-west-2,436,52.59,0.1206,AWS,0.1206,52.59,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-141,AWS,RDS,Database,us-west-2,628,155.51,0.2476,AWS,0.2476,155.51,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-132,Azure,Virtual Machines,Compute,eastus,614,234.15,0.3814,Azure,0.3814,234.15,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-142,AWS,S3,Storage,us-east-1,567,220.43,0.3888,AWS,0.3888,220.43,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-111,Azure,Azure SQL,Database,westus,552,172.18,0.3119,Azure,0.3119,172.18,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-149,AWS,RDS,Database,us-west-2,452,131.29,0.2905,AWS,0.2905,131.29,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-125,AWS,RDS,Database,us-west-2,690,194.6,0.282,AWS,0.282,194.6,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-103,Azure,Azure SQL,Database,westus,610,220.73,0.3619,Azure,0.3619,220.73,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-109,GCP,Compute Engine,Compute,us-west1,356,163.74,0.4599,GCP,0.4599,163.74,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-139,Azure,Virtual Machines,Compute,centralindia,469,146.92,0.3133,Azure,0.3133,146.92,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-112,Azure,Blob Storage,Storage,westus,545,193.36,0.3548,Azure,0.3548,193.36,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-142,AWS,RDS,Database,us-west-2,569,218.05,0.3832,AWS,0.3832,218.05,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-108,GCP,Cloud SQL,Database,us-west1,533,170.73,0.3203,GCP,0.3203,170.73,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-135,GCP,Cloud Storage,Storage,us-west1,546,201.97,0.3699,GCP,0.3699,201.97,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-100,GCP,Cloud Functions,Serverless,asia-south1,515,92.69,0.18,GCP,0.18,92.69,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-113,Azure,Functions,Serverless,centralindia,365,128.42,0.3518,Azure,0.3518,128.42,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-107,Azure,Functions,Serverless,centralindia,547,135.41,0.2476,Azure,0.2476,135.41,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-108,GCP,Cloud Storage,Storage,us-west1,284,112.28,0.3954,GCP,0.3954,112.28,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-127,AWS,Lambda,Serverless,us-east-1,657,126.87,0.1931,AWS,0.1931,126.87,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-100,GCP,Cloud Storage,Storage,us-central1,690,186.03,0.2696,GCP,0.2696,186.03,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-146,Azure,Azure SQL,Database,westus,660,116.66,0.1768,Azure,0.1768,116.66,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-113,Azure,Functions,Serverless,eastus,633,113.4,0.1791,Azure,0.1791,113.4,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-105,AWS,RDS,Database,ap-south-1,545,211.18,0.3875,AWS,0.3875,211.18,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-106,AWS,RDS,Database,ap-south-1,434,120.8,0.2783,AWS,0.2783,120.8,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-144,AWS,S3,Storage,us-east-1,686,237.81,0.3467,AWS,0.3467,237.81,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-105,Azure,Azure SQL,Database,eastus,384,143.93,0.3748,Azure,0.3748,143.93,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-116,AWS,EC2,Compute,us-west-2,627,199.91,0.3188,AWS,0.3188,199.91,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-111,Azure,Azure SQL,Database,westus,286,57.93,0.2026,Azure,0.2026,57.93,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-144,AWS,RDS,Database,ap-south-1,427,156.04,0.3654,AWS,0.3654,156.04,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-115,GCP,Cloud Functions,Serverless,us-central1,601,158.29,0.2634,GCP,0.2634,158.29,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-104,AWS,Lambda,Serverless,us-west-2,598,162.36,0.2715,AWS,0.2715,162.36,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-141,AWS,Lambda,Serverless,us-east-1,472,107.69,0.2282,AWS,0.2282,107.69,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-133,GCP,Cloud Storage,Storage,asia-south1,487,134.7,0.2766,GCP,0.2766,134.7,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-129,GCP,Cloud Storage,Storage,us-central1,355,128.93,0.3632,GCP,0.3632,128.93,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-108,Azure,Functions,Serverless,westus,602,130.18,0.2162,Azure,0.2162,130.18,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-104,Azure,Virtual Machines,Compute,centralindia,642,232.33,0.3619,Azure,0.3619,232.33,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-125,AWS,Lambda,Serverless,us-east-1,475,155.22,0.3268,AWS,0.3268,155.22,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-132,GCP,Compute Engine,Compute,asia-south1,590,186.05,0.3153,GCP,0.3153,186.05,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-109,GCP,Cloud SQL,Database,asia-south1,704,248.92,0.3536,GCP,0.3536,248.92,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-132,GCP,Compute Engine,Compute,us-west1,418,77.38,0.1851,GCP,0.1851,77.38,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-129,Azure,Virtual Machines,Compute,eastus,286,68.21,0.2385,Azure,0.2385,68.21,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-121,Azure,Blob Storage,Storage,centralindia,583,180.45,0.3095,Azure,0.3095,180.45,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-142,GCP,Cloud Storage,Storage,asia-south1,212,78.48,0.3702,GCP,0.3702,78.48,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-126,Azure,Blob Storage,Storage,eastus,189,76.54,0.405,Azure,0.405,76.54,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-133,AWS,S3,Storage,us-west-2,111,38.9,0.3505,AWS,0.3505,38.9,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-115,Azure,Azure SQL,Database,westus,616,175.45,0.2848,Azure,0.2848,175.45,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-136,AWS,Lambda,Serverless,us-west-2,418,131.08,0.3136,AWS,0.3136,131.08,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-113,Azure,Functions,Serverless,centralindia,134,42.77,0.3192,Azure,0.3192,42.77,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-137,AWS,Lambda,Serverless,ap-south-1,424,156.07,0.3681,AWS,0.3681,156.07,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-149,Azure,Functions,Serverless,westus,303,107.47,0.3547,Azure,0.3547,107.47,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-124,GCP,Cloud Storage,Storage,us-west1,503,119.36,0.2373,GCP,0.2373,119.36,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-121,GCP,Cloud Storage,Storage,us-central1,125,34.81,0.2785,GCP,0.2785,34.81,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-121,Azure,Virtual Machines,Compute,eastus,377,116.1,0.308,Azure,0.308,116.1,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-127,AWS,RDS,Database,us-east-1,455,163.9,0.3602,AWS,0.3602,163.9,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-100,AWS,Lambda,Serverless,ap-south-1,229,56.75,0.2478,AWS,0.2478,56.75,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-138,Azure,Azure SQL,Database,westus,546,131.38,0.2406,Azure,0.2406,131.38,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-103,Azure,Functions,Serverless,eastus,678,168.69,0.2488,Azure,0.2488,168.69,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-117,AWS,S3,Storage,ap-south-1,454,161.46,0.3556,AWS,0.3556,161.46,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-104,AWS,S3,Storage,us-east-1,460,191.55,0.4164,AWS,0.4164,191.55,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-100,AWS,EC2,Compute,us-west-2,619,213.11,0.3443,AWS,0.3443,213.11,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-116,GCP,Compute Engine,Compute,us-central1,201,66.11,0.3289,GCP,0.3289,66.11,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-145,AWS,RDS,Database,us-east-1,365,110.46,0.3026,AWS,0.3026,110.46,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-146,Azure,Azure SQL,Database,eastus,317,112.52,0.355,Azure,0.355,112.52,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-132,AWS,S3,Storage,us-east-1,247,65.79,0.2664,AWS,0.2664,65.79,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-119,Azure,Blob Storage,Storage,centralindia,441,179.11,0.4061,Azure,0.4061,179.11,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-115,GCP,Cloud Storage,Storage,asia-south1,412,165.37,0.4014,GCP,0.4014,165.37,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-121,GCP,Cloud Functions,Serverless,us-central1,389,122.42,0.3147,GCP,0.3147,122.42,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-139,Azure,Azure SQL,Database,westus,442,157.34,0.356,Azure,0.356,157.34,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-105,GCP,Cloud Storage,Storage,us-central1,227,62.37,0.2748,GCP,0.2748,62.37,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-102,GCP,Cloud Functions,Serverless,asia-south1,536,145.35,0.2712,GCP,0.2712,145.35,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-124,GCP,Compute Engine,Compute,us-central1,402,176.12,0.4381,GCP,0.4381,176.12,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-124,Azure,Virtual Machines,Compute,westus,532,107.38,0.2018,Azure,0.2018,107.38,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-141,AWS,S3,Storage,ap-south-1,669,112.48,0.1681,AWS,0.1681,112.48,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-137,Azure,Blob Storage,Storage,centralindia,331,108.24,0.327,Azure,0.327,108.24,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-107,GCP,Cloud SQL,Database,us-central1,705,185.7,0.2634,GCP,0.2634,185.7,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-149,AWS,EC2,Compute,ap-south-1,281,105.82,0.3766,AWS,0.3766,105.82,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-138,Azure,Virtual Machines,Compute,centralindia,713,119.56,0.1677,Azure,0.1677,119.56,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-112,AWS,RDS,Database,ap-south-1,514,112.89,0.2196,AWS,0.2196,112.89,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-102,GCP,Compute Engine,Compute,us-central1,227,94.39,0.4158,GCP,0.4158,94.39,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-116,GCP,Cloud Functions,Serverless,us-west1,685,151.64,0.2214,GCP,0.2214,151.64,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-130,AWS,Lambda,Serverless,us-east-1,637,173.33,0.2721,AWS,0.2721,173.33,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-144,Azure,Blob Storage,Storage,westus,359,101.66,0.2832,Azure,0.2832,101.66,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-112,AWS,S3,Storage,ap-south-1,333,140.36,0.4215,AWS,0.4215,140.36,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-105,AWS,Lambda,Serverless,us-east-1,690,84.04,0.1218,AWS,0.1218,84.04,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-123,GCP,Cloud SQL,Database,asia-south1,354,121.99,0.3446,GCP,0.3446,121.99,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-144,AWS,Lambda,Serverless,ap-south-1,671,106.37,0.1585,AWS,0.1585,106.37,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-129,Azure,Azure SQL,Database,westus,204,73.76,0.3616,Azure,0.3616,73.76,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-143,Azure,Virtual Machines,Compute,westus,699,173.54,0.2483,Azure,0.2483,173.54,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-143,GCP,Cloud Storage,Storage,us-west1,532,219.56,0.4127,GCP,0.4127,219.56,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-140,GCP,Cloud SQL,Database,asia-south1,658,118.09,0.1795,GCP,0.1795,118.09,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-114,Azure,Virtual Machines,Compute,westus,445,197.73,0.4443,Azure,0.4443,197.73,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-112,AWS,S3,Storage,us-east-1,568,202.55,0.3566,AWS,0.3566,202.55,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-128,GCP,Cloud SQL,Database,us-west1,566,228.53,0.4038,GCP,0.4038,228.53,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-145,AWS,EC2,Compute,us-east-1,536,228.42,0.4262,AWS,0.4262,228.42,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-138,GCP,Cloud Storage,Storage,asia-south1,358,148.29,0.4142,GCP,0.4142,148.29,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-143,GCP,Cloud SQL,Database,asia-south1,384,93.73,0.2441,GCP,0.2441,93.73,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-113,AWS,S3,Storage,ap-south-1,661,216.38,0.3274,AWS,0.3274,216.38,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-129,Azure,Virtual Machines,Compute,centralindia,607,151.81,0.2501,Azure,0.2501,151.81,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-110,GCP,Cloud Functions,Serverless,us-central1,677,154.94,0.2289,GCP,0.2289,154.94,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-122,GCP,Cloud Storage,Storage,asia-south1,581,124.75,0.2147,GCP,0.2147,124.75,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-133,AWS,Lambda,Serverless,us-west-2,471,163.18,0.3465,AWS,0.3465,163.18,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-146,GCP,Cloud Functions,Serverless,asia-south1,498,137.04,0.2752,GCP,0.2752,137.04,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-126,GCP,Cloud Functions,Serverless,us-west1,220,54.54,0.2479,GCP,0.2479,54.54,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-124,Azure,Functions,Serverless,centralindia,145,51.86,0.3577,Azure,0.3577,51.86,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-143,GCP,Cloud Storage,Storage,us-west1,320,56.98,0.1781,GCP,0.1781,56.98,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-116,GCP,Compute Engine,Compute,us-central1,555,161.83,0.2916,GCP,0.2916,161.83,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-121,AWS,EC2,Compute,us-west-2,516,218.32,0.4231,AWS,0.4231,218.32,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-110,AWS,EC2,Compute,ap-south-1,281,85.1,0.3028,AWS,0.3028,85.1,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-112,Azure,Functions,Serverless,eastus,596,90.41,0.1517,Azure,0.1517,90.41,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-127,AWS,S3,Storage,ap-south-1,551,144.74,0.2627,AWS,0.2627,144.74,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-135,GCP,Cloud Storage,Storage,asia-south1,517,96.92,0.1875,GCP,0.1875,96.92,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-101,AWS,Lambda,Serverless,us-west-2,508,147.77,0.2909,AWS,0.2909,147.77,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-115,AWS,Lambda,Serverless,us-west-2,388,119.54,0.3081,AWS,0.3081,119.54,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-105,Azure,Azure SQL,Database,centralindia,631,145.72,0.2309,Azure,0.2309,145.72,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-110,AWS,Lambda,Serverless,us-east-1,698,233.84,0.335,AWS,0.335,233.84,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-111,GCP,Compute Engine,Compute,asia-south1,323,133.32,0.4128,GCP,0.4128,133.32,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-143,GCP,Cloud SQL,Database,us-central1,637,228.4,0.3586,GCP,0.3586,228.4,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-122,AWS,RDS,Database,ap-south-1,410,106.17,0.259,AWS,0.259,106.17,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-146,GCP,Compute Engine,Compute,asia-south1,625,161.28,0.258,GCP,0.258,161.28,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-108,GCP,Cloud SQL,Database,us-west1,535,128.47,0.2401,GCP,0.2401,128.47,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-141,GCP,Cloud SQL,Database,us-west1,593,176.5,0.2976,GCP,0.2976,176.5,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-137,GCP,Compute Engine,Compute,us-west1,125,56.82,0.4546,GCP,0.4546,56.82,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-127,GCP,Cloud Storage,Storage,asia-south1,583,134.81,0.2312,GCP,0.2312,134.81,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-128,AWS,S3,Storage,ap-south-1,588,153.82,0.2616,AWS,0.2616,153.82,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-107,GCP,Compute Engine,Compute,asia-south1,314,108.76,0.3464,GCP,0.3464,108.76,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-116,GCP,Cloud Functions,Serverless,asia-south1,207,44.61,0.2155,GCP,0.2155,44.61,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-132,AWS,RDS,Database,us-west-2,445,111.19,0.2499,AWS,0.2499,111.19,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-113,AWS,Lambda,Serverless,ap-south-1,463,88.14,0.1904,AWS,0.1904,88.14,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-104,AWS,RDS,Database,ap-south-1,667,181.39,0.2719,AWS,0.2719,181.39,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-143,Azure,Blob Storage,Storage,eastus,352,121.52,0.3452,Azure,0.3452,121.52,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-143,GCP,Compute Engine,Compute,us-central1,198,45.98,0.2322,GCP,0.2322,45.98,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-148,GCP,Cloud SQL,Database,asia-south1,715,268.25,0.3752,GCP,0.3752,268.25,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-120,GCP,Cloud Functions,Serverless,asia-south1,642,142.11,0.2214,GCP,0.2214,142.11,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-124,AWS,EC2,Compute,us-west-2,651,273.72,0.4205,AWS,0.4205,273.72,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-115,GCP,Cloud SQL,Database,us-west1,703,159.63,0.2271,GCP,0.2271,159.63,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-119,Azure,Azure SQL,Database,centralindia,708,257.02,0.363,Azure,0.363,257.02,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-111,GCP,Compute Engine,Compute,asia-south1,581,213.87,0.3681,GCP,0.3681,213.87,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-130,AWS,S3,Storage,us-east-1,371,105.69,0.2849,AWS,0.2849,105.69,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-119,GCP,Cloud Functions,Serverless,asia-south1,356,82.01,0.2304,GCP,0.2304,82.01,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-138,GCP,Compute Engine,Compute,us-central1,453,174.37,0.3849,GCP,0.3849,174.37,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-130,GCP,Cloud Functions,Serverless,us-central1,647,200.37,0.3097,GCP,0.3097,200.37,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-110,AWS,RDS,Database,us-west-2,194,60.56,0.3122,AWS,0.3122,60.56,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-129,GCP,Cloud Storage,Storage,us-west1,403,141.95,0.3522,GCP,0.3522,141.95,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-121,Azure,Blob Storage,Storage,centralindia,354,106.51,0.3009,Azure,0.3009,106.51,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-119,GCP,Cloud SQL,Database,asia-south1,635,218.33,0.3438,GCP,0.3438,218.33,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-127,GCP,Compute Engine,Compute,us-west1,653,221.27,0.3389,GCP,0.3389,221.27,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-102,GCP,Cloud Storage,Storage,us-central1,452,142.13,0.3144,GCP,0.3144,142.13,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-137,Azure,Blob Storage,Storage,centralindia,688,277.22,0.4029,Azure,0.4029,277.22,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-114,GCP,Compute Engine,Compute,asia-south1,340,157.39,0.4629,GCP,0.4629,157.39,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-125,GCP,Cloud Storage,Storage,us-central1,574,79.0,0.1376,GCP,0.1376,79.0,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-108,GCP,Compute Engine,Compute,us-west1,540,214.79,0.3978,GCP,0.3978,214.79,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-114,GCP,Cloud Functions,Serverless,us-west1,548,151.22,0.2759,GCP,0.2759,151.22,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-123,Azure,Azure SQL,Database,eastus,549,121.75,0.2218,Azure,0.2218,121.75,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-146,GCP,Cloud Storage,Storage,asia-south1,506,176.41,0.3486,GCP,0.3486,176.41,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-139,GCP,Cloud SQL,Database,us-central1,563,214.09,0.3803,GCP,0.3803,214.09,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-117,AWS,RDS,Database,us-west-2,506,173.32,0.3425,AWS,0.3425,173.32,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-123,AWS,RDS,Database,us-west-2,222,50.8,0.2288,AWS,0.2288,50.8,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-141,AWS,RDS,Database,ap-south-1,306,105.23,0.3439,AWS,0.3439,105.23,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-116,Azure,Blob Storage,Storage,centralindia,266,105.09,0.3951,Azure,0.3951,105.09,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-105,GCP,Cloud SQL,Database,us-central1,618,189.31,0.3063,GCP,0.3063,189.31,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-146,AWS,S3,Storage,ap-south-1,608,199.47,0.3281,AWS,0.3281,199.47,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-139,AWS,EC2,Compute,ap-south-1,554,208.23,0.3759,AWS,0.3759,208.23,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-106,Azure,Blob Storage,Storage,eastus,321,73.63,0.2294,Azure,0.2294,73.63,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-112,AWS,S3,Storage,us-west-2,412,129.48,0.3143,AWS,0.3143,129.48,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-132,GCP,Compute Engine,Compute,us-west1,466,157.84,0.3387,GCP,0.3387,157.84,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-125,AWS,RDS,Database,ap-south-1,646,170.64,0.2641,AWS,0.2641,170.64,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-104,AWS,S3,Storage,us-east-1,459,184.56,0.4021,AWS,0.4021,184.56,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-141,GCP,Cloud SQL,Database,us-central1,663,267.64,0.4037,GCP,0.4037,267.64,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-124,AWS,EC2,Compute,us-east-1,664,116.18,0.175,AWS,0.175,116.18,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-102,AWS,Lambda,Serverless,ap-south-1,677,169.91,0.251,AWS,0.251,169.91,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-119,Azure,Virtual Machines,Compute,westus,636,222.19,0.3494,Azure,0.3494,222.19,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-106,GCP,Cloud Functions,Serverless,us-central1,669,239.27,0.3577,GCP,0.3577,239.27,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-128,GCP,Cloud Functions,Serverless,us-central1,423,143.3,0.3388,GCP,0.3388,143.3,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-149,AWS,EC2,Compute,ap-south-1,483,134.48,0.2784,AWS,0.2784,134.48,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-121,AWS,S3,Storage,us-west-2,451,107.85,0.2391,AWS,0.2391,107.85,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-133,AWS,Lambda,Serverless,us-east-1,136,54.03,0.3973,AWS,0.3973,54.03,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-119,Azure,Blob Storage,Storage,westus,530,121.27,0.2288,Azure,0.2288,121.27,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-121,AWS,Lambda,Serverless,us-east-1,496,156.06,0.3146,AWS,0.3146,156.06,0.0,0.0,36,No meaningful cross-provider cost advantage identified.,LOW
+ACC-118,Azure,Azure SQL,Database,centralindia,639,179.38,0.2807,Azure,0.2807,179.38,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-127,GCP,Compute Engine,Compute,us-central1,300,135.77,0.4526,GCP,0.4526,135.77,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-142,GCP,Compute Engine,Compute,us-central1,679,249.8,0.3679,GCP,0.3679,249.8,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-149,AWS,S3,Storage,us-west-2,530,203.19,0.3834,AWS,0.3834,203.19,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-100,GCP,Cloud SQL,Database,us-west1,602,129.06,0.2144,GCP,0.2144,129.06,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-118,GCP,Compute Engine,Compute,us-central1,682,309.38,0.4536,GCP,0.4536,309.38,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-125,Azure,Virtual Machines,Compute,eastus,456,191.77,0.4205,Azure,0.4205,191.77,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-142,Azure,Functions,Serverless,westus,583,130.37,0.2236,Azure,0.2236,130.37,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-121,GCP,Cloud Functions,Serverless,us-central1,678,150.72,0.2223,GCP,0.2223,150.72,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-131,Azure,Blob Storage,Storage,centralindia,715,299.88,0.4194,Azure,0.4194,299.88,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-116,GCP,Cloud SQL,Database,us-west1,306,116.83,0.3818,GCP,0.3818,116.83,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-117,Azure,Azure SQL,Database,westus,511,158.57,0.3103,Azure,0.3103,158.57,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-108,GCP,Cloud SQL,Database,us-west1,508,76.1,0.1498,GCP,0.1498,76.1,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-149,GCP,Cloud SQL,Database,us-west1,698,261.57,0.3747,GCP,0.3747,261.57,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-108,Azure,Virtual Machines,Compute,westus,506,210.36,0.4157,Azure,0.4157,210.36,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-104,AWS,RDS,Database,us-west-2,630,165.78,0.2631,AWS,0.2631,165.78,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-130,AWS,EC2,Compute,ap-south-1,491,86.43,0.176,AWS,0.176,86.43,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-106,GCP,Cloud SQL,Database,asia-south1,121,32.6,0.2694,GCP,0.2694,32.6,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-144,GCP,Cloud SQL,Database,us-central1,410,141.51,0.3451,GCP,0.3451,141.51,0.0,0.0,42,No meaningful cross-provider cost advantage identified.,LOW
+ACC-141,GCP,Cloud Functions,Serverless,asia-south1,309,76.18,0.2465,GCP,0.2465,76.18,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-126,GCP,Compute Engine,Compute,asia-south1,638,171.57,0.2689,GCP,0.2689,171.57,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-103,AWS,S3,Storage,us-east-1,396,161.01,0.4066,AWS,0.4066,161.01,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
+ACC-148,AWS,RDS,Database,us-east-1,532,135.53,0.2548,AWS,0.2548,135.53,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-109,Azure,Virtual Machines,Compute,westus,600,263.7,0.4395,Azure,0.4395,263.7,0.0,0.0,43,No meaningful cross-provider cost advantage identified.,LOW
+ACC-128,AWS,EC2,Compute,us-east-1,201,91.81,0.4568,AWS,0.4568,91.81,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-105,GCP,Cloud Functions,Serverless,asia-south1,501,145.17,0.2898,GCP,0.2898,145.17,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-108,Azure,Azure SQL,Database,centralindia,591,191.64,0.3243,Azure,0.3243,191.64,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-116,AWS,EC2,Compute,us-west-2,647,161.17,0.2491,AWS,0.2491,161.17,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-147,Azure,Functions,Serverless,westus,619,121.94,0.197,Azure,0.197,121.94,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-100,Azure,Functions,Serverless,eastus,503,157.76,0.3136,Azure,0.3136,157.76,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-133,AWS,EC2,Compute,ap-south-1,704,184.56,0.2622,AWS,0.2622,184.56,0.0,0.0,38,No meaningful cross-provider cost advantage identified.,LOW
+ACC-132,AWS,RDS,Database,ap-south-1,164,44.44,0.271,AWS,0.271,44.44,0.0,0.0,40,No meaningful cross-provider cost advantage identified.,LOW
+ACC-119,Azure,Blob Storage,Storage,eastus,518,205.9,0.3975,Azure,0.3975,205.9,0.0,0.0,45,No meaningful cross-provider cost advantage identified.,LOW
