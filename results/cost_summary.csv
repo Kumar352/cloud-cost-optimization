@@ -1,0 +1,13 @@
+Metric,Value
+Total Records Analyzed,500
+Total Monthly Cloud Cost,79395.61
+Average Cost Per Record,158.79
+High-Cost Records,50
+High-Cost Spending,15077.99
+Potential Monthly Savings,2261.70
+Potential Annual Savings,27140.38
+Highest Cost Provider,GCP
+Highest Average Cost Provider,Azure
+Highest Cost Service,Azure SQL
+Highest Average Cost Service,Virtual Machines
+Highest Cost Region,us-west1
