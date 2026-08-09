@@ -1,14 +1,12 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
+# Java/Hadoop compiled files
+hadoop/classes/
 
-# Jupyter
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Hadoop generated files
-*.class
-*.log
-logs/
-tmp/
-dfs/
+# Streamlit cache
+.streamlit/cache/
