@@ -40,6 +40,15 @@ ML_PREDICTIONS_FILE = (
     "results/ml_cost_predictions.csv"
 )
 
+# NEW ANALYTICS FILES
+ANOMALY_FILE = (
+    "results/cost_anomalies.csv"
+)
+
+FINOPS_RECOMMENDATION_FILE = (
+    "results/finops_recommendations.csv"
+)
+
 # ============================================================
 # LOAD DATA
 # ============================================================
@@ -71,6 +80,14 @@ def load_data():
         ML_PREDICTIONS_FILE
     )
 
+    anomaly_df = pd.read_csv(
+        ANOMALY_FILE
+    )
+
+    finops_df = pd.read_csv(
+        FINOPS_RECOMMENDATION_FILE
+    )
+
     raw_df = pd.read_csv(
         RAW_DATA_FILE
     )
@@ -82,6 +99,8 @@ def load_data():
         provider_df,
         ml_results_df,
         ml_predictions_df,
+        anomaly_df,
+        finops_df,
         raw_df
     )
 
@@ -93,6 +112,8 @@ def load_data():
     provider_df,
     ml_results_df,
     ml_predictions_df,
+    anomaly_df,
+    finops_df,
     raw_df
 ) = load_data()
 
@@ -365,10 +386,6 @@ st.divider()
 st.sidebar.header(
     "🔎 Analysis Filters"
 )
-
-# ------------------------------------------------------------
-# Cloud Provider
-# ------------------------------------------------------------
 
 providers = [
     "All"
@@ -953,7 +970,7 @@ if not optimization_candidates.empty:
         optimization_candidates[
             available_columns
         ],
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )
 
@@ -1026,6 +1043,347 @@ else:
     st.info(
         "No optimization opportunities "
         "match the current filters."
+    )
+
+st.divider()
+
+# ============================================================
+# ANOMALY DETECTION
+# ============================================================
+
+st.subheader(
+    "🚨 Cloud Cost Anomaly Detection"
+)
+
+filtered_anomalies = anomaly_df.copy()
+
+if selected_provider != "All":
+
+    filtered_anomalies = filtered_anomalies[
+        filtered_anomalies["Cloud_Provider"]
+        ==
+        selected_provider
+    ]
+
+if selected_service != "All":
+
+    filtered_anomalies = filtered_anomalies[
+        filtered_anomalies["Service"]
+        ==
+        selected_service
+    ]
+
+anomaly_total = len(
+    filtered_anomalies
+)
+
+high_anomalies = (
+    filtered_anomalies[
+        filtered_anomalies["Anomaly_Severity"]
+        ==
+        "HIGH"
+    ]
+)
+
+medium_anomalies = (
+    filtered_anomalies[
+        filtered_anomalies["Anomaly_Severity"]
+        ==
+        "MEDIUM"
+    ]
+)
+
+anomaly_cost = (
+    filtered_anomalies["Monthly_Cost"].sum()
+)
+
+acol1, acol2, acol3, acol4 = st.columns(4)
+
+acol1.metric(
+    "🚨 Total Anomalies",
+    f"{anomaly_total:,}"
+)
+
+acol2.metric(
+    "🔴 High",
+    f"{len(high_anomalies):,}"
+)
+
+acol3.metric(
+    "🟠 Medium",
+    f"{len(medium_anomalies):,}"
+)
+
+acol4.metric(
+    "💰 Anomalous Cost",
+    f"${anomaly_cost:,.2f}"
+)
+
+st.caption(
+    "Anomalies are detected using the IQR statistical method. "
+    "The current global anomaly threshold is approximately "
+    "$469.73."
+)
+
+if not filtered_anomalies.empty:
+
+    st.subheader(
+        "☁️ Anomalies by Cloud Provider"
+    )
+
+    anomaly_provider = (
+        filtered_anomalies
+        .groupby("Cloud_Provider")
+        .agg(
+            Anomaly_Count=("Monthly_Cost", "count"),
+            Anomaly_Cost=("Monthly_Cost", "sum")
+        )
+        .sort_values(
+            "Anomaly_Cost",
+            ascending=False
+        )
+    )
+
+    st.dataframe(
+        anomaly_provider,
+        width="stretch"
+    )
+
+    st.subheader(
+        "🛠️ Anomalies by Cloud Service"
+    )
+
+    anomaly_service = (
+        filtered_anomalies
+        .groupby("Service")
+        .agg(
+            Anomaly_Count=("Monthly_Cost", "count"),
+            Anomaly_Cost=("Monthly_Cost", "sum")
+        )
+        .sort_values(
+            "Anomaly_Cost",
+            ascending=False
+        )
+    )
+
+    st.dataframe(
+        anomaly_service,
+        width="stretch"
+    )
+
+    st.subheader(
+        "🎯 Top Cost Anomalies"
+    )
+
+    anomaly_display = [
+        "Account_ID",
+        "Cloud_Provider",
+        "Service",
+        "Region",
+        "Usage_Date",
+        "Monthly_Cost",
+        "Anomaly_Severity"
+    ]
+
+    available_anomaly_columns = [
+        column
+        for column in anomaly_display
+        if column in filtered_anomalies.columns
+    ]
+
+    st.dataframe(
+        filtered_anomalies
+        .sort_values(
+            "Monthly_Cost",
+            ascending=False
+        )[
+            available_anomaly_columns
+        ]
+        .head(20),
+        width="stretch",
+        hide_index=True
+    )
+
+else:
+
+    st.info(
+        "No anomalies match the selected filters."
+    )
+
+st.divider()
+
+# ============================================================
+# FINOPS RECOMMENDATION ENGINE
+# ============================================================
+
+st.subheader(
+    "💡 FinOps Recommendation Engine"
+)
+
+filtered_finops = finops_df.copy()
+
+if selected_provider != "All":
+
+    filtered_finops = filtered_finops[
+        filtered_finops["Cloud_Provider"]
+        ==
+        selected_provider
+    ]
+
+if selected_service != "All":
+
+    filtered_finops = filtered_finops[
+        filtered_finops["Service"]
+        ==
+        selected_service
+    ]
+
+critical_count = (
+    filtered_finops[
+        filtered_finops["Priority"]
+        ==
+        "CRITICAL"
+    ]
+    .shape[0]
+)
+
+high_count = (
+    filtered_finops[
+        filtered_finops["Priority"]
+        ==
+        "HIGH"
+    ]
+    .shape[0]
+)
+
+medium_count = (
+    filtered_finops[
+        filtered_finops["Priority"]
+        ==
+        "MEDIUM"
+    ]
+    .shape[0]
+)
+
+low_count = (
+    filtered_finops[
+        filtered_finops["Priority"]
+        ==
+        "LOW"
+    ]
+    .shape[0]
+)
+
+finops_savings = (
+    filtered_finops[
+        "Potential_Saving"
+    ].sum()
+)
+
+fcol1, fcol2, fcol3, fcol4, fcol5 = st.columns(5)
+
+fcol1.metric(
+    "🔴 Critical",
+    f"{critical_count:,}"
+)
+
+fcol2.metric(
+    "🟠 High",
+    f"{high_count:,}"
+)
+
+fcol3.metric(
+    "🟡 Medium",
+    f"{medium_count:,}"
+)
+
+fcol4.metric(
+    "🟢 Low",
+    f"{low_count:,}"
+)
+
+fcol5.metric(
+    "💰 Estimated Opportunity",
+    f"${finops_savings:,.2f}"
+)
+
+st.caption(
+    "Estimated optimization opportunity is generated by "
+    "the rule-based FinOps recommendation engine. "
+    "It represents an analytical scenario, not guaranteed savings."
+)
+
+st.subheader(
+    "🎯 Top FinOps Recommendations"
+)
+
+top_finops = (
+    filtered_finops
+    .sort_values(
+        "Potential_Saving",
+        ascending=False
+    )
+    .head(20)
+)
+
+if not top_finops.empty:
+
+    finops_display = [
+        "Account_ID",
+        "Cloud_Provider",
+        "Service",
+        "Region",
+        "Monthly_Cost",
+        "Anomaly_Severity",
+        "Recommendation",
+        "Priority",
+        "Potential_Saving_Percent",
+        "Potential_Saving"
+    ]
+
+    available_finops_columns = [
+        column
+        for column in finops_display
+        if column in top_finops.columns
+    ]
+
+    st.dataframe(
+        top_finops[
+            available_finops_columns
+        ],
+        width="stretch",
+        hide_index=True
+    )
+
+else:
+
+    st.info(
+        "No FinOps recommendations match "
+        "the selected filters."
+    )
+
+if not filtered_finops.empty:
+
+    st.subheader(
+        "☁️ FinOps Opportunity by Provider"
+    )
+
+    finops_provider = (
+        filtered_finops
+        .groupby("Cloud_Provider")
+        .agg(
+            Total_Cost=("Monthly_Cost", "sum"),
+            Potential_Saving=("Potential_Saving", "sum")
+        )
+        .sort_values(
+            "Potential_Saving",
+            ascending=False
+        )
+    )
+
+    st.dataframe(
+        finops_provider,
+        width="stretch"
     )
 
 st.divider()
@@ -1132,7 +1490,8 @@ if not underutilized_candidates_filtered.empty:
     available_underutilized_columns = [
 
         column
-        for column in underutilized_display
+        for column
+        in underutilized_display
         if column
         in underutilized_candidates_filtered.columns
     ]
@@ -1141,7 +1500,7 @@ if not underutilized_candidates_filtered.empty:
         underutilized_candidates_filtered[
             available_underutilized_columns
         ],
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )
 
@@ -1229,10 +1588,6 @@ filtered_provider_df = (
     provider_df.copy()
 )
 
-# ------------------------------------------------------------
-# Provider filter
-# ------------------------------------------------------------
-
 if selected_provider != "All":
 
     filtered_provider_df = (
@@ -1245,10 +1600,6 @@ if selected_provider != "All":
         ]
     )
 
-# ------------------------------------------------------------
-# Service filter
-# ------------------------------------------------------------
-
 if selected_service != "All":
 
     filtered_provider_df = (
@@ -1260,10 +1611,6 @@ if selected_service != "All":
             selected_service
         ]
     )
-
-# ------------------------------------------------------------
-# Migration candidates
-# ------------------------------------------------------------
 
 migration_candidates_filtered = (
     filtered_provider_df[
@@ -1287,10 +1634,6 @@ migration_candidates_filtered = (
     .copy()
 )
 
-# ------------------------------------------------------------
-# High-priority filter
-# ------------------------------------------------------------
-
 if high_priority_only:
 
     migration_candidates_filtered = (
@@ -1302,10 +1645,6 @@ if high_priority_only:
             "HIGH"
         ]
     )
-
-# ------------------------------------------------------------
-# KPIs
-# ------------------------------------------------------------
 
 provider_candidate_count = len(
     migration_candidates_filtered
@@ -1356,10 +1695,6 @@ st.caption(
     "benchmarks for equivalent services across AWS, "
     "Azure, and GCP. They are not guaranteed savings."
 )
-
-# ------------------------------------------------------------
-# Provider distribution
-# ------------------------------------------------------------
 
 if not migration_candidates_filtered.empty:
 
@@ -1462,7 +1797,7 @@ if not top_provider_candidates.empty:
         top_provider_candidates[
             available_provider_columns
         ],
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )
 
@@ -1560,10 +1895,6 @@ st.subheader(
     "🔮 Machine Learning Cost Prediction"
 )
 
-# ------------------------------------------------------------
-# Best model
-# ------------------------------------------------------------
-
 best_model_row = (
     ml_results_df
     .sort_values(
@@ -1627,7 +1958,7 @@ st.dataframe(
     ml_results_df.sort_values(
         "MAE"
     ),
-    use_container_width=True,
+    width="stretch",
     hide_index=True
 )
 
@@ -1643,10 +1974,6 @@ filtered_ml_predictions = (
     ml_predictions_df.copy()
 )
 
-# ------------------------------------------------------------
-# Provider filter
-# ------------------------------------------------------------
-
 if selected_provider != "All":
 
     filtered_ml_predictions = (
@@ -1659,10 +1986,6 @@ if selected_provider != "All":
         ]
     )
 
-# ------------------------------------------------------------
-# Service filter
-# ------------------------------------------------------------
-
 if selected_service != "All":
 
     filtered_ml_predictions = (
@@ -1674,10 +1997,6 @@ if selected_service != "All":
             selected_service
         ]
     )
-
-# ------------------------------------------------------------
-# Graph
-# ------------------------------------------------------------
 
 if filtered_ml_predictions.empty:
 
@@ -1793,15 +2112,17 @@ st.dataframe(
     ml_predictions_df[
         available_ml_columns
     ],
-    use_container_width=True,
+    width="stretch",
     hide_index=True
 )
 
 st.info(
-    "The current ML component evaluates cloud-cost prediction "
-    "performance on a held-out test set. An R² score of 0.3613 "
-    "indicates moderate predictive capability; it should not be "
-    "interpreted as a guaranteed future-cost forecast."
+    f"The current ML component evaluates cloud-cost prediction "
+    f"performance on a held-out test set. The selected model "
+    f"({best_model_name}) achieved an R² score of "
+    f"{best_r2:.4f}. This indicates predictive capability on "
+    f"the held-out dataset and should not be interpreted as a "
+    f"guaranteed future-cost forecast."
 )
 
 st.divider()
@@ -1868,6 +2189,8 @@ with st.expander(
         Cost Analysis
         • Recommendation Engine
         • Underutilization Detection
+        • Cloud Cost Anomaly Detection
+        • FinOps Recommendation Engine
         • Cross-Cloud Provider Recommendation
         • Machine Learning Cost Prediction
         ↓
@@ -1893,9 +2216,11 @@ with st.expander(
 
         The system identifies high-cost resources, generates
         service-specific optimization recommendations, detects
-        potential underutilization, evaluates cross-cloud
-        migration opportunities, and evaluates machine-learning
-        models for cloud-cost prediction.
+        anomalous cloud spending using statistical analysis,
+        generates FinOps recommendations, detects potential
+        underutilization, evaluates cross-cloud migration
+        opportunities, and evaluates machine-learning models
+        for cloud-cost prediction.
 
         Hadoop HDFS and MapReduce provide the Big Data processing
         foundation, while Python, Pandas, scikit-learn, and
@@ -1907,6 +2232,10 @@ with st.expander(
         categories. Actual cloud migration decisions require
         consideration of architecture, performance, networking,
         security, and vendor-specific pricing.
+
+        FinOps optimization opportunities are analytical
+        estimates generated from the project's recommendation
+        rules and should not be interpreted as guaranteed savings.
         """
     )
 
