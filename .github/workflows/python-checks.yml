@@ -36,6 +36,8 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.16.5
+      - name: Show Terraform formatting diff
+        run: terraform fmt -diff -recursive
       - name: Check Terraform formatting
         run: terraform fmt -check -recursive
       - name: Initialize providers without a backend
