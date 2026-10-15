@@ -7,6 +7,7 @@ resource IDs, or raw billing rows) to a selected foundation model.
 from __future__ import annotations
 
 import json
+from urllib.parse import urlparse
 from typing import Any
 
 import pandas as pd
@@ -395,3 +396,19 @@ def stream_general_chat(
                     message = str(details)
                 raise RuntimeError(f"Bedrock streaming error ({error_key}): {message}")
 
+
+
+
+def is_trusted_q_business_embed_url(url: str) -> bool:
+    """Accept only HTTPS AWS-hosted Amazon Q Business endpoints for iframe embedding."""
+    try:
+        parsed = urlparse(str(url).strip())
+        host = (parsed.hostname or "").lower()
+    except Exception:
+        return False
+    trusted_host = (
+        host.endswith(".on.aws")
+        or host.endswith(".amazonaws.com")
+        or host.endswith(".awsapps.com")
+    )
+    return parsed.scheme == "https" and trusted_host
