@@ -306,14 +306,20 @@ if source_mode == "Live AWS billing (CUR 2.0)":
                 "The Amazon Q Developer panel in the AWS Console is useful, but AWS does not expose "
                 "that console panel as a direct Streamlit chat API."
             )
-            quick_col_1, quick_col_2 = st.columns([1, 1])
+            quick_col_1, quick_col_2, quick_col_3 = st.columns([1, 1, 1])
             with quick_col_1:
                 st.link_button(
-                    "Open Amazon Quick console",
+                    "Open Amazon Quick",
                     "https://us-east-1.quicksight.aws.amazon.com/sn/start",
                     use_container_width=True,
                 )
             with quick_col_2:
+                st.link_button(
+                    "Open Amazon Q Developer",
+                    "https://console.aws.amazon.com/",
+                    use_container_width=True,
+                )
+            with quick_col_3:
                 st.link_button(
                     "Embedding setup guide",
                     "https://docs.aws.amazon.com/quick/latest/userguide/custom-agents.html",
