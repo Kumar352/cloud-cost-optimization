@@ -175,3 +175,80 @@ def test_cur_analysis_includes_daily_service_type_and_iqr_review():
     assert not result["high_cost_line_items"].empty
     assert result["high_cost_line_items"].iloc[0]["line_item_unblended_cost"] == pytest.approx(100.0)
     assert "Billing_Period" in result["monthly"].columns
+
+
+def test_cost_copilot_answers_from_loaded_cur_data_without_guessing():
+    from src.cost_copilot import answer_cur_question
+    from src.aws_cur_analytics import prepare_cur_frame, analyze_cur_data
+
+    source = pd.DataFrame(
+        {
+            "line_item_unblended_cost": [10.0, 25.0, 4.0, 100.0, 12.0, 8.0],
+            "line_item_currency_code": ["USD"] * 6,
+            "line_item_product_code": ["AmazonEC2", "AmazonS3", "AmazonEC2", "AmazonEC2", "AWSLambda", "AmazonS3"],
+            "product_servicecode": [
+                "Amazon Elastic Compute Cloud",
+                "Amazon Simple Storage Service",
+                "Amazon Elastic Compute Cloud",
+                "Amazon Elastic Compute Cloud",
+                "AWS Lambda",
+                "Amazon Simple Storage Service",
+            ],
+            "line_item_usage_start_date": [
+                "2026-09-02T00:00:00Z",
+                "2026-09-03T00:00:00Z",
+                "2026-09-04T00:00:00Z",
+                "2026-10-01T00:00:00Z",
+                "2026-10-02T00:00:00Z",
+                "2026-10-03T00:00:00Z",
+            ],
+            "line_item_line_item_type": ["Usage"] * 6,
+            "line_item_usage_type": ["USE1-BoxUsage"] * 6,
+        }
+    )
+    prepared = pd.concat(
+        [
+            prepare_cur_frame(source.iloc[:3].copy(), "2026-09"),
+            prepare_cur_frame(source.iloc[3:].copy(), "2026-10"),
+        ],
+        ignore_index=True,
+    )
+    analysis = analyze_cur_data(prepared)
+
+    total_answer = answer_cur_question("what is the total reported spend?", prepared, analysis, "USD")
+    service_answer = answer_cur_question("which services cost the most?", prepared, analysis, "USD")
+    trend_answer = answer_cur_question("compare the monthly trend", prepared, analysis, "USD")
+
+    assert "159.00 USD" in total_answer
+    assert "Amazon Elastic Compute Cloud" in service_answer
+    assert "latest month is partial" in trend_answer
+
+
+def test_cur_isolation_forest_trains_on_realistic_numeric_features():
+    from src.cur_anomaly_model import train_cur_anomaly_model
+
+    costs = [1.0, 1.2, 1.5, 1.7, 2.0, 2.1, 2.4, 2.6, 2.9, 3.0,
+             3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0,
+             4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0,
+             5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6.0,
+             250.0]
+    frame = pd.DataFrame(
+        {
+            "Currency": ["USD"] * len(costs),
+            "Billing_Period": ["2026-10"] * len(costs),
+            "Service": ["Amazon Elastic Compute Cloud"] * len(costs),
+            "line_item_unblended_cost": costs,
+            "line_item_usage_amount": [1.0] * (len(costs)-1) + [100.0],
+            "line_item_unblended_rate": [0.05] * (len(costs)-1) + [2.5],
+        }
+    )
+
+    scored, metadata = train_cur_anomaly_model(frame, contamination=0.05)
+
+    assert metadata["model_name"] == "IsolationForest"
+    assert metadata["rows_trained"] == len(frame)
+    assert metadata["rows_scored"] == len(frame)
+    assert metadata["flagged_rows"] >= 1
+    assert {"ML_Anomaly_Flag", "ML_Anomaly_Score", "ML_Features"}.issubset(scored.columns)
+    assert scored.iloc[0]["line_item_unblended_cost"] == pytest.approx(250.0)
+    assert metadata["persisted"] is False
