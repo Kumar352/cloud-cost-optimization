@@ -123,7 +123,7 @@ missing_files = [path for path in REQUIRED_DATA_FILES if not path.is_file()]
 if missing_files:
     st.error("The dashboard data files are missing from your local project folder.")
     st.write("Restore or pull these files from the repository, then restart Streamlit:")
-    st.code("\\n".join(str(path.relative_to(BASE_DIR)) for path in missing_files))
+    st.code("\n".join(str(path.relative_to(BASE_DIR)) for path in missing_files))
     st.stop()
 
 try:
