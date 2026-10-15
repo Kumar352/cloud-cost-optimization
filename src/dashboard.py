@@ -279,6 +279,197 @@ if source_mode == "Live AWS billing (CUR 2.0)":
                 hide_index=True,
             )
 
+    # ============================================================
+    # TRAINABLE ML ANOMALY DETECTOR ON REAL CUR DATA
+    # ============================================================
+    with st.expander("🧠 Train an anomaly-detection model on real AWS billing", expanded=False):
+        st.write(
+            "Train an Isolation Forest on the currently loaded CUR rows. It uses numeric billing/usage "
+            "features available in the export, trains separately per currency, and runs locally in memory. "
+            "It does not upload raw billing rows or save the model."
+        )
+        contamination = st.slider(
+            "Expected review-candidate fraction",
+            min_value=0.01,
+            max_value=0.10,
+            value=0.03,
+            step=0.01,
+            help="This is the model's assumed outlier fraction, not an accuracy setting.",
+            key="cur_ml_contamination",
+        )
+        if st.button("Train Isolation Forest on loaded CUR", key="train_cur_ml_button"):
+            try:
+                try:
+                    from cur_anomaly_model import train_cur_anomaly_model
+                except ImportError:
+                    from src.cur_anomaly_model import train_cur_anomaly_model
+                with st.spinner("Training the anomaly model on loaded CUR billing rows..."):
+                    scored_cur, cur_ml_metadata = train_cur_anomaly_model(
+                        live_cur_df, contamination=contamination
+                    )
+                st.session_state["cur_ml_scored_rows"] = scored_cur
+                st.session_state["cur_ml_metadata"] = cur_ml_metadata
+            except Exception as exc:
+                st.error(f"The anomaly model could not be trained: {type(exc).__name__}: {exc}")
+
+        cur_ml_metadata = st.session_state.get("cur_ml_metadata")
+        scored_cur = st.session_state.get("cur_ml_scored_rows")
+        if cur_ml_metadata and isinstance(scored_cur, pd.DataFrame):
+            m1, m2, m3 = st.columns(3)
+            m1.metric("Training rows", f"{cur_ml_metadata['rows_trained']:,}")
+            m2.metric("Review candidates", f"{cur_ml_metadata['flagged_rows']:,}")
+            m3.metric("Assumed outlier fraction", f"{cur_ml_metadata['contamination']:.0%}")
+            st.caption(
+                "Model: Isolation Forest; unsupervised training on this session's CUR data. "
+                "These flags are review suggestions, not labels of waste or measured model accuracy."
+            )
+            currency_scored = scored_cur.loc[
+                scored_cur["ML_Currency"].astype(str) == str(selected_currency)
+            ].copy()
+            if not currency_scored.empty:
+                review_rows = currency_scored.loc[
+                    currency_scored["ML_Anomaly_Flag"] == "REVIEW"
+                ].sort_values("ML_Anomaly_Score", ascending=False)
+                show_rows = review_rows if not review_rows.empty else currency_scored.head(20)
+                display_cols = [
+                    col for col in [
+                        "Billing_Period", "Usage_Date", "Service", "Usage_Type",
+                        "Currency", "line_item_unblended_cost", "line_item_usage_amount",
+                        "ML_Anomaly_Flag", "ML_Anomaly_Score", "ML_Features",
+                    ] if col in show_rows.columns
+                ]
+                st.dataframe(
+                    show_rows[display_cols].head(30),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+                model_csv = currency_scored[display_cols].to_csv(index=False).encode("utf-8")
+                st.download_button(
+                    "Download ML-scored CUR rows",
+                    data=model_csv,
+                    file_name=f"cur_anomaly_scores_{selected_currency.lower()}.csv",
+                    mime="text/csv",
+                    key="download_cur_ml_scores",
+                )
+            if cur_ml_metadata["currencies_skipped"]:
+                st.caption(
+                    "Currencies skipped because there were too few usable records: "
+                    + "; ".join(
+                        f"{currency}: {reason}"
+                        for currency, reason in cur_ml_metadata["currencies_skipped"].items()
+                    )
+                )
+
+    st.divider()
+
+    # ============================================================
+    # CUR COST COPILOT / CHATBOT
+    # ============================================================
+    st.subheader("💬 CUR Cost Copilot")
+    st.write(
+        "Ask questions about the real AWS billing data loaded above. The default mode uses "
+        "deterministic calculations over this CUR snapshot; optional Bedrock mode generates "
+        "a natural-language answer grounded in aggregate CUR context."
+    )
+    copilot_mode = st.radio(
+        "Assistant mode",
+        ["Grounded analytics (no LLM call)", "Amazon Bedrock (optional)"],
+        horizontal=True,
+        key="cur_copilot_mode",
+    )
+    bedrock_model_id = ""
+    if copilot_mode == "Amazon Bedrock (optional)":
+        bedrock_model_id = st.text_input(
+            "Bedrock model ID enabled for your AWS account",
+            value=__import__("os").environ.get("CLOUD_COST_BEDROCK_MODEL_ID", ""),
+            help="Bedrock mode only calls a model when you submit a question. Model access and bedrock:InvokeModel permissions are required; usage may incur charges.",
+            key="cur_copilot_model_id",
+        )
+        st.caption(
+            "No model is fine-tuned on your billing records. Bedrock receives only small aggregated summaries, "
+            "not account IDs, resource IDs, or raw billing rows."
+        )
+    else:
+        st.caption(
+            "No generative model call and no additional AWS inference cost in this mode. "
+            "Answers are calculated from the currently loaded CUR data."
+        )
+
+    chat_key = f"cur_copilot_messages_{selected_currency}"
+    if chat_key not in st.session_state:
+        st.session_state[chat_key] = []
+
+    for message in st.session_state[chat_key][-12:]:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+    copilot_question = st.chat_input(
+        f"Ask about {selected_currency} spend, top services, trends, anomalies, or optimization…",
+        key=f"cur_copilot_input_{selected_currency}",
+    )
+    if copilot_question:
+        st.session_state[chat_key].append(
+            {"role": "user", "content": copilot_question}
+        )
+        with st.chat_message("user"):
+            st.markdown(copilot_question)
+
+        try:
+            try:
+                from cost_copilot import (
+                    answer_cur_question,
+                    build_cur_context,
+                    invoke_bedrock_answer,
+                )
+            except ImportError:
+                from src.cost_copilot import (
+                    answer_cur_question,
+                    build_cur_context,
+                    invoke_bedrock_answer,
+                )
+            grounded_answer = answer_cur_question(
+                copilot_question, live_cur_df, live_cur_analysis, selected_currency
+            )
+            if copilot_mode == "Amazon Bedrock (optional)" and bedrock_model_id.strip():
+                try:
+                    copilot_answer = invoke_bedrock_answer(
+                        copilot_question,
+                        build_cur_context(live_cur_df, live_cur_analysis, selected_currency),
+                        bedrock_model_id.strip(),
+                        region=__import__("os").environ.get("CLOUD_COST_AWS_REGION", "us-east-1"),
+                    )
+                    response_prefix = "**Amazon Bedrock — grounded in current CUR aggregates**\n\n"
+                except Exception as bedrock_exc:
+                    copilot_answer = (
+                        "**Bedrock call failed; showing the deterministic CUR answer instead.**\n\n"
+                        f"Bedrock error: {type(bedrock_exc).__name__}: {bedrock_exc}\n\n"
+                        + grounded_answer
+                    )
+                    response_prefix = ""
+            elif copilot_mode == "Amazon Bedrock (optional)":
+                copilot_answer = (
+                    "Enter a Bedrock model ID to enable generated answers. No model was called. "
+                    "Here is the grounded analytics answer for now:\n\n" + grounded_answer
+                )
+                response_prefix = ""
+            else:
+                copilot_answer = grounded_answer
+                response_prefix = ""
+        except Exception as exc:
+            copilot_answer = (
+                f"Sorry, I could not answer from this CUR snapshot: "
+                f"{type(exc).__name__}: {exc}"
+            )
+            response_prefix = ""
+
+        final_answer = response_prefix + copilot_answer
+        with st.chat_message("assistant"):
+            st.markdown(final_answer)
+        st.session_state[chat_key].append(
+            {"role": "assistant", "content": final_answer}
+        )
+        st.session_state[chat_key] = st.session_state[chat_key][-20:]
+
     st.caption(
         "Live AWS-only analysis. For the synthetic AWS/Azure/GCP demonstration, select "
         "**Synthetic cross-cloud demo** at the top. Real Azure and GCP billing has not been "
