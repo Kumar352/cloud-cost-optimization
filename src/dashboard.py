@@ -31,9 +31,22 @@ st.info(
     "represented by these synthetic cross-cloud totals."
 )
 
+source_mode = st.radio(
+    "Choose analysis data source",
+    ["Live AWS billing (CUR 2.0)", "Synthetic cross-cloud demo"],
+    index=0,
+    horizontal=True,
+    key="dashboard_data_source",
+)
+st.caption(
+    "Live AWS mode reads your real billing export. The separate synthetic cross-cloud mode "
+    "is retained only as a reproducible demo and should not be presented as genuine billing."
+)
+st.divider()
+
+
 @st.cache_data(ttl=3600, show_spinner=False)
 def _load_live_aws_cur_cached():
-    # Local import avoids requiring AWS access unless the live panel is opened.
     try:
         from aws_cur_analytics import load_recent_cur_data
     except ImportError:
@@ -41,99 +54,244 @@ def _load_live_aws_cur_cached():
     return load_recent_cur_data()
 
 
-with st.expander("Live AWS billing — CUR 2.0 (real AWS data)", expanded=False):
+if source_mode == "Live AWS billing (CUR 2.0)":
+    st.header("Live AWS Cost Analysis")
     st.write(
-        "Read-only view of the AWS Cost and Usage Report Parquet files already stored in S3. "
-        "This is separate from the synthetic cross-cloud charts below."
+        "This view analyses real AWS Cost and Usage Report (CUR 2.0) Parquet line items "
+        "already delivered to the project's S3 data lake. It does not use the 15,000-row "
+        "synthetic cross-cloud CSV."
     )
-    st.caption(
-        "Uses your local boto3/AWS CLI credential chain. No AWS resources are created by this panel. "
-        "It reads the two most recent billing-period partitions and caches them for one hour."
+    st.warning(
+        "CUR values are reported unblended billing-line-item costs for the selected periods. "
+        "The latest month may be partial; this is not necessarily the final invoice total. "
+        "Currencies remain separate and high-cost line items are review candidates, not proof of waste."
     )
 
-    if st.button("Load / refresh live AWS CUR data", key="load_live_aws_cur"):
+    if st.button("Load / refresh real AWS CUR data", key="load_live_aws_cur"):
         st.session_state["show_live_aws_cur"] = True
         _load_live_aws_cur_cached.clear()
 
-    if st.session_state.get("show_live_aws_cur", False):
-        try:
-            with st.spinner("Reading recent AWS CUR Parquet files from S3..."):
-                live_cur_df, live_cur_metadata = _load_live_aws_cur_cached()
-                try:
-                    from aws_cur_analytics import summarize_cur_data
-                except ImportError:
-                    from src.aws_cur_analytics import summarize_cur_data
-                live_cur_summary = summarize_cur_data(live_cur_df)
-        except Exception as exc:
+    if not st.session_state.get("show_live_aws_cur", False):
+        st.info(
+            "Click **Load / refresh real AWS CUR data** to read the latest two billing periods "
+            "from S3. This is read-only and does not create any AWS resources."
+        )
+        st.stop()
+
+    try:
+        with st.spinner("Reading recent AWS CUR Parquet files from S3..."):
+            live_cur_df, live_cur_metadata = _load_live_aws_cur_cached()
+            try:
+                from aws_cur_analytics import analyze_cur_data
+            except ImportError:
+                from src.aws_cur_analytics import analyze_cur_data
+            live_cur_analysis = analyze_cur_data(live_cur_df)
+    except Exception as exc:
+        detail = str(exc)
+        if "botocore[crt]" in detail or "MissingDependencyException" in detail:
             st.error(
-                "Live AWS CUR data could not be loaded. Confirm that your local AWS CLI/profile "
-                "has access to the project data-lake bucket and that the CUR export has delivered files."
+                "Your AWS login credential provider needs the Botocore CRT dependency. "
+                "Install the project requirements below, then restart Streamlit."
+            )
+            st.code(
+                'python -m pip install -r requirements.txt\n'
+                'python -m pip install "botocore[crt]"'
+            )
+        else:
+            st.error(
+                "The live AWS CUR data could not be loaded. Confirm that your AWS CLI/profile "
+                "has access to the data-lake bucket and that the CUR export has delivered files."
             )
             st.code(
                 "aws sts get-caller-identity\n"
                 "$accountId = aws sts get-caller-identity --query Account --output text\n"
-                "$env:CLOUD_COST_AWS_CUR_BUCKET = \"cloud-cost-optimization-$accountId\"\n"
-                "aws s3 ls \"s3://$env:CLOUD_COST_AWS_CUR_BUCKET/raw/aws-cur/cloud-cost-optimization-cur/data/\""
+                '$env:CLOUD_COST_AWS_CUR_BUCKET = "cloud-cost-optimization-$accountId"\n'
+                '$env:CLOUD_COST_AWS_CUR_PREFIX = "raw/aws-cur/cloud-cost-optimization-cur/data/"\n'
+                'aws s3 ls "s3://$env:CLOUD_COST_AWS_CUR_BUCKET/raw/aws-cur/cloud-cost-optimization-cur/data/"'
             )
-            st.caption(f"Details: {type(exc).__name__}: {exc}")
-        else:
-            latest_period = max(live_cur_metadata["periods"])
-            col_live_1, col_live_2, col_live_3 = st.columns(3)
-            col_live_1.metric("Latest billing period", latest_period)
-            col_live_2.metric("CUR line items loaded", f"{len(live_cur_df):,}")
-            col_live_3.metric("Parquet objects read", f"{live_cur_metadata['object_count']:,}")
+        st.caption(f"Technical details: {type(exc).__name__}: {detail}")
+        st.stop()
 
-            st.caption(
-                "Latest selected S3 object modified (UTC): "
-                f"{live_cur_metadata['last_object_modified_utc'] or 'unknown'}"
-            )
-            st.subheader("Reported unblended cost by billing period and currency")
+    currencies = sorted(live_cur_df["Currency"].dropna().astype(str).unique().tolist())
+    if not currencies:
+        st.error("The loaded CUR objects contain no currency codes to display.")
+        st.stop()
+
+    default_currency_index = currencies.index("USD") if "USD" in currencies else 0
+    selected_currency = st.selectbox(
+        "Billing currency (never combined across currencies)",
+        currencies,
+        index=default_currency_index,
+        key="live_cur_currency",
+    )
+
+    monthly_summary = live_cur_analysis["monthly"]
+    service_summary = live_cur_analysis["services"]
+    daily_summary = live_cur_analysis["daily"]
+    item_type_summary = live_cur_analysis["line_item_types"]
+    outliers_summary = live_cur_analysis["high_cost_line_items"]
+
+    selected_months = monthly_summary.loc[
+        monthly_summary["Currency"].astype(str) == selected_currency
+    ].copy()
+    selected_services = service_summary.loc[
+        service_summary["Currency"].astype(str) == selected_currency
+    ].copy()
+    selected_daily = daily_summary.loc[
+        daily_summary["Currency"].astype(str) == selected_currency
+    ].copy()
+    selected_item_types = item_type_summary.loc[
+        item_type_summary["Currency"].astype(str) == selected_currency
+    ].copy()
+    selected_outliers = outliers_summary.loc[
+        outliers_summary["Currency"].astype(str) == selected_currency
+    ].copy()
+
+    latest_period = max(live_cur_metadata["periods"])
+    latest_period_summary = selected_months.loc[
+        selected_months["Billing_Period"] == latest_period
+    ]
+    latest_period_cost = (
+        float(latest_period_summary["Reported_Unblended_Cost"].sum())
+        if not latest_period_summary.empty else 0.0
+    )
+    loaded_currency_total = float(selected_months["Reported_Unblended_Cost"].sum())
+
+    k1, k2, k3, k4 = st.columns(4)
+    k1.metric("Latest CUR period", latest_period)
+    k2.metric("Selected currency", selected_currency)
+    k3.metric("Line items loaded", f"{len(live_cur_df):,}")
+    k4.metric("Parquet files read", f"{live_cur_metadata['object_count']:,}")
+
+    k5, k6 = st.columns(2)
+    k5.metric(
+        f"Reported costs loaded ({selected_currency})",
+        f"{loaded_currency_total:,.2f}",
+        help="Sum of line_item_unblended_cost for the selected recent partitions and currency.",
+    )
+    k6.metric(
+        f"Reported costs in latest partition ({selected_currency})",
+        f"{latest_period_cost:,.2f}",
+        help="The newest billing-period partition may be incomplete.",
+    )
+
+    st.caption(
+        "Latest selected S3 object modification time (UTC): "
+        f"{live_cur_metadata['last_object_modified_utc'] or 'unknown'}. "
+        f"Billing periods loaded: {', '.join(live_cur_metadata['periods'])}."
+    )
+
+    st.subheader("Reported cost by billing period")
+    if not selected_months.empty:
+        monthly_chart = selected_months.set_index("Billing_Period")[
+            ["Reported_Unblended_Cost"]
+        ]
+        st.bar_chart(monthly_chart, use_container_width=True)
+        st.dataframe(
+            selected_months.style.format(
+                {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+    else:
+        st.info("No billing-period summary for this currency.")
+
+    st.subheader("Top AWS services by reported unblended cost")
+    if not selected_services.empty:
+        top_services = selected_services.head(15).sort_values(
+            "Reported_Unblended_Cost", ascending=True
+        )
+        st.bar_chart(
+            top_services.set_index("Service")[["Reported_Unblended_Cost"]],
+            horizontal=True,
+            use_container_width=True,
+        )
+        st.dataframe(
+            selected_services.head(20).style.format(
+                {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+    else:
+        st.info("No service summary for this currency.")
+
+    st.subheader("Daily cost trend from usage start dates")
+    if not selected_daily.empty:
+        daily_chart = selected_daily.set_index("Usage_Date")[
+            ["Reported_Unblended_Cost"]
+        ]
+        st.line_chart(daily_chart, use_container_width=True)
+        st.caption(
+            "Daily values are grouped by CUR line_item_usage_start_date. They can differ "
+            "from billed/invoice timelines because credits, taxes, adjustments and other "
+            "line-item types have their own semantics."
+        )
+    else:
+        st.info("The selected CUR columns do not provide parseable daily usage-start dates.")
+
+    st.subheader("Cost by CUR line-item type")
+    st.dataframe(
+        selected_item_types.style.format(
+            {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
+        ),
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    st.subheader("High-cost line items to review")
+    if not selected_outliers.empty:
+        st.dataframe(
+            selected_outliers.head(25).style.format(
+                {
+                    "line_item_unblended_cost": "{:,.4f}",
+                    "Outlier_Upper_Bound": "{:,.4f}",
+                }
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+        st.caption(
+            "Outliers use the IQR rule on positive line-item costs within each currency. "
+            "They are candidates for investigation, not automatically anomalies in billing "
+            "or evidence of waste. No savings estimate is inferred from them."
+        )
+    else:
+        st.info("No positive-cost line items crossed the IQR review threshold in these partitions.")
+
+    safe_columns = [
+        column for column in [
+            "Billing_Period",
+            "Usage_Date",
+            "Service",
+            "Line_Item_Type",
+            "Usage_Type",
+            "Currency",
+            "line_item_unblended_cost",
+        ] if column in live_cur_df.columns
+    ]
+    if safe_columns:
+        with st.expander("Inspect a small sample of raw billing line items"):
             st.dataframe(
-                live_cur_summary["monthly"].style.format(
-                    {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
-                ),
+                live_cur_df[safe_columns].head(30),
                 use_container_width=True,
                 hide_index=True,
             )
 
-            st.subheader("Top AWS services in the loaded billing periods")
-            st.dataframe(
-                live_cur_summary["services"].head(15).style.format(
-                    {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
-                ),
-                use_container_width=True,
-                hide_index=True,
-            )
-
-            safe_columns = [
-                column for column in [
-                    "Billing_Period",
-                    "Service",
-                    "line_item_usage_type",
-                    "line_item_currency_code",
-                    "line_item_unblended_cost",
-                ] if column in live_cur_df.columns
-            ]
-            if safe_columns:
-                st.subheader("Sample billing line items")
-                st.dataframe(
-                    live_cur_df[safe_columns].head(20),
-                    use_container_width=True,
-                    hide_index=True,
-                )
-
-            st.caption(
-                "These tables sum CUR line_item_unblended_cost by the exported billing-period "
-                "partition. This is a billing-line-item measure, not a claim of final invoice "
-                "total or realized savings. Currencies are kept separate."
-            )
-
+    st.caption(
+        "Live AWS-only analysis. For the synthetic AWS/Azure/GCP demonstration, select "
+        "**Synthetic cross-cloud demo** at the top. Real Azure and GCP billing has not been "
+        "imported into this AWS CUR export."
+    )
+    st.stop()
 
 
 st.caption(
     "Hadoop HDFS • MapReduce • Python • Pandas • Machine Learning • Streamlit"
 )
 st.divider()
+
 
 # ============================================================
 # FILE PATHS
