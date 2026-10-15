@@ -118,6 +118,26 @@ hadoop version
 
 Start HDFS only after confirming configured NameNode metadata and directories. **Never run `hdfs namenode -format` on an existing data directory**: it can invalidate access to existing HDFS data. Start and verify the ResourceManager and NodeManager before submitting MapReduce. A MapReduce CSV already in `results/` is a stored artifact; it is not by itself proof that a fresh YARN run succeeded.
 
+## Optional live AWS billing view
+
+The Streamlit dashboard includes a separate **Live AWS billing — CUR 2.0** panel. It reads the real Parquet files already delivered to the project's S3 data lake. The cross-cloud demo dataset remains synthetic because the current real billing source is AWS-only.
+
+Requirements: AWS CLI credentials/profile for the same AWS account, Python dependencies from `requirements.txt`, and read-only S3 access to the CUR prefix. The live panel does not create AWS resources. It downloads Parquet files for the two newest billing periods, then caches them in the Streamlit process for one hour.
+
+PowerShell example from the repository root:
+
+```powershell
+python -m pip install -r requirements.txt
+aws sts get-caller-identity
+$accountId = aws sts get-caller-identity --query Account --output text
+$env:CLOUD_COST_AWS_CUR_BUCKET = "cloud-cost-optimization-$accountId"
+$env:CLOUD_COST_AWS_CUR_PREFIX = "raw/aws-cur/cloud-cost-optimization-cur/data/"
+$env:CLOUD_COST_AWS_REGION = "us-east-1"
+python -m streamlit run src/dashboard.py
+```
+
+Expand **Live AWS billing — CUR 2.0** in the dashboard and select **Load / refresh live AWS CUR data**. The panel keeps currencies separate and reports the sum of exported `line_item_unblended_cost` values. This should not be presented as the final invoice total or guaranteed savings.
+
 ## AWS and Terraform
 
 Terraform configuration is under `terraform/`. Review resource names, region, IAM permissions, state, and current AWS resources before applying changes.
