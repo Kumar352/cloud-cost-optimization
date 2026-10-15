@@ -81,3 +81,17 @@ def test_hadoop_output_parser_groups_summary_rows():
     assert providers == [{"Cloud_Provider": "AWS", "Monthly_Cost": 100.50}]
     assert services == [{"Service": "EC2", "Monthly_Cost": 70.25}]
     assert regions == [{"Region": "us-east-1", "Monthly_Cost": 100.50}]
+
+
+def test_summary_csv_matches_current_raw_dataset():
+    summary_file = PROJECT_ROOT / "results" / "cost_summary.csv"
+    assert summary_file.is_file(), f"Summary CSV is missing: {summary_file}"
+
+    raw_df = pd.read_csv(RAW_DATA)
+    summary_df = pd.read_csv(summary_file)
+    metrics = dict(zip(summary_df["Metric"], summary_df["Value"]))
+
+    assert int(float(metrics["Total Records Analyzed"])) == len(raw_df)
+    assert float(metrics["Total Monthly Cloud Cost"]) == pytest.approx(
+        raw_df["Monthly_Cost"].sum(), abs=0.01
+    )
