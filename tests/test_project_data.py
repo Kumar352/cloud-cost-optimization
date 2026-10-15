@@ -1,11 +1,15 @@
+import sys
 from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 import pandas as pd
 import pytest
 
 from src.cloud_cost_analysis import analyze_costs
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DATA = PROJECT_ROOT / "data" / "raw" / "cloud_cost_data.csv"
 
 
