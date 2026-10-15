@@ -19,11 +19,90 @@ st.set_page_config(
 # PROJECT HEADER
 # ============================================================
 
-st.title("☁️ Cloud Cost Optimization Analytics Using Hadoop")
-st.markdown("### Intelligent Multi-Cloud Cost Analysis, Optimization & Prediction Platform")
-st.write(
-    "A Big Data analytics platform for reviewing cloud-cost patterns, detecting "
-    "anomalies, forecasting costs, and identifying optimization opportunities."
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background:
+            radial-gradient(ellipse at 8% 0%, rgba(56, 189, 248, 0.12), transparent 32%),
+            radial-gradient(ellipse at 92% 6%, rgba(139, 92, 246, 0.13), transparent 28%),
+            #0b1020;
+        color: #e8eefb;
+    }
+    [data-testid="stHeader"] { background: rgba(11, 16, 32, 0.72); }
+    .block-container { max-width: 1480px; padding-top: 1.5rem; padding-bottom: 3rem; }
+    .hero-card {
+        position: relative; overflow: hidden; border-radius: 24px;
+        padding: 2rem 2.1rem 1.8rem; margin: 0.3rem 0 1.3rem;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        background: linear-gradient(120deg, rgba(15, 31, 61, 0.98), rgba(41, 26, 77, 0.94) 60%, rgba(15, 68, 88, 0.92));
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.25);
+    }
+    .hero-kicker {
+        color: #7dd3fc; font-size: 0.78rem; letter-spacing: 0.16em;
+        font-weight: 800; text-transform: uppercase; margin-bottom: 0.55rem;
+    }
+    .hero-title { color: #f8fafc; font-size: clamp(1.8rem, 3vw, 2.75rem); font-weight: 850; line-height: 1.12; margin: 0 0 0.75rem; }
+    .hero-copy { color: #cbd5e1; font-size: 1.02rem; max-width: 900px; margin: 0; line-height: 1.6; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.15rem; }
+    .hero-tag {
+        padding: 0.32rem 0.7rem; border-radius: 999px; font-size: 0.76rem;
+        font-weight: 700; color: #e0f2fe; background: rgba(14, 165, 233, 0.14);
+        border: 1px solid rgba(125, 211, 252, 0.24);
+    }
+    [data-testid="stMetric"] {
+        background: linear-gradient(145deg, rgba(25, 37, 62, 0.94), rgba(19, 27, 46, 0.94));
+        padding: 1rem 1.1rem; border-radius: 16px;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+    }
+    [data-testid="stMetricLabel"] { color: #a8c4e8; }
+    [data-testid="stMetricValue"] { color: #f8fafc; font-weight: 800; }
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+        border-color: rgba(148, 163, 184, 0.25);
+        border-radius: 18px;
+    }
+    .section-eyebrow {
+        color: #7dd3fc; font-size: 0.75rem; text-transform: uppercase;
+        letter-spacing: 0.14em; font-weight: 800; margin-bottom: 0.2rem;
+    }
+    .copilot-banner {
+        border-radius: 20px; padding: 1.25rem 1.45rem; margin: 0.6rem 0 0.8rem;
+        background: linear-gradient(112deg, rgba(15, 72, 104, 0.42), rgba(64, 37, 111, 0.45));
+        border: 1px solid rgba(125, 211, 252, 0.28);
+    }
+    .copilot-title { color: #f8fafc; font-size: 1.45rem; font-weight: 850; margin: 0 0 0.3rem; }
+    .copilot-subtitle { color: #cbd5e1; font-size: 0.92rem; margin: 0; line-height: 1.55; }
+    .stButton > button[kind="primary"] {
+        background: linear-gradient(105deg, #0284c7, #7c3aed);
+        border: 0; color: white; border-radius: 10px; font-weight: 750;
+    }
+    .stButton > button { border-radius: 10px; }
+    div[data-testid="stDataFrame"] { border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 12px; }
+    hr { border-color: rgba(148, 163, 184, 0.2); }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <section class="hero-card">
+      <div class="hero-kicker">Cloud FinOps • Real AWS billing data</div>
+      <div class="hero-title">Cloud Cost Intelligence</div>
+      <p class="hero-copy">
+        Understand reported AWS spend, discover unusual charges, explore billing trends,
+        and ask a conversational AI copilot questions about your cloud project.
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">AWS CUR 2.0</span>
+        <span class="hero-tag">Cost analytics</span>
+        <span class="hero-tag">AI Cost Copilot</span>
+        <span class="hero-tag">Machine learning</span>
+      </div>
+    </section>
+    """,
+    unsafe_allow_html=True,
 )
 
 source_mode = st.radio(
@@ -187,6 +266,131 @@ if source_mode == "Live AWS billing (CUR 2.0)":
         f"Billing periods loaded: {', '.join(live_cur_metadata['periods'])}."
     )
 
+    # ============================================================
+    # CONVERSATIONAL AI CHATBOT
+    # ============================================================
+    st.markdown(
+        """
+        <div class="copilot-banner">
+          <div class="section-eyebrow">Your project assistant</div>
+          <div class="copilot-title">💬 Cloud Cost Copilot</div>
+          <p class="copilot-subtitle">
+            Ask me anything about AWS, Python, Hadoop, Terraform, databases, debugging,
+            your project, or general topics. Ask follow-up questions naturally.
+            When billing context is relevant, I use a compact summary of the real CUR data.
+          </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    with st.expander("Suggested questions", expanded=False):
+        suggested_questions = [
+            "Explain my AWS billing report in simple terms.",
+            "How can I debug a Python import error?",
+            "Explain Hadoop versus Spark for my project.",
+            "What should I investigate in my highest-cost AWS services?",
+        ]
+        suggestion_columns = st.columns(4)
+        for index, question in enumerate(suggested_questions):
+            with suggestion_columns[index]:
+                if st.button(
+                    question,
+                    key=f"copilot_suggestion_{index}",
+                    use_container_width=True,
+                ):
+                    st.session_state["cloud_cost_copilot_prompt"] = question
+
+    chat_key = "cloud_cost_copilot_messages"
+    if chat_key not in st.session_state:
+        st.session_state[chat_key] = []
+
+    # Render the conversation first so the chat history appears above the composer.
+    messages_container = st.container()
+    with messages_container:
+        for message in st.session_state[chat_key][-12:]:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
+
+    with st.form("cloud_cost_copilot_form", clear_on_submit=True, border=True):
+        prompt_default = st.session_state.pop("cloud_cost_copilot_prompt", "")
+        copilot_question = st.text_input(
+            "Message",
+            value=prompt_default,
+            placeholder="Ask anything — cloud, coding, project questions, billing, or follow-ups…",
+            label_visibility="collapsed",
+            key="cloud_cost_copilot_message_input",
+        )
+        submitted = st.form_submit_button("Send message  ➤", type="primary")
+
+    if submitted and copilot_question.strip():
+        current_question = copilot_question.strip()
+        st.session_state[chat_key].append(
+            {"role": "user", "content": current_question}
+        )
+        try:
+            try:
+                from cost_copilot import build_cur_context, invoke_general_chat
+            except ImportError:
+                from src.cost_copilot import build_cur_context, invoke_general_chat
+
+            try:
+                assistant_cur_context = build_cur_context(
+                    live_cur_df, live_cur_analysis, selected_currency
+                )
+            except Exception:
+                assistant_cur_context = None
+
+            model_id = (
+                __import__("os").environ.get("CLOUD_COST_BEDROCK_MODEL_ID")
+                or "amazon.nova-lite-v1:0"
+            )
+            model_region = (
+                __import__("os").environ.get("CLOUD_COST_BEDROCK_REGION")
+                or __import__("os").environ.get("CLOUD_COST_AWS_REGION")
+                or "us-east-1"
+            )
+            with st.spinner("Cloud Cost Copilot is thinking…"):
+                answer = invoke_general_chat(
+                    st.session_state[chat_key][-14:],
+                    cur_context=assistant_cur_context,
+                    model_id=model_id,
+                    region=model_region,
+                )
+        except Exception as exc:
+            detail = str(exc)
+            lower_detail = detail.lower()
+            if any(term in lower_detail for term in ("accessdenied", "access denied", "model access", "invoke model")):
+                answer = (
+                    "I couldn't reach the AI model because Amazon Bedrock denied access. "
+                    "Enable a Converse-compatible model for this AWS account and region, then grant "
+                    "the current identity bedrock:InvokeModel permission."
+                )
+            elif any(term in lower_detail for term in ("expired", "login", "credential", "token")):
+                answer = (
+                    "Your AWS session may have expired. Sign in again in PowerShell with "
+                    "aws login --region us-east-1, then restart the dashboard."
+                )
+            else:
+                answer = (
+                    "I couldn't get a response from the AI model. Check your AWS session, Bedrock model "
+                    "access, permissions, and region, then retry. Technical details: "
+                    f"{type(exc).__name__}: {detail}"
+                )
+
+        st.session_state[chat_key].append(
+            {"role": "assistant", "content": answer}
+        )
+        st.session_state[chat_key] = st.session_state[chat_key][-24:]
+        st.rerun()
+
+    st.caption(
+        "Powered by Amazon Bedrock. Responses are generated by a language model and may need verification. "
+        "The chat keeps recent history for follow-up questions. Billing context uses aggregated CUR data; "
+        "raw line items, account IDs, and resource IDs are not sent."
+    )
+
+
     st.subheader("Reported cost by billing period")
     if not selected_months.empty:
         monthly_chart = selected_months.set_index("Billing_Period")[
@@ -286,209 +490,8 @@ if source_mode == "Live AWS billing (CUR 2.0)":
             )
 
     # ============================================================
-    # TRAINABLE ML ANOMALY DETECTOR ON REAL CUR DATA
-    # ============================================================
-    with st.expander("🧠 Train an anomaly-detection model on real AWS billing", expanded=False):
-        st.write(
-            "Train an Isolation Forest on the currently loaded CUR rows. It uses numeric billing/usage "
-            "features available in the export, trains separately per currency, and runs locally in memory. "
-            "It does not upload raw billing rows or save the model."
-        )
-        contamination = st.slider(
-            "Expected review-candidate fraction",
-            min_value=0.01,
-            max_value=0.10,
-            value=0.03,
-            step=0.01,
-            help="This is the model's assumed outlier fraction, not an accuracy setting.",
-            key="cur_ml_contamination",
-        )
-        if st.button("Train Isolation Forest on loaded CUR", key="train_cur_ml_button"):
-            try:
-                try:
-                    from cur_anomaly_model import train_cur_anomaly_model
-                except ImportError:
-                    from src.cur_anomaly_model import train_cur_anomaly_model
-                with st.spinner("Training the anomaly model on loaded CUR billing rows..."):
-                    scored_cur, cur_ml_metadata = train_cur_anomaly_model(
-                        live_cur_df, contamination=contamination
-                    )
-                st.session_state["cur_ml_scored_rows"] = scored_cur
-                st.session_state["cur_ml_metadata"] = cur_ml_metadata
-            except Exception as exc:
-                st.error(f"The anomaly model could not be trained: {type(exc).__name__}: {exc}")
-
-        cur_ml_metadata = st.session_state.get("cur_ml_metadata")
-        scored_cur = st.session_state.get("cur_ml_scored_rows")
-        if cur_ml_metadata and isinstance(scored_cur, pd.DataFrame):
-            m1, m2, m3 = st.columns(3)
-            m1.metric("Training rows", f"{cur_ml_metadata['rows_trained']:,}")
-            m2.metric("Review candidates", f"{cur_ml_metadata['flagged_rows']:,}")
-            m3.metric("Assumed outlier fraction", f"{cur_ml_metadata['contamination']:.0%}")
-            st.caption(
-                "Model: Isolation Forest; unsupervised training on this session's CUR data. "
-                "These flags are review suggestions, not labels of waste or measured model accuracy."
-            )
-            currency_scored = scored_cur.loc[
-                scored_cur["ML_Currency"].astype(str) == str(selected_currency)
-            ].copy()
-            if not currency_scored.empty:
-                review_rows = currency_scored.loc[
-                    currency_scored["ML_Anomaly_Flag"] == "REVIEW"
-                ].sort_values("ML_Anomaly_Score", ascending=False)
-                show_rows = review_rows if not review_rows.empty else currency_scored.head(20)
-                display_cols = [
-                    col for col in [
-                        "Billing_Period", "Usage_Date", "Service", "Usage_Type",
-                        "Currency", "line_item_unblended_cost", "line_item_usage_amount",
-                        "ML_Anomaly_Flag", "ML_Anomaly_Score", "ML_Features",
-                    ] if col in show_rows.columns
-                ]
-                st.dataframe(
-                    show_rows[display_cols].head(30),
-                    use_container_width=True,
-                    hide_index=True,
-                )
-                model_csv = currency_scored[display_cols].to_csv(index=False).encode("utf-8")
-                st.download_button(
-                    "Download ML-scored CUR rows",
-                    data=model_csv,
-                    file_name=f"cur_anomaly_scores_{selected_currency.lower()}.csv",
-                    mime="text/csv",
-                    key="download_cur_ml_scores",
-                )
-            if cur_ml_metadata["currencies_skipped"]:
-                st.caption(
-                    "Currencies skipped because there were too few usable records: "
-                    + "; ".join(
-                        f"{currency}: {reason}"
-                        for currency, reason in cur_ml_metadata["currencies_skipped"].items()
-                    )
-                )
-
-    st.divider()
-
-    # ============================================================
     # CUR COST COPILOT / CHATBOT
     # ============================================================
-    st.subheader("💬 Cloud Cost Copilot — Ask anything")
-    st.write(
-        "This is a general conversational AI assistant—not a fixed billing FAQ. Ask follow-up questions "
-        "about AWS, cloud computing, Python, Java, Hadoop, Terraform, databases, DevOps, machine learning, "
-        "your project, code errors, learning topics, or general questions."
-    )
-    st.info(
-        "When a question needs your current bill, the assistant gets a compact summary of the loaded CUR data. "
-        "It uses conversation history for follow-up questions. Billing context is kept separate by currency; "
-        "the model is not given raw billing rows, account IDs, or resource IDs."
-    )
-
-    with st.expander("AI model settings", expanded=False):
-        bedrock_model_id = st.text_input(
-            "Amazon Bedrock model ID",
-            value=__import__("os").environ.get(
-                "CLOUD_COST_BEDROCK_MODEL_ID", "amazon.nova-lite-v1:0"
-            ),
-            help=(
-                "Default: Amazon Nova Lite. Your account must have access to this model and permission "
-                "for bedrock:InvokeModel. You can change this to another Converse-compatible model enabled "
-                "for your account."
-            ),
-            key="cur_copilot_model_id",
-        )
-        bedrock_region = st.text_input(
-            "AWS Region",
-            value=__import__("os").environ.get("CLOUD_COST_AWS_REGION", "us-east-1"),
-            key="cur_copilot_region",
-        )
-        st.caption(
-            "Model responses may be incorrect and should be checked. Bedrock inference can incur charges. "
-            "No model is fine-tuned on your billing records; this app sends the conversation and aggregate "
-            "CUR context to Bedrock to generate an answer."
-        )
-
-    chat_key = "cloud_cost_copilot_messages"
-    if chat_key not in st.session_state:
-        st.session_state[chat_key] = []
-
-    clear_col, info_col = st.columns([1, 5])
-    with clear_col:
-        if st.button("Clear conversation", key="clear_cost_copilot_chat"):
-            st.session_state[chat_key] = []
-            st.rerun()
-    with info_col:
-        st.caption(
-            "Try: “Explain my CUR report”, “How do I fix a Python import error?”, "
-            "“What is the difference between Hadoop and Spark?”, or ask any follow-up."
-        )
-
-    for message in st.session_state[chat_key][-20:]:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-
-    copilot_question = st.chat_input(
-        "Ask me anything — cloud, coding, project questions, billing, or follow-ups…",
-        key="cloud_cost_copilot_input",
-    )
-    if copilot_question:
-        st.session_state[chat_key].append(
-            {"role": "user", "content": copilot_question}
-        )
-        with st.chat_message("user"):
-            st.markdown(copilot_question)
-
-        try:
-            try:
-                from cost_copilot import build_cur_context, invoke_general_chat
-            except ImportError:
-                from src.cost_copilot import build_cur_context, invoke_general_chat
-
-            try:
-                assistant_cur_context = build_cur_context(
-                    live_cur_df, live_cur_analysis, selected_currency
-                )
-            except Exception:
-                # General chat should continue even if billing context cannot be summarized.
-                assistant_cur_context = None
-
-            with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
-                    answer = invoke_general_chat(
-                        st.session_state[chat_key][-14:],
-                        cur_context=assistant_cur_context,
-                        model_id=bedrock_model_id.strip(),
-                        region=bedrock_region.strip() or "us-east-1",
-                    )
-                st.markdown(answer)
-            st.session_state[chat_key].append(
-                {"role": "assistant", "content": answer}
-            )
-            st.session_state[chat_key] = st.session_state[chat_key][-24:]
-        except Exception as exc:
-            detail = str(exc)
-            lower_detail = detail.lower()
-            if any(term in lower_detail for term in ("accessdenied", "access denied", "model access", "invoke model")):
-                st.error(
-                    "Amazon Bedrock could not invoke the selected model. Enable/access a Converse-compatible "
-                    "foundation model in AWS Bedrock for this account and region, and ensure the current AWS "
-                    "identity has bedrock:InvokeModel permission."
-                )
-            elif any(term in lower_detail for term in ("expired", "login", "credential", "token")):
-                st.error(
-                    "Your AWS session may have expired. Reauthenticate in PowerShell with "
-                    "aws login --region us-east-1, then restart Streamlit."
-                )
-            else:
-                st.error(
-                    "I couldn't get an AI response from Bedrock. Check the model ID, region, AWS session, "
-                    "and model permissions in AI model settings, then try again."
-                )
-            st.caption(f"Technical details: {type(exc).__name__}: {detail}")
-            st.info(
-                "The assistant calls a real language model for open-ended answers. It does not silently "
-                "replace a general question with a hard-coded billing FAQ when the model call fails."
-            )
-
     st.caption(
         "Live AWS-only analysis. For the synthetic AWS/Azure/GCP demonstration, select "
         "**Synthetic cross-cloud demo** at the top. Real Azure and GCP billing has not been "
