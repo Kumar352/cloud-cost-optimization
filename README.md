@@ -120,9 +120,9 @@ Start HDFS only after confirming configured NameNode metadata and directories. *
 
 ## Optional live AWS billing view
 
-The Streamlit dashboard includes a separate **Live AWS billing — CUR 2.0** panel. It reads the real Parquet files already delivered to the project's S3 data lake. The cross-cloud demo dataset remains synthetic because the current real billing source is AWS-only.
+The Streamlit dashboard defaults to **Live AWS billing (CUR 2.0)**, reading the real Parquet files already delivered to the project's S3 data lake. Select **Synthetic cross-cloud demo** only if you need the illustrative 15,000-row dataset. The demo CSV remains synthetic because the current real billing source is AWS-only.
 
-Requirements: AWS CLI credentials/profile for the same AWS account, Python dependencies from `requirements.txt`, and read-only S3 access to the CUR prefix. The live panel does not create AWS resources. It downloads Parquet files for the two newest billing periods, then caches them in the Streamlit process for one hour.
+Requirements: AWS CLI credentials/profile for the same AWS account, Python dependencies from `requirements.txt`, and read-only S3 access to the CUR prefix. The requirements include `botocore[crt]` for AWS login credential providers; install them before launching the dashboard. The live panel does not create AWS resources. It downloads Parquet files for the two newest billing periods, then caches them in the Streamlit process for one hour.
 
 PowerShell example from the repository root:
 
