@@ -322,3 +322,91 @@ def test_general_copilot_calls_converse_and_returns_model_response():
     assert session.fake_client.request["modelId"] == "amazon.nova-lite-v1:0"
     assert len(session.fake_client.request["messages"]) == 3
     assert session.fake_client.request["system"][0]["text"].find("AWS Cost and Usage Report") >= 0
+
+
+def test_streaming_general_copilot_emits_partial_tokens_with_bounded_config():
+    from src.cost_copilot import stream_general_chat
+
+    class FakeClient:
+        def __init__(self):
+            self.request = None
+
+        def converse_stream(self, **kwargs):
+            self.request = kwargs
+            return {
+                "stream": iter(
+                    [
+                        {"contentBlockDelta": {"delta": {"text": "Hello "}}},
+                        {"contentBlockDelta": {"delta": {"text": "there."}}},
+                    ]
+                )
+            }
+
+    class FakeSession:
+        def __init__(self):
+            self.fake_client = FakeClient()
+            self.requested_service = None
+            self.region = None
+            self.config = None
+
+        def client(self, service_name, region_name, config=None):
+            self.requested_service = service_name
+            self.region = region_name
+            self.config = config
+            return self.fake_client
+
+    session = FakeSession()
+    history = [
+        {"role": "user", "content": "Explain Python lists."},
+        {"role": "assistant", "content": "A list is ordered and mutable."},
+        {"role": "user", "content": "Give me an example."},
+    ]
+
+    tokens = list(
+        stream_general_chat(
+            history,
+            cur_context={"currency": "USD", "top_services": []},
+            model_id="amazon.nova-lite-v1:0",
+            region="us-east-1",
+            session=session,
+        )
+    )
+
+    assert tokens == ["Hello ", "there."]
+    assert session.requested_service == "bedrock-runtime"
+    assert session.region == "us-east-1"
+    assert session.fake_client.request["modelId"] == "amazon.nova-lite-v1:0"
+    assert session.config.connect_timeout == 4
+    assert session.config.read_timeout == 20
+    assert session.config.retries["total_max_attempts"] == 1
+
+
+def test_streaming_general_copilot_surfaces_bedrock_stream_errors():
+    from src.cost_copilot import stream_general_chat
+
+    class FakeClient:
+        def converse_stream(self, **kwargs):
+            return {
+                "stream": iter(
+                    [
+                        {
+                            "validationException": {
+                                "message": "Operation not allowed"
+                            }
+                        }
+                    ]
+                )
+            }
+
+    class FakeSession:
+        def client(self, service_name, region_name, config=None):
+            return FakeClient()
+
+    history = [{"role": "user", "content": "Answer a general question."}]
+    generator = stream_general_chat(
+        history,
+        model_id="amazon.nova-lite-v1:0",
+        session=FakeSession(),
+    )
+    with pytest.raises(RuntimeError, match="Operation not allowed"):
+        list(generator)
