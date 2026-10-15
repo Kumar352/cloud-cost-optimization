@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -14,40 +16,52 @@ st.set_page_config(
 )
 
 # ============================================================
+# PROJECT HEADER
+# ============================================================
+
+st.title("☁️ Cloud Cost Optimization Analytics Using Hadoop")
+st.markdown("### Intelligent Multi-Cloud Cost Analysis, Optimization & Prediction Platform")
+st.write(
+    "A Big Data analytics platform for reviewing cloud-cost patterns, detecting "
+    "anomalies, forecasting costs, and identifying optimization opportunities."
+)
+st.info(
+    "Data source note: cross-cloud charts use this repository's synthetic demo CSV. "
+    "Real AWS CUR 2.0 files are a separate AWS-only billing source and are not "
+    "represented by these synthetic cross-cloud totals."
+)
+st.caption(
+    "Hadoop HDFS • MapReduce • Python • Pandas • Machine Learning • Streamlit"
+)
+st.divider()
+
+# ============================================================
 # FILE PATHS
 # ============================================================
 
-DATA_FILE = "data/processed/cloud_cost_analysis.csv"
-RAW_DATA_FILE = "data/raw/cloud_cost_data.csv"
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-RECOMMENDATION_FILE = (
-    "results/optimization_candidates.csv"
-)
+DATA_FILE = BASE_DIR / "data" / "processed" / "cloud_cost_analysis.csv"
+RAW_DATA_FILE = BASE_DIR / "data" / "raw" / "cloud_cost_data.csv"
+RECOMMENDATION_FILE = BASE_DIR / "results" / "optimization_candidates.csv"
+UNDERUTILIZATION_FILE = BASE_DIR / "results" / "underutilized_resources.csv"
+PROVIDER_RECOMMENDATION_FILE = BASE_DIR / "results" / "provider_recommendations.csv"
+ML_RESULTS_FILE = BASE_DIR / "results" / "ml_model_comparison.csv"
+ML_PREDICTIONS_FILE = BASE_DIR / "results" / "ml_cost_predictions.csv"
+ANOMALY_FILE = BASE_DIR / "results" / "cost_anomalies.csv"
+FINOPS_RECOMMENDATION_FILE = BASE_DIR / "results" / "finops_recommendations.csv"
 
-UNDERUTILIZATION_FILE = (
-    "results/underutilized_resources.csv"
-)
-
-PROVIDER_RECOMMENDATION_FILE = (
-    "results/provider_recommendations.csv"
-)
-
-ML_RESULTS_FILE = (
-    "results/ml_model_comparison.csv"
-)
-
-ML_PREDICTIONS_FILE = (
-    "results/ml_cost_predictions.csv"
-)
-
-# NEW ANALYTICS FILES
-ANOMALY_FILE = (
-    "results/cost_anomalies.csv"
-)
-
-FINOPS_RECOMMENDATION_FILE = (
-    "results/finops_recommendations.csv"
-)
+REQUIRED_DATA_FILES = [
+    DATA_FILE,
+    RAW_DATA_FILE,
+    RECOMMENDATION_FILE,
+    UNDERUTILIZATION_FILE,
+    PROVIDER_RECOMMENDATION_FILE,
+    ML_RESULTS_FILE,
+    ML_PREDICTIONS_FILE,
+    ANOMALY_FILE,
+    FINOPS_RECOMMENDATION_FILE,
+]
 
 # ============================================================
 # LOAD DATA
@@ -105,47 +119,29 @@ def load_data():
     )
 
 
-(
-    df,
-    recommendation_df,
-    underutilization_df,
-    provider_df,
-    ml_results_df,
-    ml_predictions_df,
-    anomaly_df,
-    finops_df,
-    raw_df
-) = load_data()
+missing_files = [path for path in REQUIRED_DATA_FILES if not path.is_file()]
+if missing_files:
+    st.error("The dashboard data files are missing from your local project folder.")
+    st.write("Restore or pull these files from the repository, then restart Streamlit:")
+    st.code("\\n".join(str(path.relative_to(BASE_DIR)) for path in missing_files))
+    st.stop()
 
-# ============================================================
-# PROJECT HEADER
-# ============================================================
-
-st.title(
-    "☁️ Cloud Cost Optimization Analytics Using Hadoop"
-)
-
-st.markdown(
-    """
-    ### Intelligent Multi-Cloud Cost Analysis,
-    Optimization & Prediction Platform
-    """
-)
-
-st.write(
-    """
-    A Big Data analytics platform for analyzing cloud resource
-    usage and identifying cost optimization opportunities across
-    **AWS, Azure, and GCP**.
-    """
-)
-
-st.caption(
-    "Hadoop HDFS • MapReduce • Python • Pandas • "
-    "Machine Learning • Streamlit"
-)
-
-st.divider()
+try:
+    (
+        df,
+        recommendation_df,
+        underutilization_df,
+        provider_df,
+        ml_results_df,
+        ml_predictions_df,
+        anomaly_df,
+        finops_df,
+        raw_df
+    ) = load_data()
+except Exception as exc:
+    st.error("The dashboard could not load its CSV files.")
+    st.exception(exc)
+    st.stop()
 
 # ============================================================
 # EXECUTIVE SUMMARY
