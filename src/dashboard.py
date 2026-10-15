@@ -1,6 +1,10 @@
 from pathlib import Path
 
 import streamlit as st
+import streamlit.components.v1 as components
+import os
+import html
+from urllib.parse import urlparse
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
@@ -269,7 +273,7 @@ if source_mode == "Live AWS billing (CUR 2.0)":
     )
 
     # ============================================================
-    # CONVERSATIONAL AI CHATBOT
+    # FAST CONVERSATIONAL ASSISTANT
     # ============================================================
     st.markdown(
         """
@@ -277,119 +281,210 @@ if source_mode == "Live AWS billing (CUR 2.0)":
           <div class="section-eyebrow">Your project assistant</div>
           <div class="copilot-title">💬 Cloud Cost Copilot</div>
           <p class="copilot-subtitle">
-            Ask me anything about AWS, Python, Hadoop, Terraform, databases, debugging,
-            your project, or general topics. Ask follow-up questions naturally.
-            When billing context is relevant, I use a compact summary of the real CUR data.
+            Ask general questions about AWS, Python, Hadoop, Terraform, databases, coding errors,
+            or your project. Use follow-up questions naturally. Billing charts below continue to
+            show the real AWS CUR data.
           </p>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    with st.expander("Suggested questions", expanded=False):
-        suggested_questions = [
-            "Explain my AWS billing report in simple terms.",
-            "How can I debug a Python import error?",
-            "Explain Hadoop versus Spark for my project.",
-            "What should I investigate in my highest-cost AWS services?",
-        ]
-        suggestion_columns = st.columns(4)
-        for index, question in enumerate(suggested_questions):
-            with suggestion_columns[index]:
-                if st.button(
-                    question,
-                    key=f"copilot_suggestion_{index}",
+    chat_provider = st.radio(
+        "Chat provider",
+        ["Amazon Quick — embedded assistant", "Amazon Bedrock — streaming API"],
+        horizontal=True,
+        index=0,
+        key="cloud_cost_chat_provider",
+    )
+
+    if chat_provider == "Amazon Quick — embedded assistant":
+        quick_embed_url = os.environ.get("CLOUD_COST_QUICK_EMBED_URL", "").strip()
+        if not quick_embed_url:
+            st.info(
+                "Connect Amazon Quick to embed a full conversational assistant here. "
+                "The Amazon Q Developer panel in the AWS Console is useful, but AWS does not expose "
+                "that console panel as a direct Streamlit chat API."
+            )
+            quick_col_1, quick_col_2 = st.columns([1, 1])
+            with quick_col_1:
+                st.link_button(
+                    "Open Amazon Quick console",
+                    "https://us-east-1.quicksight.aws.amazon.com/sn/start",
                     use_container_width=True,
-                ):
-                    st.session_state["cloud_cost_copilot_message_input"] = question
+                )
+            with quick_col_2:
+                st.link_button(
+                    "Embedding setup guide",
+                    "https://docs.aws.amazon.com/quick/latest/userguide/custom-agents.html",
+                    use_container_width=True,
+                )
+            with st.expander("Connect your Amazon Quick chat agent", expanded=True):
+                st.markdown(
+                    """
+                    1. In Amazon Quick, open **Chat agents** and create a general-purpose agent.
+                    2. Test it, then choose **Share → Share via embed** and copy the iframe source URL.
+                    3. In Quick account settings, add http://localhost:8503 to **Manage domains**.
+                    4. In the PowerShell terminal that starts this dashboard, set the URL and restart Streamlit.
+                    """
+                )
+                st.code(
+                    '$env:CLOUD_COST_QUICK_EMBED_URL = "PASTE_THE_GENERATED_IFRAME_SOURCE_URL_HERE"\n'
+                    'python -m streamlit run src/dashboard.py --server.port 8503',
+                    language="powershell",
+                )
+                st.caption(
+                    "Amazon Quick may require account access/subscription and user sign-in. "
+                    "Its embedded agent uses its own configured knowledge sources; the current CUR charts remain separate."
+                )
+        else:
+            parsed = urlparse(quick_embed_url)
+            hostname = (parsed.hostname or "").lower()
+            allowed_host = (
+                hostname.endswith(".quicksight.aws.amazon.com")
+                or hostname == "quicksight.aws.amazon.com"
+                or hostname.endswith(".quicksight.amazonaws.com")
+                or hostname == "quicksight.amazonaws.com"
+            )
+            if parsed.scheme != "https" or not allowed_host:
+                st.error(
+                    "The configured Amazon Quick embed URL is not a recognized HTTPS Quick endpoint. "
+                    "Copy the exact source URL from Share → Share via embed."
+                )
+            else:
+                escaped_src = html.escape(quick_embed_url, quote=True)
+                st.caption("Connected to your authenticated Amazon Quick embedded chat agent.")
+                components.html(
+                    f"""
+                    <div style="width:100%;height:680px;border:1px solid rgba(148,163,184,.25);border-radius:16px;overflow:hidden;background:#0b1020">
+                      <iframe
+                        title="Amazon Quick Cloud Cost Copilot"
+                        src="{escaped_src}"
+                        width="100%"
+                        height="680"
+                        style="border:0;border-radius:16px;background:#0b1020"
+                        allow="clipboard-read; clipboard-write"
+                        loading="eager">
+                      </iframe>
+                    </div>
+                    """,
+                    height=690,
+                    scrolling=False,
+                )
 
-    chat_key = "cloud_cost_copilot_messages"
-    if chat_key not in st.session_state:
-        st.session_state[chat_key] = []
+    else:
+        st.caption(
+            "This fallback uses Amazon Bedrock directly. It streams partial output as it arrives, "
+            "disables SDK retries, and bounds connection/read timeouts so a failed call will not sit for minutes. "
+            "Your earlier Operation not allowed error may indicate account/model access restrictions; this mode will show that failure quickly."
+        )
 
-    # Render the conversation first so the chat history appears above the composer.
-    messages_container = st.container()
-    with messages_container:
-        for message in st.session_state[chat_key][-12:]:
+        chat_key = "cloud_cost_copilot_messages"
+        if chat_key not in st.session_state:
+            st.session_state[chat_key] = []
+
+        for message in st.session_state[chat_key][-10:]:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
 
-    with st.form("cloud_cost_copilot_form", clear_on_submit=True, border=True):
-        copilot_question = st.text_input(
-            "Message",
-            placeholder="Ask anything — cloud, coding, project questions, billing, or follow-ups…",
-            label_visibility="collapsed",
-            key="cloud_cost_copilot_message_input",
-        )
-        submitted = st.form_submit_button("Send message  ➤", type="primary")
-
-    if submitted and copilot_question.strip():
-        current_question = copilot_question.strip()
-        st.session_state[chat_key].append(
-            {"role": "user", "content": current_question}
-        )
-        try:
-            try:
-                from cost_copilot import build_cur_context, invoke_general_chat
-            except ImportError:
-                from src.cost_copilot import build_cur_context, invoke_general_chat
-
-            try:
-                assistant_cur_context = build_cur_context(
-                    live_cur_df, live_cur_analysis, selected_currency
-                )
-            except Exception:
-                assistant_cur_context = None
-
-            model_id = (
-                __import__("os").environ.get("CLOUD_COST_BEDROCK_MODEL_ID")
-                or "amazon.nova-lite-v1:0"
+        with st.form("cloud_cost_copilot_form", clear_on_submit=True, border=True):
+            copilot_question = st.text_input(
+                "Message",
+                placeholder="Ask anything — cloud, coding, project questions, billing, or follow-ups…",
+                label_visibility="collapsed",
+                key="cloud_cost_copilot_message_input",
             )
-            model_region = (
-                __import__("os").environ.get("CLOUD_COST_BEDROCK_REGION")
-                or __import__("os").environ.get("CLOUD_COST_AWS_REGION")
-                or "us-east-1"
+            submitted = st.form_submit_button("Send message  ➤", type="primary")
+
+        if submitted and copilot_question.strip():
+            import time
+
+            current_question = copilot_question.strip()
+            st.session_state[chat_key].append(
+                {"role": "user", "content": current_question}
             )
-            with st.spinner("Cloud Cost Copilot is thinking…"):
-                answer = invoke_general_chat(
-                    st.session_state[chat_key][-14:],
-                    cur_context=assistant_cur_context,
-                    model_id=model_id,
-                    region=model_region,
+            with st.chat_message("user"):
+                st.markdown(current_question)
+
+            started_at = time.perf_counter()
+            answer = ""
+            try:
+                try:
+                    from cost_copilot import build_cur_context, stream_general_chat
+                except ImportError:
+                    from src.cost_copilot import build_cur_context, stream_general_chat
+
+                try:
+                    assistant_cur_context = build_cur_context(
+                        live_cur_df, live_cur_analysis, selected_currency
+                    )
+                except Exception:
+                    assistant_cur_context = None
+
+                model_id = (
+                    os.environ.get("CLOUD_COST_BEDROCK_MODEL_ID")
+                    or "amazon.nova-lite-v1:0"
                 )
-        except Exception as exc:
-            detail = str(exc)
-            lower_detail = detail.lower()
-            if any(term in lower_detail for term in ("accessdenied", "access denied", "model access", "invoke model")):
-                answer = (
-                    "I couldn't reach the AI model because Amazon Bedrock denied access. "
-                    "Enable a Converse-compatible model for this AWS account and region, then grant "
-                    "the current identity bedrock:InvokeModel permission."
-                )
-            elif any(term in lower_detail for term in ("expired", "login", "credential", "token")):
-                answer = (
-                    "Your AWS session may have expired. Sign in again in PowerShell with "
-                    "aws login --region us-east-1, then restart the dashboard."
-                )
-            else:
-                answer = (
-                    "I couldn't get a response from the AI model. Check your AWS session, Bedrock model "
-                    "access, permissions, and region, then retry. Technical details: "
-                    f"{type(exc).__name__}: {detail}"
+                model_region = (
+                    os.environ.get("CLOUD_COST_BEDROCK_REGION")
+                    or os.environ.get("CLOUD_COST_AWS_REGION")
+                    or "us-east-1"
                 )
 
-        st.session_state[chat_key].append(
-            {"role": "assistant", "content": answer}
+                with st.chat_message("assistant"):
+                    response_area = st.empty()
+                    for token in stream_general_chat(
+                        st.session_state[chat_key][-14:],
+                        cur_context=assistant_cur_context,
+                        model_id=model_id,
+                        region=model_region,
+                    ):
+                        answer += token
+                        response_area.markdown(answer)
+                    if not answer:
+                        answer = "The model returned an empty response. Please try again."
+                        response_area.markdown(answer)
+            except Exception as exc:
+                detail = str(exc)
+                lower_detail = detail.lower()
+                if "operation not allowed" in lower_detail:
+                    answer = (
+                        "Amazon Bedrock rejected this request with Operation not allowed. "
+                        "This is not a dashboard loading problem. The account/model inference path must be enabled "
+                        "or cleared by AWS before this direct API option can answer. Use the Amazon Quick embedded "
+                        "assistant option above once its embed URL is configured."
+                    )
+                elif any(term in lower_detail for term in ("accessdenied", "access denied", "model access", "invoke model")):
+                    answer = (
+                        "Amazon Bedrock denied model access. Check that the model is enabled for this account/region "
+                        "and that the current identity has bedrock:InvokeModel permission."
+                    )
+                elif any(term in lower_detail for term in ("expired", "login", "credential", "token")):
+                    answer = (
+                        "Your AWS session may have expired. Reauthenticate in PowerShell with "
+                        "aws login --region us-east-1, then restart the dashboard."
+                    )
+                else:
+                    answer = (
+                        "The AI request failed or exceeded its timeout. Check AWS session, Bedrock model access, "
+                        "permissions and region. Technical details: "
+                        f"{type(exc).__name__}: {detail}"
+                    )
+                with st.chat_message("assistant"):
+                    st.markdown(answer)
+
+            elapsed = time.perf_counter() - started_at
+            st.session_state[chat_key].append(
+                {"role": "assistant", "content": answer}
+            )
+            st.session_state[chat_key] = st.session_state[chat_key][-24:]
+            st.caption(f"Response attempt completed in {elapsed:.1f} seconds.")
+            st.rerun()
+
+        st.caption(
+            "Bedrock mode uses bounded timeouts and one total attempt. Model access errors are surfaced directly; "
+            "it will not silently switch to a hard-coded answer."
         )
-        st.session_state[chat_key] = st.session_state[chat_key][-24:]
-        st.rerun()
-
-    st.caption(
-        "Powered by Amazon Bedrock. Responses are generated by a language model and may need verification. "
-        "The chat keeps recent history for follow-up questions. Billing context uses aggregated CUR data; "
-        "raw line items, account IDs, and resource IDs are not sent."
-    )
-
 
     st.subheader("📈 Reported cost by billing period")
     if not selected_months.empty:
