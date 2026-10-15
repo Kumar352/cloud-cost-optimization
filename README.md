@@ -138,14 +138,15 @@ python -m streamlit run src/dashboard.py
 
 Keep **Live AWS billing (CUR 2.0)** selected in the data-source selector and click **Load / refresh real AWS CUR data**. The panel keeps currencies separate and reports the sum of exported `line_item_unblended_cost` values. This should not be presented as the final invoice total or guaranteed savings.
 
-## CUR Cost Copilot and model training
+## Cloud Cost Copilot and model training
 
-The live AWS view includes a **CUR Cost Copilot** for questions about reported spend, top services, billing-period trends, line-item types, high-cost outliers, and investigation ideas. Its default grounded-analytics mode calculates answers from the current CUR DataFrame without calling an LLM. It cannot infer that a resource is idle from billing rows alone and does not claim guaranteed savings.
+The live AWS dashboard includes **Cloud Cost Copilot**, an open-ended, multi-turn conversational assistant—not a fixed-intent billing FAQ. Ask natural-language follow-ups about AWS, cloud computing, Python, Java, Hadoop, Terraform, databases, DevOps, machine learning, project implementation, debugging, learning topics, and other general questions.
 
-An optional **Amazon Bedrock** mode uses the Converse API when a model ID is explicitly entered. The prompt is grounded in aggregate CUR summaries; raw billing rows, account IDs, and resource IDs are not sent to the model. Bedrock access and IAM permission are required, and model inference can incur charges. The foundation model is not fine-tuned on the user's billing data; using current CUR aggregates as context is retrieval/grounding, not training an LLM.
+The assistant uses Amazon Bedrock's Converse API with Amazon Nova Lite as the default model ID (`amazon.nova-lite-v1:0`); model access must be enabled for the AWS account/region and the current AWS identity must have `bedrock:InvokeModel` permission. The model ID and region can be changed in the dashboard's **AI model settings** expander. Inference can incur charges. The chat keeps a bounded transcript in the running Streamlit session so follow-up questions can use the conversation history.
+
+When a question involves current billing, the assistant receives a compact aggregate summary of the loaded CUR data. It does not receive raw billing rows, account IDs, or resource IDs. The assistant can also answer general questions without forcing them into a billing intent. Model output can be wrong and should be verified. The foundation model is not fine-tuned on the billing data; the app grounds answers in current context instead.
 
 The **Train an anomaly-detection model on real AWS billing** expander fits an unsupervised scikit-learn Isolation Forest on numeric fields from the currently loaded CUR records, separately per currency. It runs in memory, flags rows for investigation, and offers a CSV download. The model is not saved or uploaded, and flags are not proof of waste or validated model accuracy.
-
 ## Glue Catalog and Athena (Terraform declaration)
 
 `terraform/cur_analytics.tf` declares a Glue Catalog database, a manually triggered CUR crawler, and a dedicated Athena workgroup. The Athena workgroup config enforces SSE-S3 query-result encryption and a 50 MiB per-query data-scan cutoff. These resources are **declared in Terraform but are not deployed just because the file was committed**. Review a fresh Terraform plan before applying, and verify it proposes no unrelated deletions or replacements. Starting a crawler or running Athena queries can incur charges.
