@@ -51,9 +51,9 @@ resource "aws_athena_workgroup" "cur_analytics" {
   force_destroy = false
 
   configuration {
-    enforce_workgroup_configuration      = true
-    publish_cloudwatch_metrics_enabled   = true
-    bytes_scanned_cutoff_per_query       = 52428800
+    enforce_workgroup_configuration    = true
+    publish_cloudwatch_metrics_enabled = true
+    bytes_scanned_cutoff_per_query    = 52428800
 
     result_configuration {
       output_location = "s3://${aws_s3_bucket.cost_data_lake.bucket}/reports/athena-results/"
