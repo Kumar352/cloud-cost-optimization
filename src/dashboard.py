@@ -30,6 +30,102 @@ st.info(
     "Real AWS CUR 2.0 files are a separate AWS-only billing source and are not "
     "represented by these synthetic cross-cloud totals."
 )
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def _load_live_aws_cur_cached():
+    # Local import avoids requiring AWS access unless the live panel is opened.
+    try:
+        from aws_cur_analytics import load_recent_cur_data, summarize_cur_data
+    except ImportError:
+        from src.aws_cur_analytics import load_recent_cur_data, summarize_cur_data
+    return load_recent_cur_data(), summarize_cur_data
+
+
+with st.expander("Live AWS billing — CUR 2.0 (real AWS data)", expanded=False):
+    st.write(
+        "Read-only view of the AWS Cost and Usage Report Parquet files already stored in S3. "
+        "This is separate from the synthetic cross-cloud charts below."
+    )
+    st.caption(
+        "Uses your local boto3/AWS CLI credential chain. No AWS resources are created by this panel. "
+        "It reads the two most recent billing-period partitions and caches them for one hour."
+    )
+
+    if st.button("Load / refresh live AWS CUR data", key="load_live_aws_cur"):
+        st.session_state["show_live_aws_cur"] = True
+        _load_live_aws_cur_cached.clear()
+
+    if st.session_state.get("show_live_aws_cur", False):
+        try:
+            with st.spinner("Reading recent AWS CUR Parquet files from S3..."):
+                (live_cur_df, live_cur_metadata), summarize_cur_data = _load_live_aws_cur_cached()
+                live_cur_summary = summarize_cur_data(live_cur_df)
+        except Exception as exc:
+            st.error(
+                "Live AWS CUR data could not be loaded. Confirm that your local AWS CLI/profile "
+                "has access to the project data-lake bucket and that the CUR export has delivered files."
+            )
+            st.code(
+                "aws sts get-caller-identity\n"
+                "$accountId = aws sts get-caller-identity --query Account --output text\n"
+                "$env:CLOUD_COST_AWS_CUR_BUCKET = \"cloud-cost-optimization-$accountId\"\n"
+                "aws s3 ls \"s3://$env:CLOUD_COST_AWS_CUR_BUCKET/raw/aws-cur/cloud-cost-optimization-cur/data/\""
+            )
+            st.caption(f"Details: {type(exc).__name__}: {exc}")
+        else:
+            latest_period = max(live_cur_metadata["periods"])
+            col_live_1, col_live_2, col_live_3 = st.columns(3)
+            col_live_1.metric("Latest billing period", latest_period)
+            col_live_2.metric("CUR line items loaded", f"{len(live_cur_df):,}")
+            col_live_3.metric("Parquet objects read", f"{live_cur_metadata['object_count']:,}")
+
+            st.caption(
+                "Latest selected S3 object modified (UTC): "
+                f"{live_cur_metadata['last_object_modified_utc'] or 'unknown'}"
+            )
+            st.subheader("Reported unblended cost by billing period and currency")
+            st.dataframe(
+                live_cur_summary["monthly"].style.format(
+                    {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
+                ),
+                use_container_width=True,
+                hide_index=True,
+            )
+
+            st.subheader("Top AWS services in the loaded billing periods")
+            st.dataframe(
+                live_cur_summary["services"].head(15).style.format(
+                    {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
+                ),
+                use_container_width=True,
+                hide_index=True,
+            )
+
+            safe_columns = [
+                column for column in [
+                    "Billing_Period",
+                    "Service",
+                    "line_item_usage_type",
+                    "line_item_currency_code",
+                    "line_item_unblended_cost",
+                ] if column in live_cur_df.columns
+            ]
+            if safe_columns:
+                st.subheader("Sample billing line items")
+                st.dataframe(
+                    live_cur_df[safe_columns].head(20),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+
+            st.caption(
+                "These tables sum CUR line_item_unblended_cost by the exported billing-period "
+                "partition. This is a billing-line-item measure, not a claim of final invoice "
+                "total or realized savings. Currencies are kept separate."
+            )
+
+
+
 st.caption(
     "Hadoop HDFS • MapReduce • Python • Pandas • Machine Learning • Streamlit"
 )
