@@ -136,7 +136,21 @@ $env:CLOUD_COST_AWS_REGION = "us-east-1"
 python -m streamlit run src/dashboard.py
 ```
 
-Expand **Live AWS billing — CUR 2.0** in the dashboard and select **Load / refresh live AWS CUR data**. The panel keeps currencies separate and reports the sum of exported `line_item_unblended_cost` values. This should not be presented as the final invoice total or guaranteed savings.
+Keep **Live AWS billing (CUR 2.0)** selected in the data-source selector and click **Load / refresh real AWS CUR data**. The panel keeps currencies separate and reports the sum of exported `line_item_unblended_cost` values. This should not be presented as the final invoice total or guaranteed savings.
+
+## CUR Cost Copilot and model training
+
+The live AWS view includes a **CUR Cost Copilot** for questions about reported spend, top services, billing-period trends, line-item types, high-cost outliers, and investigation ideas. Its default grounded-analytics mode calculates answers from the current CUR DataFrame without calling an LLM. It cannot infer that a resource is idle from billing rows alone and does not claim guaranteed savings.
+
+An optional **Amazon Bedrock** mode uses the Converse API when a model ID is explicitly entered. The prompt is grounded in aggregate CUR summaries; raw billing rows, account IDs, and resource IDs are not sent to the model. Bedrock access and IAM permission are required, and model inference can incur charges. The foundation model is not fine-tuned on the user's billing data; using current CUR aggregates as context is retrieval/grounding, not training an LLM.
+
+The **Train an anomaly-detection model on real AWS billing** expander fits an unsupervised scikit-learn Isolation Forest on numeric fields from the currently loaded CUR records, separately per currency. It runs in memory, flags rows for investigation, and offers a CSV download. The model is not saved or uploaded, and flags are not proof of waste or validated model accuracy.
+
+## Glue Catalog and Athena (Terraform declaration)
+
+`terraform/cur_analytics.tf` declares a Glue Catalog database, a manually triggered CUR crawler, and a dedicated Athena workgroup. The Athena workgroup config enforces SSE-S3 query-result encryption and a 50 MiB per-query data-scan cutoff. These resources are **declared in Terraform but are not deployed just because the file was committed**. Review a fresh Terraform plan before applying, and verify it proposes no unrelated deletions or replacements. Starting a crawler or running Athena queries can incur charges.
+
+See [AWS CUR + Athena setup and sample SQL](docs/AWS_CUR_ATHENA.md).
 
 ## AWS and Terraform
 
