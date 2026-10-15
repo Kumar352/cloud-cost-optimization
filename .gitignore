@@ -1,12 +1,37 @@
-# Java/Hadoop compiled files
-hadoop/classes/
-
-# Python cache
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# Jupyter Notebook checkpoints
+# Jupyter
 .ipynb_checkpoints/
 
 # Streamlit cache
 .streamlit/cache/
+
+# Java/Hadoop compiled files
+hadoop/classes/
+*.class
+
+# Terraform local files and secrets
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+terraform/*.tfvars.json
+terraform/crash.log
+terraform/crash.*.log
+terraform/lambda/workload.zip
+terraform/lambda-test-response.json
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
