@@ -372,6 +372,16 @@ def render_shared_cloud_copilot(active_data_mode):
                 )
             with st.chat_message("assistant"):
                 st.warning(answer)
+                if "operation not allowed" in lower_detail or "not_authorized" in lower_detail:
+                    st.link_button(
+                        "Open Amazon Bedrock model access",
+                        "https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/modelaccess",
+                        use_container_width=True,
+                    )
+                    st.caption(
+                        "The account inventory returned authorizationStatus=NOT_AUTHORIZED for Nova Lite. "
+                        "Enable the model for this account before retrying; model use may incur charges."
+                    )
 
         elapsed = time.perf_counter() - started_at
         st.session_state[chat_key].append(
