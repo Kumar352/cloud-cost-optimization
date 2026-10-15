@@ -21,3 +21,12 @@ Synthetic cross-cloud data is suitable for illustrating analytical logic and com
 ## Verification status
 
 Treat this document as a logical architecture description, not an assertion that every edge is currently tested end to end. Mark a component end-to-end verified only when reproducible output or runtime evidence from the current state is available.
+
+## Live CUR analysis and Cost Copilot
+
+The Streamlit app defaults to the live AWS CUR 2.0 data source. It downloads the most recent billing-period Parquet partitions from the project S3 data lake, keeps currencies separate, and computes period/service/daily summaries and IQR high-cost review candidates.
+
+- **CUR Cost Copilot:** deterministic, data-grounded Q&A is the default. Optional Amazon Bedrock mode is disabled unless selected and provided a model ID. It receives summarized billing context rather than raw records. This is grounding/RAG-style context, not LLM fine-tuning.
+- **Trainable anomaly model:** the user can train a scikit-learn Isolation Forest over the loaded CUR rows. Training is performed in memory per currency, and scored rows can be downloaded. It does not upload data or persist a model file.
+- **Glue/Athena:** terraform/cur_analytics.tf declares a Glue database and manually triggered crawler plus a dedicated Athena workgroup. These resources are not live until reviewed and applied through Terraform; deployment and a successful crawler/query need separate evidence.
+
