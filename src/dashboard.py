@@ -371,47 +371,64 @@ if source_mode == "Live AWS billing (CUR 2.0)":
     # ============================================================
     # CUR COST COPILOT / CHATBOT
     # ============================================================
-    st.subheader("💬 CUR Cost Copilot")
+    st.subheader("💬 Cloud Cost Copilot — Ask anything")
     st.write(
-        "Ask questions about the real AWS billing data loaded above. The default mode uses "
-        "deterministic calculations over this CUR snapshot; optional Bedrock mode generates "
-        "a natural-language answer grounded in aggregate CUR context."
+        "This is a general conversational AI assistant—not a fixed billing FAQ. Ask follow-up questions "
+        "about AWS, cloud computing, Python, Java, Hadoop, Terraform, databases, DevOps, machine learning, "
+        "your project, code errors, learning topics, or general questions."
     )
-    copilot_mode = st.radio(
-        "Assistant mode",
-        ["Grounded analytics (no LLM call)", "Amazon Bedrock (optional)"],
-        horizontal=True,
-        key="cur_copilot_mode",
+    st.info(
+        "When a question needs your current bill, the assistant gets a compact summary of the loaded CUR data. "
+        "It uses conversation history for follow-up questions. Billing context is kept separate by currency; "
+        "the model is not given raw billing rows, account IDs, or resource IDs."
     )
-    bedrock_model_id = ""
-    if copilot_mode == "Amazon Bedrock (optional)":
+
+    with st.expander("AI model settings", expanded=False):
         bedrock_model_id = st.text_input(
-            "Bedrock model ID enabled for your AWS account",
-            value=__import__("os").environ.get("CLOUD_COST_BEDROCK_MODEL_ID", ""),
-            help="Bedrock mode only calls a model when you submit a question. Model access and bedrock:InvokeModel permissions are required; usage may incur charges.",
+            "Amazon Bedrock model ID",
+            value=__import__("os").environ.get(
+                "CLOUD_COST_BEDROCK_MODEL_ID", "amazon.nova-lite-v1:0"
+            ),
+            help=(
+                "Default: Amazon Nova Lite. Your account must have access to this model and permission "
+                "for bedrock:InvokeModel. You can change this to another Converse-compatible model enabled "
+                "for your account."
+            ),
             key="cur_copilot_model_id",
         )
-        st.caption(
-            "No model is fine-tuned on your billing records. Bedrock receives only small aggregated summaries, "
-            "not account IDs, resource IDs, or raw billing rows."
+        bedrock_region = st.text_input(
+            "AWS Region",
+            value=__import__("os").environ.get("CLOUD_COST_AWS_REGION", "us-east-1"),
+            key="cur_copilot_region",
         )
-    else:
         st.caption(
-            "No generative model call and no additional AWS inference cost in this mode. "
-            "Answers are calculated from the currently loaded CUR data."
+            "Model responses may be incorrect and should be checked. Bedrock inference can incur charges. "
+            "No model is fine-tuned on your billing records; this app sends the conversation and aggregate "
+            "CUR context to Bedrock to generate an answer."
         )
 
-    chat_key = f"cur_copilot_messages_{selected_currency}"
+    chat_key = "cloud_cost_copilot_messages"
     if chat_key not in st.session_state:
         st.session_state[chat_key] = []
 
-    for message in st.session_state[chat_key][-12:]:
+    clear_col, info_col = st.columns([1, 5])
+    with clear_col:
+        if st.button("Clear conversation", key="clear_cost_copilot_chat"):
+            st.session_state[chat_key] = []
+            st.rerun()
+    with info_col:
+        st.caption(
+            "Try: “Explain my CUR report”, “How do I fix a Python import error?”, "
+            "“What is the difference between Hadoop and Spark?”, or ask any follow-up."
+        )
+
+    for message in st.session_state[chat_key][-20:]:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
     copilot_question = st.chat_input(
-        f"Ask about {selected_currency} spend, top services, trends, anomalies, or optimization…",
-        key=f"cur_copilot_input_{selected_currency}",
+        "Ask me anything — cloud, coding, project questions, billing, or follow-ups…",
+        key="cloud_cost_copilot_input",
     )
     if copilot_question:
         st.session_state[chat_key].append(
@@ -422,59 +439,55 @@ if source_mode == "Live AWS billing (CUR 2.0)":
 
         try:
             try:
-                from cost_copilot import (
-                    answer_cur_question,
-                    build_cur_context,
-                    invoke_bedrock_answer,
-                )
+                from cost_copilot import build_cur_context, invoke_general_chat
             except ImportError:
-                from src.cost_copilot import (
-                    answer_cur_question,
-                    build_cur_context,
-                    invoke_bedrock_answer,
-                )
-            grounded_answer = answer_cur_question(
-                copilot_question, live_cur_df, live_cur_analysis, selected_currency
-            )
-            if copilot_mode == "Amazon Bedrock (optional)" and bedrock_model_id.strip():
-                try:
-                    copilot_answer = invoke_bedrock_answer(
-                        copilot_question,
-                        build_cur_context(live_cur_df, live_cur_analysis, selected_currency),
-                        bedrock_model_id.strip(),
-                        region=__import__("os").environ.get("CLOUD_COST_AWS_REGION", "us-east-1"),
-                    )
-                    response_prefix = "**Amazon Bedrock — grounded in current CUR aggregates**\n\n"
-                except Exception as bedrock_exc:
-                    copilot_answer = (
-                        "**Bedrock call failed; showing the deterministic CUR answer instead.**\n\n"
-                        f"Bedrock error: {type(bedrock_exc).__name__}: {bedrock_exc}\n\n"
-                        + grounded_answer
-                    )
-                    response_prefix = ""
-            elif copilot_mode == "Amazon Bedrock (optional)":
-                copilot_answer = (
-                    "Enter a Bedrock model ID to enable generated answers. No model was called. "
-                    "Here is the grounded analytics answer for now:\n\n" + grounded_answer
-                )
-                response_prefix = ""
-            else:
-                copilot_answer = grounded_answer
-                response_prefix = ""
-        except Exception as exc:
-            copilot_answer = (
-                f"Sorry, I could not answer from this CUR snapshot: "
-                f"{type(exc).__name__}: {exc}"
-            )
-            response_prefix = ""
+                from src.cost_copilot import build_cur_context, invoke_general_chat
 
-        final_answer = response_prefix + copilot_answer
-        with st.chat_message("assistant"):
-            st.markdown(final_answer)
-        st.session_state[chat_key].append(
-            {"role": "assistant", "content": final_answer}
-        )
-        st.session_state[chat_key] = st.session_state[chat_key][-20:]
+            try:
+                assistant_cur_context = build_cur_context(
+                    live_cur_df, live_cur_analysis, selected_currency
+                )
+            except Exception:
+                # General chat should continue even if billing context cannot be summarized.
+                assistant_cur_context = None
+
+            with st.chat_message("assistant"):
+                with st.spinner("Thinking..."):
+                    answer = invoke_general_chat(
+                        st.session_state[chat_key][-14:],
+                        cur_context=assistant_cur_context,
+                        model_id=bedrock_model_id.strip(),
+                        region=bedrock_region.strip() or "us-east-1",
+                    )
+                st.markdown(answer)
+            st.session_state[chat_key].append(
+                {"role": "assistant", "content": answer}
+            )
+            st.session_state[chat_key] = st.session_state[chat_key][-24:]
+        except Exception as exc:
+            detail = str(exc)
+            lower_detail = detail.lower()
+            if any(term in lower_detail for term in ("accessdenied", "access denied", "model access", "invoke model")):
+                st.error(
+                    "Amazon Bedrock could not invoke the selected model. Enable/access a Converse-compatible "
+                    "foundation model in AWS Bedrock for this account and region, and ensure the current AWS "
+                    "identity has bedrock:InvokeModel permission."
+                )
+            elif any(term in lower_detail for term in ("expired", "login", "credential", "token")):
+                st.error(
+                    "Your AWS session may have expired. Reauthenticate in PowerShell with "
+                    "aws login --region us-east-1, then restart Streamlit."
+                )
+            else:
+                st.error(
+                    "I couldn't get an AI response from Bedrock. Check the model ID, region, AWS session, "
+                    "and model permissions in AI model settings, then try again."
+                )
+            st.caption(f"Technical details: {type(exc).__name__}: {detail}")
+            st.info(
+                "The assistant calls a real language model for open-ended answers. It does not silently "
+                "replace a general question with a hard-coded billing FAQ when the model call fails."
+            )
 
     st.caption(
         "Live AWS-only analysis. For the synthetic AWS/Azure/GCP demonstration, select "
