@@ -225,3 +225,102 @@ def invoke_bedrock_answer(
     blocks = response.get("output", {}).get("message", {}).get("content", [])
     answer = "\n".join(block.get("text", "") for block in blocks if block.get("text"))
     return answer.strip() or "Bedrock returned no text answer."
+
+
+def prepare_bedrock_messages(
+    history: list[dict[str, str]],
+    *,
+    max_messages: int = 14,
+) -> list[dict[str, Any]]:
+    """Convert the UI transcript into Bedrock Converse messages with bounded history."""
+    if max_messages < 1:
+        raise ValueError("max_messages must be at least 1")
+
+    result: list[dict[str, Any]] = []
+    for message in history[-max_messages:]:
+        role = str(message.get("role", "")).strip().lower()
+        text = str(message.get("content", "")).strip()
+        if role not in {"user", "assistant"} or not text:
+            continue
+        # Bedrock Converse accepts only user/assistant in the messages transcript.
+        result.append({"role": role, "content": [{"text": text}]})
+
+    # A user turn must finish the input transcript.
+    if not result or result[-1]["role"] != "user":
+        raise ValueError("Conversation history must end with the current user question.")
+    return result
+
+
+def build_general_assistant_system_prompt(
+    cur_context: dict[str, Any] | None = None,
+) -> str:
+    """Build a general conversational assistant prompt with optional CUR grounding."""
+    project_context = (
+        "The user is developing a project called Cloud Cost Optimization Analytics Using Hadoop. "
+        "It includes Python/Streamlit, Hadoop HDFS and Java MapReduce, Terraform, AWS S3, a real "
+        "AWS Cost and Usage Report (CUR 2.0) export in Parquet, a scheduled Lambda workload, RDS "
+        "PostgreSQL, and optional Glue/Athena infrastructure declared in Terraform. The live AWS "
+        "CUR analysis reads the latest available billing-period files from S3. The cross-cloud "
+        "AWS/Azure/GCP CSV with 15,000 records is synthetic demo data, not real provider invoices. "
+        "The local Hadoop YARN ResourceManager issue has previously been unresolved; do not claim "
+        "it has been fixed without fresh job evidence."
+    )
+
+    rules = (
+        "You are Cloud Cost Copilot, a general-purpose conversational AI assistant embedded in a "
+        "student's cloud analytics project. This is an open-ended chatbot, not a fixed FAQ. Answer "
+        "questions about AWS, cloud computing, Python, Java, Hadoop, Terraform, databases, DevOps, "
+        "ML, project debugging, career/learning topics, and ordinary general questions. Use the "
+        "conversation history to handle follow-up questions naturally. Explain concepts in clear "
+        "steps and provide runnable examples when helpful. Ask a concise clarification only when "
+        "essential information is missing. When relevant to the user's project, use the project "
+        "context below; for unrelated general questions, answer normally rather than forcing the "
+        "answer to be about billing. When discussing real bill figures, use only the supplied CUR "
+        "context and clearly label the currency, billing period, and reported unblended-cost meaning. "
+        "The newest billing period may be incomplete. Never combine currencies. Do not invent CUR "
+        "figures, say resources are unused based on billing alone, claim estimated savings are "
+        "guaranteed, or claim AWS resources/jobs are deployed or validated without evidence. If the "
+        "available data cannot answer, say what information is missing and suggest how to obtain it. "
+        "Be conversational, helpful, honest, and concise."
+    )
+
+    payload = {
+        "project_context": project_context,
+        "current_loaded_CUR_summary": cur_context or (
+            "No live CUR context was supplied for this turn. Answer general questions normally. "
+            "Do not invent current billing values."
+        ),
+    }
+    return rules + "\n\nContext available for project/billing questions (use only when relevant):\n" + json.dumps(
+        payload, default=str, ensure_ascii=False
+    )
+
+
+def invoke_general_chat(
+    history: list[dict[str, str]],
+    *,
+    cur_context: dict[str, Any] | None = None,
+    model_id: str = "amazon.nova-lite-v1:0",
+    region: str = "us-east-1",
+    session=None,
+    max_messages: int = 14,
+) -> str:
+    """Run an open-ended, multi-turn chat through Amazon Bedrock's Converse API."""
+    model_id = str(model_id or "").strip()
+    if not model_id:
+        raise ValueError("A Bedrock model ID is required.")
+    messages = prepare_bedrock_messages(history, max_messages=max_messages)
+
+    import boto3
+
+    session = session or boto3.Session(region_name=region)
+    client = session.client("bedrock-runtime", region_name=region)
+    response = client.converse(
+        modelId=model_id,
+        system=[{"text": build_general_assistant_system_prompt(cur_context)}],
+        messages=messages,
+        inferenceConfig={"maxTokens": 1200, "temperature": 0.35},
+    )
+    blocks = response.get("output", {}).get("message", {}).get("content", [])
+    answer = "\n".join(block.get("text", "") for block in blocks if block.get("text"))
+    return answer.strip() or "The model returned an empty response. Please try asking in a different way."
