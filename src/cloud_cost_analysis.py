@@ -56,7 +56,7 @@ def main() -> None:
 
     print("Cloud cost analysis completed.")
     print(f"Records analyzed: {len(analyzed):,}")
-    print(f"Total monthly cost: \${analyzed['Monthly_Cost'].sum():,.2f}")
+    print(f"Total monthly cost: ${analyzed['Monthly_Cost'].sum():,.2f}")
     print(
         "High-cost records: "
         f"{(analyzed['Optimization_Flag'] == 'High Cost').sum():,}"
