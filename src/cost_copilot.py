@@ -324,3 +324,74 @@ def invoke_general_chat(
     blocks = response.get("output", {}).get("message", {}).get("content", [])
     answer = "\n".join(block.get("text", "") for block in blocks if block.get("text"))
     return answer.strip() or "The model returned an empty response. Please try asking in a different way."
+
+
+def stream_general_chat(
+    history: list[dict[str, str]],
+    *,
+    cur_context: dict[str, Any] | None = None,
+    model_id: str = "amazon.nova-lite-v1:0",
+    region: str = "us-east-1",
+    session=None,
+    max_messages: int = 14,
+):
+    """Yield Bedrock response text as it arrives, with bounded retries/timeouts.
+
+    This prevents the whole page from appearing frozen while waiting for a full answer.
+    Account/model restrictions still need to be resolved separately if Bedrock returns
+    an explicit access/operation error.
+    """
+    from botocore.config import Config
+
+    model_id = str(model_id or "").strip()
+    if not model_id:
+        raise ValueError("A Bedrock model ID is required.")
+    messages = prepare_bedrock_messages(history, max_messages=max_messages)
+
+    import boto3
+
+    session = session or boto3.Session(region_name=region)
+    client = session.client(
+        "bedrock-runtime",
+        region_name=region,
+        config=Config(
+            connect_timeout=4,
+            read_timeout=20,
+            retries={"mode": "standard", "total_max_attempts": 1},
+        ),
+    )
+
+    response = client.converse_stream(
+        modelId=model_id,
+        system=[{"text": build_general_assistant_system_prompt(cur_context)}],
+        messages=messages,
+        inferenceConfig={"maxTokens": 800, "temperature": 0.25},
+    )
+
+    event_stream = response.get("stream")
+    if event_stream is None:
+        raise RuntimeError("Bedrock did not return a streaming response.")
+
+    for event in event_stream:
+        delta = event.get("contentBlockDelta")
+        if delta:
+            text_delta = delta.get("delta", {}).get("text")
+            if text_delta:
+                yield text_delta
+            continue
+
+        for error_key in (
+            "internalServerException",
+            "modelStreamErrorException",
+            "validationException",
+            "throttlingException",
+            "serviceUnavailableException",
+        ):
+            if error_key in event:
+                details = event[error_key]
+                if isinstance(details, dict):
+                    message = details.get("message") or details.get("originalMessage") or str(details)
+                else:
+                    message = str(details)
+                raise RuntimeError(f"Bedrock streaming error ({error_key}): {message}")
+
