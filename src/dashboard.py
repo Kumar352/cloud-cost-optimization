@@ -3,6 +3,7 @@ from pathlib import Path
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 # ============================================================
 # CLOUD COST OPTIMIZATION ANALYTICS DASHBOARD
@@ -91,6 +92,7 @@ st.markdown(
       <div class="hero-kicker">Cloud FinOps • Real AWS billing data</div>
       <div class="hero-title">Cloud Cost Intelligence</div>
       <p class="hero-copy">
+        <strong>Cloud Cost Optimization Analytics Using Hadoop</strong><br>
         Understand reported AWS spend, discover unusual charges, explore billing trends,
         and ask a conversational AI copilot questions about your cloud project.
       </p>
@@ -391,12 +393,26 @@ if source_mode == "Live AWS billing (CUR 2.0)":
     )
 
 
-    st.subheader("Reported cost by billing period")
+    st.subheader("📈 Reported cost by billing period")
     if not selected_months.empty:
-        monthly_chart = selected_months.set_index("Billing_Period")[
-            ["Reported_Unblended_Cost"]
-        ]
-        st.bar_chart(monthly_chart, use_container_width=True)
+        monthly_fig = px.bar(
+            selected_months.sort_values("Billing_Period"),
+            x="Billing_Period",
+            y="Reported_Unblended_Cost",
+            text="Reported_Unblended_Cost",
+            template="plotly_dark",
+            color_discrete_sequence=["#38bdf8"],
+        )
+        monthly_fig.update_traces(texttemplate="%{text:,.2f}", textposition="outside", cliponaxis=False)
+        monthly_fig.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(l=12, r=18, t=20, b=12),
+            xaxis_title="CUR billing period",
+            yaxis_title=f"Reported unblended cost ({selected_currency})",
+            showlegend=False,
+        )
+        st.plotly_chart(monthly_fig, use_container_width=True, theme=None)
         st.dataframe(
             selected_months.style.format(
                 {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
@@ -407,16 +423,30 @@ if source_mode == "Live AWS billing (CUR 2.0)":
     else:
         st.info("No billing-period summary for this currency.")
 
-    st.subheader("Top AWS services by reported unblended cost")
+    st.subheader("☁️ Highest-cost AWS services")
     if not selected_services.empty:
         top_services = selected_services.head(15).sort_values(
-            "Reported_Unblended_Cost", ascending=True
+            "Reported_Unblended_Cost", ascending=False
+        ).copy()
+        service_fig = px.bar(
+            top_services.sort_values("Reported_Unblended_Cost", ascending=True),
+            x="Reported_Unblended_Cost",
+            y="Service",
+            orientation="h",
+            text="Reported_Unblended_Cost",
+            template="plotly_dark",
+            color_discrete_sequence=["#a78bfa"],
         )
-        st.bar_chart(
-            top_services.set_index("Service")[["Reported_Unblended_Cost"]],
-            horizontal=True,
-            use_container_width=True,
+        service_fig.update_traces(texttemplate="%{text:,.2f}", textposition="outside", cliponaxis=False)
+        service_fig.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(l=12, r=40, t=16, b=12),
+            xaxis_title=f"Reported unblended cost ({selected_currency})",
+            yaxis_title="AWS service",
+            showlegend=False,
         )
+        st.plotly_chart(service_fig, use_container_width=True, theme=None)
         st.dataframe(
             selected_services.head(20).style.format(
                 {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
@@ -427,12 +457,26 @@ if source_mode == "Live AWS billing (CUR 2.0)":
     else:
         st.info("No service summary for this currency.")
 
-    st.subheader("Daily cost trend from usage start dates")
+    st.subheader("🗓️ Daily cost trend")
     if not selected_daily.empty:
-        daily_chart = selected_daily.set_index("Usage_Date")[
-            ["Reported_Unblended_Cost"]
-        ]
-        st.line_chart(daily_chart, use_container_width=True)
+        daily_fig = px.line(
+            selected_daily.sort_values("Usage_Date"),
+            x="Usage_Date",
+            y="Reported_Unblended_Cost",
+            markers=True,
+            template="plotly_dark",
+            color_discrete_sequence=["#22d3ee"],
+        )
+        daily_fig.update_traces(line=dict(width=3), marker=dict(size=6))
+        daily_fig.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(l=12, r=18, t=20, b=12),
+            xaxis_title="Usage date (UTC)",
+            yaxis_title=f"Reported unblended cost ({selected_currency})",
+            showlegend=False,
+        )
+        st.plotly_chart(daily_fig, use_container_width=True, theme=None)
         st.caption(
             "Daily values are grouped by CUR line_item_usage_start_date. They can differ "
             "from billed/invoice timelines because credits, taxes, adjustments and other "
@@ -441,14 +485,36 @@ if source_mode == "Live AWS billing (CUR 2.0)":
     else:
         st.info("The selected CUR columns do not provide parseable daily usage-start dates.")
 
-    st.subheader("Cost by CUR line-item type")
-    st.dataframe(
-        selected_item_types.style.format(
-            {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
-        ),
-        use_container_width=True,
-        hide_index=True,
-    )
+    st.subheader("🧾 Cost by CUR line-item type")
+    if not selected_item_types.empty:
+        type_fig = px.bar(
+            selected_item_types.sort_values("Reported_Unblended_Cost", ascending=True),
+            x="Reported_Unblended_Cost",
+            y="Line_Item_Type",
+            orientation="h",
+            text="Reported_Unblended_Cost",
+            template="plotly_dark",
+            color_discrete_sequence=["#34d399"],
+        )
+        type_fig.update_traces(texttemplate="%{text:,.2f}", textposition="outside", cliponaxis=False)
+        type_fig.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(l=12, r=40, t=16, b=12),
+            xaxis_title=f"Reported unblended cost ({selected_currency})",
+            yaxis_title="CUR line-item type",
+            showlegend=False,
+        )
+        st.plotly_chart(type_fig, use_container_width=True, theme=None)
+        st.dataframe(
+            selected_item_types.style.format(
+                {"Reported_Unblended_Cost": "{:,.4f}", "Line_Items": "{:,.0f}"}
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+    else:
+        st.info("No line-item types were found for this currency.")
 
     st.subheader("High-cost line items to review")
     if not selected_outliers.empty:
