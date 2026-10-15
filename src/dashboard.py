@@ -35,10 +35,10 @@ st.info(
 def _load_live_aws_cur_cached():
     # Local import avoids requiring AWS access unless the live panel is opened.
     try:
-        from aws_cur_analytics import load_recent_cur_data, summarize_cur_data
+        from aws_cur_analytics import load_recent_cur_data
     except ImportError:
-        from src.aws_cur_analytics import load_recent_cur_data, summarize_cur_data
-    return load_recent_cur_data(), summarize_cur_data
+        from src.aws_cur_analytics import load_recent_cur_data
+    return load_recent_cur_data()
 
 
 with st.expander("Live AWS billing — CUR 2.0 (real AWS data)", expanded=False):
@@ -58,7 +58,11 @@ with st.expander("Live AWS billing — CUR 2.0 (real AWS data)", expanded=False)
     if st.session_state.get("show_live_aws_cur", False):
         try:
             with st.spinner("Reading recent AWS CUR Parquet files from S3..."):
-                (live_cur_df, live_cur_metadata), summarize_cur_data = _load_live_aws_cur_cached()
+                live_cur_df, live_cur_metadata = _load_live_aws_cur_cached()
+                try:
+                    from aws_cur_analytics import summarize_cur_data
+                except ImportError:
+                    from src.aws_cur_analytics import summarize_cur_data
                 live_cur_summary = summarize_cur_data(live_cur_df)
         except Exception as exc:
             st.error(
