@@ -241,6 +241,16 @@ resource "aws_iam_role_policy" "glue_data_lake_access" {
         }
       },
       {
+        Sid    = "GetProjectBucketLocation"
+        Effect = "Allow"
+
+        Action = [
+          "s3:GetBucketLocation"
+        ]
+
+        Resource = aws_s3_bucket.cost_data_lake.arn
+      },
+      {
         Sid    = "ReadWriteProjectData"
         Effect = "Allow"
 
