@@ -9,9 +9,11 @@ import io
 import os
 import re
 from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
 import boto3
+from botocore.config import Config
 import pandas as pd
 
 
@@ -270,7 +272,16 @@ def load_recent_cur_data(
         account_id = session.client("sts", region_name=region).get_caller_identity()["Account"]
         bucket = f"cloud-cost-optimization-{account_id}"
 
-    s3 = session.client("s3", region_name=region)
+    s3 = session.client(
+        "s3",
+        region_name=region,
+        config=Config(
+            connect_timeout=4,
+            read_timeout=20,
+            retries={"mode": "standard", "total_max_attempts": 2},
+            max_pool_connections=10,
+        ),
+    )
     paginator = s3.get_paginator("list_objects_v2")
     objects = []
     for page in paginator.paginate(Bucket=bucket, Prefix=prefix):
@@ -283,12 +294,16 @@ def load_recent_cur_data(
             f"s3://{bucket}/{prefix}. Check the bucket, prefix, and AWS profile."
         )
 
-    frames = []
-    for obj in selected:
+    def read_cur_object(obj: dict[str, Any]) -> pd.DataFrame:
         response = s3.get_object(Bucket=bucket, Key=obj["Key"])
         parquet_bytes = response["Body"].read()
         raw = pd.read_parquet(io.BytesIO(parquet_bytes), engine="pyarrow")
-        frames.append(prepare_cur_frame(raw, obj["Billing_Period"]))
+        return prepare_cur_frame(raw, obj["Billing_Period"])
+
+    # Download and parse independent Parquet objects concurrently; preserve object order.
+    worker_count = min(8, len(selected))
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        frames = list(executor.map(read_cur_object, selected))
 
     combined = pd.concat(frames, ignore_index=True, sort=False)
     last_modified = max(
