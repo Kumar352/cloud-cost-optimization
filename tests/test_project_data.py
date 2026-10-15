@@ -1,0 +1,61 @@
+from pathlib import Path
+
+import pandas as pd
+import pytest
+
+from src.cloud_cost_analysis import analyze_costs
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+RAW_DATA = PROJECT_ROOT / "data" / "raw" / "cloud_cost_data.csv"
+
+
+def test_demo_dataset_has_expected_schema_and_valid_costs():
+    assert RAW_DATA.is_file(), f"Expected dataset is missing: {RAW_DATA}"
+    df = pd.read_csv(RAW_DATA)
+
+    expected = {
+        "Account_ID",
+        "Cloud_Provider",
+        "Service",
+        "Region",
+        "Usage_Date",
+        "Usage_Hours",
+        "Data_Transfer_GB",
+        "Storage_GB",
+        "Monthly_Cost",
+    }
+    assert expected.issubset(df.columns)
+    assert len(df) >= 1000
+    assert pd.to_numeric(df["Monthly_Cost"], errors="coerce").notna().all()
+    assert (df["Monthly_Cost"] >= 0).all()
+    assert df["Cloud_Provider"].isin(["AWS", "Azure", "GCP"]).all()
+
+
+def test_analysis_adds_flags_recommendations_and_handles_zero_usage():
+    sample = pd.DataFrame(
+        {
+            "Service": ["EC2", "S3", "RDS", "Other", "EC2"],
+            "Usage_Hours": [0, 10, 20, 30, 40],
+            "Monthly_Cost": [100.0, 20.0, 30.0, 10.0, 50.0],
+        }
+    )
+
+    analyzed = analyze_costs(sample)
+
+    assert len(analyzed) == len(sample)
+    assert {"Cost_Per_Hour", "Optimization_Flag", "Recommendation"}.issubset(
+        analyzed.columns
+    )
+    assert analyzed["Cost_Per_Hour"].notna().all()
+    assert analyzed.loc[0, "Cost_Per_Hour"] == pytest.approx(100.0)
+    assert "High Cost" in set(analyzed["Optimization_Flag"])
+    assert analyzed.loc[0, "Recommendation"] == "Review Compute Usage"
+    assert analyzed.loc[1, "Recommendation"] in {
+        "Review Storage Usage",
+        "No Immediate Action",
+    }
+
+
+def test_analysis_rejects_missing_required_columns():
+    with pytest.raises(ValueError, match="missing required columns"):
+        analyze_costs(pd.DataFrame({"Monthly_Cost": [12.0]}))
