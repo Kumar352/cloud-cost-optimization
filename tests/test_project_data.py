@@ -95,3 +95,47 @@ def test_summary_csv_matches_current_raw_dataset():
     assert float(metrics["Total Monthly Cloud Cost"]) == pytest.approx(
         raw_df["Monthly_Cost"].sum(), abs=0.01
     )
+
+
+def test_cur_billing_period_parser_and_recent_object_selection():
+    from src.aws_cur_analytics import parse_billing_period, select_recent_objects
+
+    objects = [
+        {"Key": "raw/aws-cur/data/BILLING_PERIOD=2026-08/a.parquet"},
+        {"Key": "raw/aws-cur/data/BILLING_PERIOD=2026-09/b.parquet"},
+        {"Key": "raw/aws-cur/data/BILLING_PERIOD=2026-10/c.parquet"},
+        {"Key": "raw/aws-cur/data/BILLING_PERIOD=2026-10/ignore.csv"},
+        {"Key": "raw/aws-cur/data/no-period.parquet"},
+    ]
+
+    assert parse_billing_period(objects[2]["Key"]) == "2026-10"
+    assert parse_billing_period("raw/aws-cur/data/no-period.parquet") is None
+    selected = select_recent_objects(objects, periods_to_keep=2)
+    assert {item["Billing_Period"] for item in selected} == {"2026-09", "2026-10"}
+    assert len(selected) == 2
+
+
+def test_cur_prepare_and_summary_preserve_currency_and_period():
+    from src.aws_cur_analytics import prepare_cur_frame, summarize_cur_data
+
+    source = pd.DataFrame(
+        {
+            "line_item_unblended_cost": ["10.25", "4.75", "-1.00"],
+            "line_item_currency_code": ["USD", "USD", "USD"],
+            "line_item_product_code": ["AmazonEC2", "AmazonS3", "AmazonEC2"],
+            "product_servicecode": [
+                "Amazon Elastic Compute Cloud",
+                "Amazon Simple Storage Service",
+                "Amazon Elastic Compute Cloud",
+            ],
+        }
+    )
+
+    prepared = prepare_cur_frame(source, "2026-10")
+    summaries = summarize_cur_data(prepared)
+
+    assert prepared["Billing_Period"].eq("2026-10").all()
+    assert prepared["Currency"].eq("USD").all()
+    assert summaries["monthly"].iloc[0]["Reported_Unblended_Cost"] == pytest.approx(14.0)
+    assert set(summaries["services"]["Currency"]) == {"USD"}
+    assert summaries["services"].iloc[0]["Service"] == "Amazon Elastic Compute Cloud"
