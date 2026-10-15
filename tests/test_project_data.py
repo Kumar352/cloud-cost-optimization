@@ -139,3 +139,39 @@ def test_cur_prepare_and_summary_preserve_currency_and_period():
     assert summaries["monthly"].iloc[0]["Reported_Unblended_Cost"] == pytest.approx(14.0)
     assert set(summaries["services"]["Currency"]) == {"USD"}
     assert summaries["services"].iloc[0]["Service"] == "Amazon Elastic Compute Cloud"
+
+
+def test_cur_analysis_includes_daily_service_type_and_iqr_review():
+    from src.aws_cur_analytics import prepare_cur_frame, analyze_cur_data
+
+    costs = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 100.0]
+    source = pd.DataFrame(
+        {
+            "line_item_unblended_cost": costs,
+            "line_item_currency_code": ["USD"] * len(costs),
+            "line_item_product_code": ["AmazonEC2"] * len(costs),
+            "product_servicecode": ["Amazon Elastic Compute Cloud"] * len(costs),
+            "line_item_usage_start_date": [
+                "2026-10-01T00:00:00Z",
+                "2026-10-01T01:00:00Z",
+                "2026-10-01T02:00:00Z",
+                "2026-10-02T00:00:00Z",
+                "2026-10-02T01:00:00Z",
+                "2026-10-03T00:00:00Z",
+                "2026-10-03T01:00:00Z",
+                "2026-10-03T02:00:00Z",
+            ],
+            "line_item_line_item_type": ["Usage"] * len(costs),
+            "line_item_usage_type": ["USE1-BoxUsage"] * len(costs),
+        }
+    )
+
+    prepared = prepare_cur_frame(source, "2026-10")
+    result = analyze_cur_data(prepared)
+
+    assert not result["daily"].empty
+    assert result["daily"]["Reported_Unblended_Cost"].sum() == pytest.approx(128.0)
+    assert result["line_item_types"]["Line_Items"].sum() == len(costs)
+    assert not result["high_cost_line_items"].empty
+    assert result["high_cost_line_items"].iloc[0]["line_item_unblended_cost"] == pytest.approx(100.0)
+    assert "Billing_Period" in result["monthly"].columns
