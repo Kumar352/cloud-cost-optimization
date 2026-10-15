@@ -134,6 +134,26 @@ Do not run `terraform destroy` as a troubleshooting step. Do not commit `terrafo
 
 The configured AWS pipeline uses a CUR 2.0 export to S3 in Parquet format, and a scheduled Lambda workload writes JSON telemetry to an S3 analytics prefix. CUR delivery has a delay; check billing-period and refresh metadata before interpreting totals. RDS and other managed services can continue incurring costs while idle. Verify current resources in the AWS Console and stop only project resources that are safe to stop.
 
+## Demo dataset snapshot
+
+The committed synthetic demo CSV currently contains **15,000 records**. The summary in `results/cost_summary.csv` is aligned to that input. These values are **illustrative synthetic-data results**, not real AWS billing totals:
+
+| Metric | Current demo result |
+|---|---:|
+| Records analyzed | 15,000 |
+| Sum of `Monthly_Cost` across records | $2,402,237.28 |
+| Average cost per record | $160.15 |
+| 90th-percentile cost threshold | $339.04 |
+| High-cost records (inclusive threshold) | 1,501 |
+| Spending in high-cost records | $645,396.61 |
+| Potential monthly savings at 15% of high-cost spending | $96,809.49 |
+| Potential annual scenario (12× monthly scenario) | $1,161,713.90 |
+| Highest total-cost provider | Azure |
+| Highest total-cost service | Azure SQL |
+| Highest total-cost region | `eastus` |
+
+The savings figures are scenario calculations: 15% of spending in flagged records, with the monthly amount multiplied by 12 for the annual scenario. They are neither realized savings nor a prediction of savings for a real production account.
+
 ## Understanding the results
 
 - **Cost summaries:** Aggregations of the dataset used by that processing run.
