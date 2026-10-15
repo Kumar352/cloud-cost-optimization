@@ -123,6 +123,125 @@ def summarize_cur_data(frame: pd.DataFrame) -> dict[str, pd.DataFrame]:
     return {"monthly": monthly, "services": services}
 
 
+def analyze_cur_data(frame: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    """Create operationally useful summaries directly from real CUR line items.
+
+    Costs are always grouped by currency. Outliers are review candidates, not
+    automatically waste or guaranteed savings.
+    """
+    required = {"Billing_Period", "Currency", "Service", "line_item_unblended_cost"}
+    missing = required.difference(frame.columns)
+    if missing:
+        raise ValueError(
+            f"Prepared CUR data is missing columns: {', '.join(sorted(missing))}"
+        )
+
+    work = frame.copy()
+    work["line_item_unblended_cost"] = pd.to_numeric(
+        work["line_item_unblended_cost"], errors="coerce"
+    ).fillna(0.0)
+
+    # Normalize optional CUR dimensions for dashboard display.
+    if "line_item_line_item_type" in work.columns:
+        work["Line_Item_Type"] = (
+            work["line_item_line_item_type"].fillna("Unknown").astype(str)
+        )
+    else:
+        work["Line_Item_Type"] = "Unknown"
+
+    if "line_item_usage_type" in work.columns:
+        work["Usage_Type"] = work["line_item_usage_type"].fillna("Unknown").astype(str)
+    else:
+        work["Usage_Type"] = "Unknown"
+
+    if "line_item_usage_start_date" in work.columns:
+        parsed_dates = pd.to_datetime(
+            work["line_item_usage_start_date"], errors="coerce", utc=True
+        )
+        work["Usage_Date"] = parsed_dates.dt.strftime("%Y-%m-%d")
+    else:
+        work["Usage_Date"] = pd.NA
+
+    summaries = summarize_cur_data(work)
+
+    daily_source = work.dropna(subset=["Usage_Date"])
+    if not daily_source.empty:
+        daily = (
+            daily_source.groupby(["Usage_Date", "Currency"], dropna=False, as_index=False)
+            .agg(
+                Reported_Unblended_Cost=("line_item_unblended_cost", "sum"),
+                Line_Items=("line_item_unblended_cost", "size"),
+            )
+            .sort_values(["Usage_Date", "Currency"])
+            .reset_index(drop=True)
+        )
+    else:
+        daily = pd.DataFrame(
+            columns=["Usage_Date", "Currency", "Reported_Unblended_Cost", "Line_Items"]
+        )
+
+    line_item_types = (
+        work.groupby(["Line_Item_Type", "Currency"], dropna=False, as_index=False)
+        .agg(
+            Reported_Unblended_Cost=("line_item_unblended_cost", "sum"),
+            Line_Items=("line_item_unblended_cost", "size"),
+        )
+        .sort_values(["Currency", "Reported_Unblended_Cost"], ascending=[True, False])
+        .reset_index(drop=True)
+    )
+
+    # Robust IQR outliers computed separately per currency and positive line-item
+    # costs only, preventing negative credits/refunds from distorting the threshold.
+    anomaly_rows = []
+    for currency, group in work.groupby("Currency", dropna=False):
+        positive = group.loc[group["line_item_unblended_cost"] > 0].copy()
+        if len(positive) < 4:
+            continue
+        q1 = positive["line_item_unblended_cost"].quantile(0.25)
+        q3 = positive["line_item_unblended_cost"].quantile(0.75)
+        upper = q3 + 1.5 * (q3 - q1)
+        flagged = positive.loc[positive["line_item_unblended_cost"] > upper].copy()
+        if flagged.empty:
+            continue
+        flagged["Outlier_Upper_Bound"] = upper
+        flagged["Outlier_Flag"] = "Review high-cost line item"
+        anomaly_rows.append(flagged)
+
+    if anomaly_rows:
+        anomalies = pd.concat(anomaly_rows, ignore_index=True, sort=False)
+        keep_columns = [
+            column for column in [
+                "Billing_Period",
+                "Usage_Date",
+                "Currency",
+                "Service",
+                "Line_Item_Type",
+                "Usage_Type",
+                "line_item_unblended_cost",
+                "Outlier_Upper_Bound",
+                "Outlier_Flag",
+            ] if column in anomalies.columns
+        ]
+        anomalies = anomalies[keep_columns].sort_values(
+            "line_item_unblended_cost", ascending=False
+        ).head(100).reset_index(drop=True)
+    else:
+        anomalies = pd.DataFrame(
+            columns=[
+                "Billing_Period", "Usage_Date", "Currency", "Service",
+                "Line_Item_Type", "Usage_Type", "line_item_unblended_cost",
+                "Outlier_Upper_Bound", "Outlier_Flag",
+            ]
+        )
+
+    return {
+        **summaries,
+        "daily": daily,
+        "line_item_types": line_item_types,
+        "high_cost_line_items": anomalies,
+    }
+
+
 def load_recent_cur_data(
     *,
     session=None,
