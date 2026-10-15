@@ -252,3 +252,73 @@ def test_cur_isolation_forest_trains_on_realistic_numeric_features():
     assert {"ML_Anomaly_Flag", "ML_Anomaly_Score", "ML_Features"}.issubset(scored.columns)
     assert scored.iloc[0]["line_item_unblended_cost"] == pytest.approx(250.0)
     assert metadata["persisted"] is False
+
+
+def test_general_copilot_builds_multiturn_bedrock_messages():
+    from src.cost_copilot import prepare_bedrock_messages, build_general_assistant_system_prompt
+
+    history = [
+        {"role": "user", "content": "Explain Python lists."},
+        {"role": "assistant", "content": "A Python list is ordered and mutable."},
+        {"role": "user", "content": "Give me an example."},
+    ]
+    messages = prepare_bedrock_messages(history)
+
+    assert [message["role"] for message in messages] == ["user", "assistant", "user"]
+    assert messages[-1]["content"][0]["text"] == "Give me an example."
+    system = build_general_assistant_system_prompt(
+        {"currency": "USD", "reported_unblended_cost_sum": 123.45}
+    )
+    assert "general-purpose conversational AI assistant" in system
+    assert "synthetic demo data" in system
+    assert '"reported_unblended_cost_sum": 123.45' in system
+
+
+def test_general_copilot_calls_converse_and_returns_model_response():
+    from src.cost_copilot import invoke_general_chat
+
+    class FakeClient:
+        def __init__(self):
+            self.request = None
+
+        def converse(self, **kwargs):
+            self.request = kwargs
+            return {
+                "output": {
+                    "message": {
+                        "content": [{"text": "Here is the explanation and example."}]
+                    }
+                }
+            }
+
+    class FakeSession:
+        def __init__(self):
+            self.fake_client = FakeClient()
+            self.requested_service = None
+            self.region = None
+
+        def client(self, service_name, region_name):
+            self.requested_service = service_name
+            self.region = region_name
+            return self.fake_client
+
+    session = FakeSession()
+    history = [
+        {"role": "user", "content": "Explain Python lists."},
+        {"role": "assistant", "content": "A list is ordered and mutable."},
+        {"role": "user", "content": "Give me an example."},
+    ]
+    answer = invoke_general_chat(
+        history,
+        cur_context={"currency": "USD", "top_services": []},
+        model_id="amazon.nova-lite-v1:0",
+        region="us-east-1",
+        session=session,
+    )
+
+    assert answer == "Here is the explanation and example."
+    assert session.requested_service == "bedrock-runtime"
+    assert session.region == "us-east-1"
+    assert session.fake_client.request["modelId"] == "amazon.nova-lite-v1:0"
+    assert len(session.fake_client.request["messages"]) == 3
+    assert session.fake_client.request["system"][0]["text"].find("AWS Cost and Usage Report") >= 0
