@@ -301,7 +301,7 @@ if source_mode == "Live AWS billing (CUR 2.0)":
                     key=f"copilot_suggestion_{index}",
                     use_container_width=True,
                 ):
-                    st.session_state["cloud_cost_copilot_prompt"] = question
+                    st.session_state["cloud_cost_copilot_message_input"] = question
 
     chat_key = "cloud_cost_copilot_messages"
     if chat_key not in st.session_state:
@@ -315,10 +315,8 @@ if source_mode == "Live AWS billing (CUR 2.0)":
                 st.markdown(message["content"])
 
     with st.form("cloud_cost_copilot_form", clear_on_submit=True, border=True):
-        prompt_default = st.session_state.pop("cloud_cost_copilot_prompt", "")
         copilot_question = st.text_input(
             "Message",
-            value=prompt_default,
             placeholder="Ask anything — cloud, coding, project questions, billing, or follow-ups…",
             label_visibility="collapsed",
             key="cloud_cost_copilot_message_input",
