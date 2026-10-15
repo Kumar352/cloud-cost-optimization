@@ -25,11 +25,6 @@ st.write(
     "A Big Data analytics platform for reviewing cloud-cost patterns, detecting "
     "anomalies, forecasting costs, and identifying optimization opportunities."
 )
-st.info(
-    "Data source note: cross-cloud charts use this repository's synthetic demo CSV. "
-    "Real AWS CUR 2.0 files are a separate AWS-only billing source and are not "
-    "represented by these synthetic cross-cloud totals."
-)
 
 source_mode = st.radio(
     "Choose analysis data source",
@@ -42,6 +37,17 @@ st.caption(
     "Live AWS mode reads your real billing export. The separate synthetic cross-cloud mode "
     "is retained only as a reproducible demo and should not be presented as genuine billing."
 )
+
+if source_mode == "Live AWS billing (CUR 2.0)":
+    st.info(
+        "LIVE SOURCE SELECTED: the analysis below reads real AWS CUR 2.0 billing line items from S3. "
+        "Synthetic AWS/Azure/GCP demo records are not used in this view."
+    )
+else:
+    st.warning(
+        "SYNTHETIC DEMO SELECTED: the cross-cloud charts use a generated 15,000-row CSV, "
+        "not genuine billing exports. Do not present these totals as real costs."
+    )
 st.divider()
 
 
