@@ -59,3 +59,21 @@ def test_analysis_adds_flags_recommendations_and_handles_zero_usage():
 def test_analysis_rejects_missing_required_columns():
     with pytest.raises(ValueError, match="missing required columns"):
         analyze_costs(pd.DataFrame({"Monthly_Cost": [12.0]}))
+
+
+def test_hadoop_output_parser_groups_summary_rows():
+    from src.hadoop_output_processor import parse_output
+
+    providers, services, regions = parse_output(
+        [
+            "PROVIDER|AWS\t100.50",
+            "SERVICE|EC2\t70.25",
+            "REGION|us-east-1\t100.50",
+            "MALFORMED LINE",
+            "",
+        ]
+    )
+
+    assert providers == [{"Cloud_Provider": "AWS", "Monthly_Cost": 100.50}]
+    assert services == [{"Service": "EC2", "Monthly_Cost": 70.25}]
+    assert regions == [{"Region": "us-east-1", "Monthly_Cost": 100.50}]
