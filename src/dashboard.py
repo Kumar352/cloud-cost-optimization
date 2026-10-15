@@ -179,21 +179,6 @@ def _load_synthetic_copilot_context():
     }
 
 
-def _trusted_q_business_embed_url(url):
-    """Accept only HTTPS AWS-hosted web-experience endpoints for iframe embedding."""
-    try:
-        parsed = urlparse(str(url).strip())
-        host = (parsed.hostname or "").lower()
-    except Exception:
-        return False
-    trusted_host = (
-        host.endswith(".on.aws")
-        or host.endswith(".amazonaws.com")
-        or host.endswith(".awsapps.com")
-    )
-    return parsed.scheme == "https" and trusted_host
-
-
 def render_shared_cloud_copilot(active_data_mode):
     """Render the same chatbot in live AWS and synthetic data modes."""
     st.markdown(
@@ -222,8 +207,12 @@ def render_shared_cloud_copilot(active_data_mode):
     # The AWS Console Q Developer panel is not an embeddable web-experience URL.
     # Amazon Q Business must have a deployed web experience for iframe embedding.
     q_business_url = os.environ.get("CLOUD_COST_QBUSINESS_EMBED_URL", "").strip()
+    try:
+        from cost_copilot import is_trusted_q_business_embed_url
+    except ImportError:
+        from src.cost_copilot import is_trusted_q_business_embed_url
     with st.expander("Amazon Q Business embedded assistant", expanded=bool(q_business_url)):
-        if q_business_url and _trusted_q_business_embed_url(q_business_url):
+        if q_business_url and is_trusted_q_business_embed_url(q_business_url):
             escaped_url = html.escape(q_business_url, quote=True)
             st.caption("Amazon Q Business web experience")
             components.html(
