@@ -23,6 +23,17 @@ jobs:
         run: python -m compileall -q src tests
       - name: Run smoke tests
         run: pytest -q
+      - name: Parse PowerShell demo launcher
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path "scripts/start_demo.ps1"), [ref]$tokens, [ref]$errors) | Out-Null
+          if ($errors.Count -gt 0) {
+            $errors | Format-List
+            exit 1
+          }
+          Write-Host "PowerShell launcher syntax is valid."
 
   terraform-checks:
     runs-on: ubuntu-latest
