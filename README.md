@@ -103,6 +103,22 @@ streamlit run src/dashboard.py
 
 Some scripts may expect pre-generated files under `data/` or `results/`. Check each script's input/output paths before rerunning a pipeline. Existing result files are included so outputs can be inspected even when a full processing run is unavailable.
 
+## Faculty demo launcher (Windows / VS Code)
+
+From the VS Code integrated PowerShell terminal, first stop any older Streamlit process by pressing Ctrl+C, then update the repository:
+
+~~~powershell
+git pull --ff-only origin main
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\scripts\start_demo.ps1
+~~~
+
+The launcher checks Python dependencies and project tests, sets JDK 17 and Hadoop paths, starts HDFS/YARN only when needed, and verifies the daemon processes. If ResourceManager/NodeManager and port 8032 are healthy, it submits a **fresh** MapReduce job using timestamped HDFS input/output paths without overwriting prior data. The MapReduce launcher has a 180-second timeout. The Streamlit frontend is then started and the browser opens automatically.
+
+The frontend is launched even when YARN remains unhealthy so the faculty demo is still available. In that case, the script explicitly reports that Hadoop did not complete and skips the new MapReduce job; do not describe Hadoop as fully working until a fresh job's output is verified. Logs are written to a folder named cloud-cost-optimization-demo-logs under the Windows temporary directory. The script never formats the NameNode or deletes existing HDFS data.
+
+The chatbot still needs an AWS-authorized model. The Bedrock Playground previously returned the error “ValidationException: Operation not allowed”, so the dashboard can launch successfully while actual generative chat remains unavailable until AWS resolves model authorization.
+
 ## Hadoop MapReduce (Windows local setup)
 
 Hadoop on Windows depends on a compatible Java installation and the local Hadoop configuration. Set paths explicitly in the same PowerShell session:
